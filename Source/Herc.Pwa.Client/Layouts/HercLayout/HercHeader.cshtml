@@ -1,0 +1,26 @@
+﻿@inherits BaseComponent
+@using  Herc.Pwa.Client.Pages
+
+<header id="@Id" class="row px-3 bg-dark align-items-center">
+  <div class="col-3">
+    <Account />
+  </div>
+  <div class="col mx-auto text-center">
+    <NavLink class="nav-link mt-0" href="@WalletPageModel.Route" Match=NavLinkMatch.All>
+      <HercLogo />
+    </NavLink>
+  </div>
+  <div class="col-3">
+    <div class="row flex-row-reverse">
+      <div class="p-1 m-2 border border-secondary d-block d-lg-none">
+        <HamburgerMenu />
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  #@Id {
+    color: white;
+  }
+</style>

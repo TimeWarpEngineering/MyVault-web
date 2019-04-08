@@ -1,0 +1,6 @@
+[
+  {
+    "outputFile": "wwwroot/css/bootstrap/custom-bootstrap.min.css",
+    "inputFile": "Styles/scss/custom.scss"
+  }
+]

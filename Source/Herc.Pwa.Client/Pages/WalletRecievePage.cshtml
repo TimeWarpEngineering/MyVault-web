@@ -1,0 +1,27 @@
+﻿@page "/wallet/{EdgeCurrencyWalletEncodedId}/Receive"
+@inherits WalletReceivePageModel
+
+<div class="text-center">
+  <br />
+  <QrCode Text="@ReceiveAddress" />
+
+  <div>Your Receiving Wallet Address</div>
+  <div id="ReceiveAddress">@ReceiveAddress</div>
+  <br />
+  <button class="btn btn-primary" onclick="@CopyToClipboardAsync"><span class="oi oi-clipboard"> Copy to Clipboard</span></button>
+
+</div>
+
+<style>
+  #ReceiveAddress {
+    word-break: break-word;
+  }
+
+
+  @@media (max-width:425px){
+    #ReceiveAddress {
+      font-size: .7rem;
+    }
+  }
+
+</style>

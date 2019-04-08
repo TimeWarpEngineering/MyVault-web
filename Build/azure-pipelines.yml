@@ -1,0 +1,30 @@
+# https://hercpwa.azurewebsites.net/ Development
+# https://wallet.herc.one/ Production
+name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+trigger:
+ branches:
+  include:
+  - master
+ paths:
+  include:
+  - source/*
+
+# no PR builds
+pr: none
+
+steps:
+- task: DotNetCoreCLI@2
+  displayName: Publish The HercPwa.Server project which will be deployed to azure
+  inputs:
+    command: publish
+    publishWebProjects: false
+    projects: 'Source/Herc.Pwa.Server/Herc.Pwa.Server.csproj'
+    arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
+  enabled: true
+
+- task: PublishBuildArtifacts@1
+  displayName: Publish Artifact
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+    ArtifactName: drop
+    publishLocation: Container

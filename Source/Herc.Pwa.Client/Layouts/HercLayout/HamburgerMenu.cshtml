@@ -1,0 +1,20 @@
+﻿@inherits BaseComponent
+@using  Herc.Pwa.Client.Pages
+
+<div id="@Id" class="dropdown d-block">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="oi oi-menu" aria-hidden="true"></span>
+    @*<IconicMenu Size="32" FillColor="@ColorPalette.HercSaffron" />*@
+  </button>
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+    <MenuItems/>
+  </div>
+</div>
+
+<style>
+  #@Id > button {
+    border: none;
+    background:transparent;
+  }
+
+</style>

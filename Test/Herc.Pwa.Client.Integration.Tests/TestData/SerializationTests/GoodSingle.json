@@ -1,0 +1,39 @@
+{
+  "id": "JWTVcPqgM0jdi43heA7DO3Kx/wTXeYDcj/t6RfSXyOE=",
+  "keys": {
+    "ethereumKey": "5ca85ab0c4ec997f7a442b36b595597cd0e61ec181644114f12c1ae4a8e808fa",
+    "dataKey": "QCzVLFMNUcUgxn7/jopQuv8eHx3qmIbtqYPobXoyFMU=",
+    "syncKey": "hNN9MwjzPZ9ye+uOuMTG2NNr+HM=",
+    "ethereumAddress": "0x012a8ef8e737c4217d5af1326fd6cd89e49028c2"
+  },
+  "balances": {
+    "ETH": "475699000000000000",
+    "HERC": "1818985269397047952230"
+  },
+  "fiatCurrencyCode": "iso:USD",
+  "name": "one.herc",
+  "edgeTransactions": [
+    {
+      "blockHeight": 7350944,
+      "date": 1552348607,
+      "ourReceiveAddresses": [],
+      "signedTx": "unsigned_right_now",
+      "txid": "0x7462c57a292a619bff7dc87ec248ed4ff00f32bde7e89ded4736a9e83697a3c7",
+      "amountSatoshi": -111720000000000,
+      "nativeAmount": "-111720000000000",
+      "networkFee": "111720000000000",
+      "currencyCode": "ETH",
+      "wallet": {},
+      "otherParams": {},
+      "metadata": {
+        "name": "",
+        "category": "",
+        "notes": "",
+        "bizId": 0,
+        "amountFiat": 0,
+        "exchangeAmount": { "iso:USD": 0 }
+      }
+    }
+  ],
+  "enabledTokens": [ "ETH", "HERC" ]
+}

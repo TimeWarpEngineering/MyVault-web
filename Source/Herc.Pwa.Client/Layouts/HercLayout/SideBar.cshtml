@@ -1,0 +1,29 @@
+﻿@inherits BaseComponent
+<asside id="@Id" class="bg-dark d-none d-lg-flex">
+  <ul class="nav flex-column">
+    <MenuItems/>
+  </ul>
+</asside>
+
+<style>
+  #@Id a {
+    color: white;
+    border-left-color: grey;
+
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: medium;
+
+    border-style: solid
+  }
+
+  #@Id .MenuItems a.active {
+    border-left-color: gold;
+  }
+
+  #@Id .MenuItems {
+    padding-left: 1rem;
+  }
+
+</style>

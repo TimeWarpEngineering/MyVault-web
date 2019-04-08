@@ -1,0 +1,8 @@
+  name: Stack Notes
+  items:
+  - name: 2018-12
+    href: 2018-12/toc.yml
+  - name: 2019-01
+    href: 2019-01/toc.yml
+  - name: Weekly Updates
+    href: Weekly.md  

@@ -1,0 +1,24 @@
+﻿@inherits EdgeTransactionListModel
+@using Herc.Pwa.Client.Features.Edge.State
+
+<table id="@Id" class="table table-bordered table-striped w-100" >
+  <caption align="top">Recent Transactions</caption>
+  <tbody>
+    @foreach (var edgeTransaction in EdgeTransactions)
+    {
+      <EdgeTransactionComponent EdgeTransaction="edgeTransaction" />
+    }
+  </tbody>
+</table>
+
+<style>
+  #@Id caption {
+    caption-side: top;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+  }
+</style>

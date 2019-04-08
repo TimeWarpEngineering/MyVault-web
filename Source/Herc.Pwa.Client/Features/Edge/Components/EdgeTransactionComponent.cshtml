@@ -1,0 +1,9 @@
+﻿
+@inherits EdgeTransactionComponentModel
+
+<tr id="EdgeTransactionComponent">
+  <td><a target="_blank" rel="noopener noreferrer" href="@EthScanUrl">@IsoDateString</a></td>
+  <td><SendOrReceive IsSend="@EdgeTransaction.IsSend" /></td>
+  <td>@EdgeTransaction.CurrencyCode</td>
+  <td>@TransactionAmount</td>
+</tr>

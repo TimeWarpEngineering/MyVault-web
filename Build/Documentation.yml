@@ -1,0 +1,28 @@
+# Builds the Documentation for the source code for wallet.herc.one
+# Realease pipeline will deploy it to https://docs-herc-pwa.azurewebsites.net/
+name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+trigger:
+ branches:
+  include:
+  - master
+
+steps:
+- script: echo Build wallet.Herc.One Source Docs
+
+- task: DeleteFiles@1
+  displayName: Delete files from 
+  inputs:
+    Contents: ghpages
+  enabled: true
+
+- task: chrismason.vsts-docfxtasks.docfx-extension-build-task.DocFxTask@0
+  displayName: Create DocFx Documentation
+  inputs:
+    solution: 'documentation/docfx.json'
+  enabled: true
+
+- task: PublishBuildArtifacts@1
+  displayName: Publish Artifact
+  inputs:
+    PathtoPublish: 'Documentation\_site'
+    ArtifactName: 'docs-herc-pwa-site'

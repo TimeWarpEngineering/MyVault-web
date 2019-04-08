@@ -1,0 +1,80 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <IsPackable>false</IsPackable>
+    <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
+    <LangVersion>latest</LangVersion>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <DefaultItemExcludes>${DefaultItemExcludes};dist\**;node_modules\**</DefaultItemExcludes>
+    <NoWarn>CS2008</NoWarn>
+
+    <!-- VS's FastUpToDateCheck doesn't consider .ts file changes, so it's necessary to disable it to get incremental builds to work correctly (albeit not as fast as if FastUpToDateCheck did work for them) -->
+    <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="2.1.1" />
+    <WebpackInputs Include="**\*.ts" Exclude="dist\**;node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <WebpackInputs Remove="source\BlazorState.ts" />
+    <WebpackInputs Remove="source\Clipboard\ClipboardInterop.ts" />
+    <WebpackInputs Remove="source\Constants.ts" />
+    <WebpackInputs Remove="source\DotNet.ts" />
+    <WebpackInputs Remove="source\edge-login-ui-web.d.ts" />
+    <WebpackInputs Remove="source\Edge\Actions\OnLoginAction.ts" />
+    <WebpackInputs Remove="source\Edge\Actions\UpdateEdgeAccount.ts" />
+    <WebpackInputs Remove="source\Edge\Dtos\ChangePasswordDto.ts" />
+    <WebpackInputs Remove="source\Edge\Dtos\ChangePinDto.ts" />
+    <WebpackInputs Remove="source\Edge\Dtos\SendDto.ts" />
+    <WebpackInputs Remove="source\Edge\Dtos\UpdateEdgeCurrencyWalletAction.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeAccount.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeBalances.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeCoinExchangeQuote.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeCreateCurrencyWalletOptions.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeCurrencyCodeOptions.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeCurrencyInfo.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeCurrencyWallet.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeDataDump.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeDenomination.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeEncodeUri.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeGetTransactionsOptions.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeMetadata.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeMetaToken.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeParsedUri.ts" />
+    <WebpackInputs Remove="source\Edge\EdgePaymentProtocolInfo.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeReceiveAddress.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeSpendInfo.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeTokenInfo.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeTransaction.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeUiAccount.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeUiContext.d.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeUiContextOptions.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeUserInfo.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeWalletInfo.ts" />
+    <WebpackInputs Remove="source\Edge\Interop\EdgeAccountInterop.ts" />
+    <WebpackInputs Remove="source\Edge\Interop\EdgeCurrencyWalletInterop.ts" />
+    <WebpackInputs Remove="source\Edge\Interop\EdgeUiContextInterop.ts" />
+    <WebpackInputs Remove="source\Edge\TypeDefinitions\EdgeCurrencyConfig.ts" />
+    <WebpackInputs Remove="source\Edge\TypeDefinitions\EdgeCurrencyWalletEvents.ts" />
+    <WebpackInputs Remove="source\Edge\TypeDefinitions\EdgeSpendTarget.ts" />
+    <WebpackInputs Remove="source\Edge\TypeDefinitions\Subscriber.ts" />
+  </ItemGroup>
+
+  <Target Name="EnsureNpmRestored" Condition="!Exists('node_modules')">
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec Command="yarn install" />
+  </Target>
+
+  <Target Name="RunWebpack" AfterTargets="ResolveReferences" Inputs="@(WebpackInputs)" Outputs="dist\blazorherc.js" DependsOnTargets="EnsureNpmRestored">
+    <RemoveDir Directories="dist" />
+    <Exec Command="yarn run build" />
+    <ItemGroup>
+      <EmbeddedResource Include="dist\blazorherc.js" LogicalName="blazor:js:%(RecursiveDir)%(Filename)%(Extension)" />
+    </ItemGroup>
+  </Target>
+</Project>

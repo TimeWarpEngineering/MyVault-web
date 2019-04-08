@@ -1,0 +1,13 @@
+﻿@inherits ValidationModel
+
+@if (ValidationResult != null && !ValidationResult.IsValid)
+{
+  <div id="@Id" class="alert alert-danger">
+    <ul>
+      @foreach (var validationResult in ValidationResult.Errors)
+      {
+        <li>@validationResult.ErrorMessage</li>
+      }
+    </ul>
+  </div>
+}
