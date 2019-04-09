@@ -5,11 +5,10 @@
   using FluentValidation;
   using Client.Features.Edge.EdgeCurrencyWallet;
   using Client.Services;
-  using Client.Shared;
   using Microsoft.AspNetCore.Components.Builder;
   using Microsoft.Extensions.DependencyInjection;
-  using Microsoft.Extensions.Logging;
   using Nethereum.Util;
+  using Client.Components.Shared;
 
   public class Startup
   {

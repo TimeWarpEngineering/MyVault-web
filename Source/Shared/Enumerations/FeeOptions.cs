@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace Shared.Enumerations.FeeOption
+﻿namespace Shared.Enumerations.FeeOption
 {
+  using System.Collections.Generic;
   public partial class FeeOption : Enumeration
   {
     public static readonly FeeOption High = new HighFee();

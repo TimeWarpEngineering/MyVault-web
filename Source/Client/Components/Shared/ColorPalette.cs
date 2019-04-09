@@ -1,4 +1,4 @@
-﻿namespace Client.Shared
+﻿namespace Client.Components.Shared
 {
   public class ColorPalette
   {
