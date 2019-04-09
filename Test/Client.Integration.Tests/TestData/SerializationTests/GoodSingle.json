@@ -8,7 +8,7 @@
   },
   "balances": {
     "ETH": "475699000000000000",
-    "HERC": "1818985269397047952230"
+    "AGLD": "1818985269397047952230"
   },
   "fiatCurrencyCode": "iso:USD",
   "name": "com.anthemgold",
@@ -35,5 +35,5 @@
       }
     }
   ],
-  "enabledTokens": [ "ETH", "HERC" ]
+  "enabledTokens": [ "ETH", "AGLD" ]
 }

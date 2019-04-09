@@ -16,7 +16,7 @@ export class EdgeInterop {
     appId: 'com.anthemgold',
     assetsPath: './edge/index.html',
     vendorName: 'AnthemGold',
-    vendorImageUrl: '/images/HercLogo2.svg'
+    vendorImageUrl: '/images/AnthemGoldLogo.svg'
   };
 
   InitializeEdge = async (): Promise<boolean> => {

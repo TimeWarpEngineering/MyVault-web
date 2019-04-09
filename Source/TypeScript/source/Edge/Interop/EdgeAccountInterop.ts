@@ -26,7 +26,7 @@ export class EdgeAccountInterop {
     this.EdgeWalletInfo = this.EdgeAccount.getFirstWalletInfo(EtheriumWalletType);
     if (this.EdgeWalletInfo === undefined) {
       const edgeCreateCurrencyWalletOptions: EdgeCreateCurrencyWalletOptions = {
-        name: "HERC Wallet",
+        name: "AGLD Wallet",
         fiatCurrencyCode: "iso:USD"
       }
       this.CreateCurrencyWallet(EtheriumWalletType, edgeCreateCurrencyWalletOptions);

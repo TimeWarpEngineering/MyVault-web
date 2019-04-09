@@ -34,7 +34,7 @@
     private EdgeCurrencyWalletsState ValidEdgeCurrencyWalletsState { get; set; }
     private SendAction SendAction { get; set; }
 
-    private const string HercStartBalance = "1500000000000000000";
+    private const string AgldStartBalance = "1500000000000000000";
 
     public void Setup()
     {
@@ -45,9 +45,9 @@
 
       var edgeCurrencyWallet = new EdgeCurrencyWallet
       {
-        SelectedCurrencyCode = "HERC"
+        SelectedCurrencyCode = "AGLD"
       };
-      edgeCurrencyWallet.Balances.Add("HERC", HercStartBalance); //1.5 HERC
+      edgeCurrencyWallet.Balances.Add("AGLD", AgldStartBalance); //1.5 AGLD
 
       ValidEdgeCurrencyWalletsState.EdgeCurrencyWallets.Add(
         WalletId,
@@ -56,10 +56,10 @@
 
       SendAction = new SendAction
       {
-        CurrencyCode = "HERC",
+        CurrencyCode = "AGLD",
         DestinationAddress = "0xe3d6f1e0434b870c3b3a0066bdcbffd4ba3f7ea6",
         EdgeCurrencyWalletId = "1fu3+YTRMVRb6R6uwO7DDCH31iVKkBMtkYHLA0P3hMo=",
-        NativeAmount = "500000000000000000", // 0.5 HERC
+        NativeAmount = "500000000000000000", // 0.5 AGLD
         Fee = FeeOption.Standard,
       };
 
@@ -184,7 +184,7 @@
     public void NativeAmountMustBeLessThanBalance()
     {
       // Arrange
-      SendAction.NativeAmount = $"1{HercStartBalance}"; // Greater than Balance
+      SendAction.NativeAmount = $"1{AgldStartBalance}"; // Greater than Balance
       
       // Act
 

@@ -17,7 +17,7 @@ namespace Client.Integration.Tests.Features.Edge.State
         Id = "EdgeCurrencyWallet1",
         SelectedCurrencyCode = "abc",
         FiatCurrencyCode = "FCC",
-        Balances = new Dictionary<string, string>() { { "ETH", "1000" }, { "HERC", "2000" } },
+        Balances = new Dictionary<string, string>() { { "ETH", "1000" }, { "AGLD", "2000" } },
         Keys = new Dictionary<string, string>() { { "somekey", "somevalue" }, { "someotherkey", "someothervalue" } },
         EdgeTransactions = new List<EdgeTransaction>
         {

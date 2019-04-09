@@ -11,10 +11,10 @@ import { EdgeGetTransactionsOptions } from '../TypeDefinitions/EdgeGetTransactio
 
 export class EdgeCurrencyWalletInterop {
   private EdgeCurrencyWallet: EdgeCurrencyWallet;
-  private HercTokenInfo: EdgeTokenInfo = {
-    currencyName: 'Hercules',
-    contractAddress: '0x6251583e7D997DF3604bc73B9779196e94A090Ce',
-    currencyCode: 'HERC',
+  private AnthemGoldTokenInfo: EdgeTokenInfo = {
+    currencyName: 'AnthemGold',
+    contractAddress: 'TBD',
+    currencyCode: 'AGLD',
     multiplier: '1000000000000000000'
   };
 
@@ -25,11 +25,11 @@ export class EdgeCurrencyWalletInterop {
 
   public async Initialize(): Promise<void> {
     console.log(`Initialize EdgeCurrencyWalletInterop for ${this.EdgeCurrencyWallet.id}`);
-    await this.EdgeCurrencyWallet.addCustomToken(this.HercTokenInfo);
+    await this.EdgeCurrencyWallet.addCustomToken(this.AnthemGoldTokenInfo);
 
     const enabledTokens: Array<string> = await this.EdgeCurrencyWallet.getEnabledTokens();
-    if (!enabledTokens.includes(this.HercTokenInfo.currencyCode)) {      
-      await this.EdgeCurrencyWallet.enableTokens([this.HercTokenInfo.currencyCode]);
+    if (!enabledTokens.includes(this.AnthemGoldTokenInfo.currencyCode)) {      
+      await this.EdgeCurrencyWallet.enableTokens([this.AnthemGoldTokenInfo.currencyCode]);
     }
     this.ConfigureSubscriptions();
     this.DispatchUpdateEdgeCurrencyWallet();

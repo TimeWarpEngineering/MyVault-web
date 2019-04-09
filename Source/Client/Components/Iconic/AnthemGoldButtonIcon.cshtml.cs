@@ -1,7 +1,7 @@
 ﻿namespace Client.Components.Iconic
 {
   using Microsoft.AspNetCore.Components;
-  public class HercButtonIconModel : BaseComponent
+  public class AnthemGoldButtonIconModel : BaseComponent
   {
 
     [Parameter] protected string FillColor { get; set; } = "purple";

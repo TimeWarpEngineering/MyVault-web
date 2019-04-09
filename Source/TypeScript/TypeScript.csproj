@@ -74,7 +74,7 @@
     <RemoveDir Directories="dist" />
     <Exec Command="yarn run build" />
     <ItemGroup>
-      <EmbeddedResource Include="dist\clientjs.js" LogicalName="blazor:js:%(RecursiveDir)%(Filename)%(Extension)" />
+      <EmbeddedResource Include="dist\clientjs.js" LogicalName="blazor:js:clientjs.js" />
     </ItemGroup>
   </Target>
 </Project>

@@ -50,7 +50,7 @@ namespace Client.Integration.Tests.Features.Edge
               Id= "EdgeCurrencyWallet1",
               SelectedCurrencyCode = "abc",
               FiatCurrencyCode = "FCC",
-              Balances = new Dictionary<string, string>() { { "ETH", "1000" }, { "HERC", "2000" } },
+              Balances = new Dictionary<string, string>() { { "ETH", "1000" }, { "AGLD", "2000" } },
               Keys = new Dictionary<string, string>() { { "somekey", "somevalue" }, { "someotherkey", "someothervalue" } }
             }
           },
@@ -86,7 +86,7 @@ namespace Client.Integration.Tests.Features.Edge
               Id= "EdgeCurrencyWallet1",
               SelectedCurrencyCode = "abc",
               FiatCurrencyCode = "FCC",
-              Balances = new Dictionary<string, string>() { { "ETH", "1000" }, { "HERC", "2000" } },
+              Balances = new Dictionary<string, string>() { { "ETH", "1000" }, { "AGLD", "2000" } },
               Keys = new Dictionary<string, string>() { { "somekey", "somevalue" }, { "someotherkey", "someothervalue" } }
             }
           },
@@ -115,7 +115,7 @@ namespace Client.Integration.Tests.Features.Edge
       edgeCurrencyWallet1.Id.ShouldBe("EdgeCurrencyWallet1");
       edgeCurrencyWallet1.FiatCurrencyCode.ShouldBe("FCC");
       edgeCurrencyWallet1.Balances["ETH"].ShouldBe("1000");
-      edgeCurrencyWallet1.Balances["HERC"].ShouldBe("2000");
+      edgeCurrencyWallet1.Balances["AGLD"].ShouldBe("2000");
       edgeCurrencyWallet1.Keys["somekey"].ShouldBe("somevalue");
       edgeCurrencyWallet1.Keys["someotherkey"].ShouldBe("someothervalue");
 
