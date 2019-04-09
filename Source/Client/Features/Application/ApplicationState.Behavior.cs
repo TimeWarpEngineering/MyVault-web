@@ -13,6 +13,6 @@
 
     public override object Clone() => new ApplicationState(this);
 
-    protected override void Initialize() => Name = "wallet.herc.one";
+    protected override void Initialize() => Name = "myvault.anthemgold.com";
   }
 }

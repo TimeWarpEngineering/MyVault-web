@@ -1,5 +1,5 @@
-# https://hercpwa.azurewebsites.net/ Development
-# https://wallet.herc.one/ Production
+# https://agld.azurewebsites.net/ Development
+# https://myvault.anthemgold.com/ Production
 name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 trigger:
  branches:
@@ -14,7 +14,7 @@ pr: none
 
 steps:
 - task: DotNetCoreCLI@2
-  displayName: Publish The HercPwa.Server project which will be deployed to azure
+  displayName: Publish The Server project which will be deployed to azure
   inputs:
     command: publish
     publishWebProjects: false

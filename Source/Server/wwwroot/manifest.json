@@ -1,7 +1,7 @@
 {
-  "name": "Herc Progressive Web App",
-  "short_name": "Herc PWA",
-  "description": "Hercules supply chain Progressive Web App in Blazor",
+  "name": "myvault.anthemgold.com",
+  "short_name": "AGLD PWA",
+  "description": "Progressive Web Application Wallet for AnthemGold",
   "background_color": "#8942f4",
   "theme_color": "#536878",
   "icons": [

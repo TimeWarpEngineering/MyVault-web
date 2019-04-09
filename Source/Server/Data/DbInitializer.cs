@@ -6,7 +6,7 @@
 
   internal class DbInitializer
   {
-    public const string ApplicationName = "Hercules Progressive Web Application";
+    public const string ApplicationName = "myvault.anthemgold.com";
     public const string ApplicationVersion = "1.0.0";
 
     public static void Initialize(HercPwaDbContext context)

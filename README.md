@@ -1,9 +1,9 @@
 # Introduction 
-HercPwa is a Progressive Web Application for the Hercules Asset Tracking and Verification application.
+A Progressive Web Application for the AnthemGold.
 
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
-Reposoitory: https://herculesone.visualstudio.com/Hecurles/_git/HercPwa
+Reposoitory: 
 
 # Getting Started
 TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
