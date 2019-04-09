@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Features.Application
+﻿namespace Client.Features.Application
 {
   using System.Collections.Generic;
   using BlazorState;

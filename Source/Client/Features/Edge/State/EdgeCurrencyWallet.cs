@@ -1,10 +1,10 @@
-﻿namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet
+﻿namespace Client.Features.Edge.EdgeCurrencyWallet
 {
   using System;
   using System.Collections.Generic;
   using System.Linq;
   using System.Net;
-  using Herc.Pwa.Client.Features.Edge.State;
+  using Client.Features.Edge.State;
 
   public class EdgeCurrencyWallet : ICloneable
   {

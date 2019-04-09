@@ -1,4 +1,4 @@
-﻿<linker>
+<linker>
   <assembly fullname="mscorlib">
     <!-- Preserve all methods on WasmRuntime, because these are called by JS-side code
     to implement timers. Fixes https://github.com/aspnet/Blazor/issues/239 -->
@@ -9,5 +9,5 @@
     <type fullname="System.Linq.Expressions*" />
   </assembly>
   <!-- Name of the entry point assembly -->
-  <assembly fullname="Herc.Pwa.Client" />
+  <assembly fullname="Client" />
 </linker>

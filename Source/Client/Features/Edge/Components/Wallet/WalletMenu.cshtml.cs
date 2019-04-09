@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Features.Edge.Components.Wallet
+﻿namespace Client.Features.Edge.Components.Wallet
 {
   public class WalletMenuModel
   {

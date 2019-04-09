@@ -1,7 +1,7 @@
-﻿namespace Herc.Pwa.Server.Integration.Tests.Misc
+﻿namespace Server.Integration.Tests.Misc
 {
   using Microsoft.JSInterop;
-  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
+  using Client.Features.Edge.EdgeCurrencyWallet;
   using System.IO;
   using System;
 

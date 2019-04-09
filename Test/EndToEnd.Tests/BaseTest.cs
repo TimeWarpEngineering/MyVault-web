@@ -1,9 +1,9 @@
 ﻿using System;
-using Herc.Pwa.EndToEnd.Tests.Infrastructure;
+using EndToEnd.Tests.Infrastructure;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace Herc.Pwa.EndToEnd.Tests
+namespace EndToEnd.Tests
 {
   public abstract class BaseTest
   {

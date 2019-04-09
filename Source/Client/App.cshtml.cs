@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client
+﻿namespace Client
 {
   using System.Threading.Tasks;
   using BlazorState.Features.JavaScriptInterop;

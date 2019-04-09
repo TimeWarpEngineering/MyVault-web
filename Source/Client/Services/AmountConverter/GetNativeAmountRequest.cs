@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Services
+﻿namespace Client.Services
 {
   public class GetNativeAmountRequest
   {

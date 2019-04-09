@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Features.Clipboard
+﻿namespace Client.Features.Clipboard
 {
   public class ClipboardInteropMethodNames
   {

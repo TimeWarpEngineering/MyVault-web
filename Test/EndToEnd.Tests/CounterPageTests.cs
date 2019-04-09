@@ -1,6 +1,6 @@
-﻿//namespace Herc.Pwa.EndToEnd.Tests
+﻿//namespace EndToEnd.Tests
 //{
-//  using Herc.Pwa.EndToEnd.Tests.Infrastructure;
+//  using EndToEnd.Tests.Infrastructure;
 //  using OpenQA.Selenium;
 //  using Shouldly;
 //  using static Infrastructure.WaitAndAssert;

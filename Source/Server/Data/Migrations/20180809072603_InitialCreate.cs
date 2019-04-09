@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Herc.Pwa.Server.Data.Migrations
+namespace Server.Data.Migrations
 {
     public partial class InitialCreate : Migration
     {

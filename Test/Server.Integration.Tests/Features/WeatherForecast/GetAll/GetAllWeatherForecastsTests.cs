@@ -1,7 +1,7 @@
-﻿namespace Herc.Pwa.Server.Integration.Tests.Features.WeatherForecast.GetAll
+﻿namespace Server.Integration.Tests.Features.WeatherForecast.GetAll
 {
   using System.Threading.Tasks;
-  using Herc.Pwa.Shared.Features.WeatherForecast;
+  using Shared.Features.WeatherForecast;
   using MediatR;
   using Microsoft.Extensions.DependencyInjection;
   using Shouldly;

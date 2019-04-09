@@ -1,6 +1,6 @@
-﻿namespace Herc.Pwa.Shared.Features.Application
+﻿namespace Shared.Features.Application
 {
-  using Herc.Pwa.Shared.Features.Base;
+  using Shared.Features.Base;
   using MediatR;
 
   /// <summary>

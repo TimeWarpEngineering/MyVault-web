@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Components;
 
-namespace Herc.Pwa.Client.Components.Iconic
+namespace Client.Components.Iconic
 {
   public class IconicBase : BaseComponent
   {

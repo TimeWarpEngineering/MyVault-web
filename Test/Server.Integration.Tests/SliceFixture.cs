@@ -2,8 +2,8 @@
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using Herc.Pwa.Server.Data;
-using Herc.Pwa.Server.Entities;
+using Server.Data;
+using Server.Entities;
 //using FakeItEasy;
 using MediatR;
 //using Microsoft.AspNetCore.Hosting;
@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Respawn;
 
-namespace Herc.Pwa.Server.Integration.Tests
+namespace Server.Integration.Tests
 {
   public class SliceFixture
   {

@@ -1,6 +1,6 @@
-﻿namespace Herc.Pwa.Shared.Features.WeatherForecast
+﻿namespace Shared.Features.WeatherForecast
 {
-  using Herc.Pwa.Shared.Features.Base;
+  using Shared.Features.Base;
   using MediatR;
 
   public class GetWeatherForecastsRequest : BaseRequest, IRequest<GetWeatherForecastsResponse>

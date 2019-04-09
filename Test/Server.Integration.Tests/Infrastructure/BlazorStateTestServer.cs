@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Server.Integration.Tests.Infrastructure
+﻿namespace Server.Integration.Tests.Infrastructure
 {
   using Microsoft.AspNetCore;
   using Microsoft.AspNetCore.Hosting;

@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Shared.Features.WeatherForecast
+﻿namespace Shared.Features.WeatherForecast
 {
   using System;
 

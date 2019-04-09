@@ -1,11 +1,11 @@
-﻿namespace Herc.Pwa.Client.Features.Edge
+﻿namespace Client.Features.Edge
 {
   using System;
   using System.Threading;
   using System.Threading.Tasks;
   using BlazorState;
-  using Herc.Pwa.Client.Features.Base;
-  using Herc.Pwa.Client.Pages;
+  using Client.Features.Base;
+  using Client.Pages;
   using MediatR;
 
   public partial class EdgeState

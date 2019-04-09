@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Server.Features.Base
+﻿namespace Server.Features.Base
 {
   public class BaseError
   {

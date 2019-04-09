@@ -1,8 +1,8 @@
-﻿namespace Herc.Pwa.Shared.Features.WeatherForecast
+﻿namespace Shared.Features.WeatherForecast
 {
   using System;
   using System.Collections.Generic;
-  using Herc.Pwa.Shared.Features.Base;
+  using Shared.Features.Base;
 
   public class GetWeatherForecastsResponse : BaseResponse
   {

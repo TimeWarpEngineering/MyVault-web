@@ -1,8 +1,8 @@
-﻿namespace Herc.Pwa.Server.Data
+﻿namespace Server.Data
 {
   using System.Data;
   using System.Threading.Tasks;
-  using Herc.Pwa.Server.Entities;
+  using Server.Entities;
   using Microsoft.EntityFrameworkCore;
   using Microsoft.EntityFrameworkCore.Storage;
 

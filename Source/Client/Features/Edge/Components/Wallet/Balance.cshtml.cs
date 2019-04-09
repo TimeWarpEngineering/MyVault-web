@@ -1,7 +1,7 @@
-﻿namespace Herc.Pwa.Client.Features.Edge.Components.Wallet
+﻿namespace Client.Features.Edge.Components.Wallet
 {
-  using Herc.Pwa.Client.Components;
-  using Herc.Pwa.Client.Services;
+  using Client.Components;
+  using Client.Services;
   using Microsoft.AspNetCore.Components;
 
   public class BalanceModel : BaseComponent

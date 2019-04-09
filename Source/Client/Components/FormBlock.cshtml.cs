@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using Microsoft.AspNetCore.Components;
 
-namespace Herc.Pwa.Client.Components
+namespace Client.Components
 {
   public class FormBlockModel<T> : BaseComponent
   {

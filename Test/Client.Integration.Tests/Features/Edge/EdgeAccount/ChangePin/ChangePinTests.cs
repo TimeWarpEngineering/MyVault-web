@@ -1,9 +1,9 @@
-﻿namespace Herc.Pwa.Client.Integration.Tests.Features.Edge.EdgeAccount.ChangePin
+﻿namespace Client.Integration.Tests.Features.Edge.EdgeAccount.ChangePin
 
 {
   using FluentValidation;
   using FluentValidation.Results;
-  using Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePin;
+  using Client.Features.Edge.EdgeAccount.ChangePin;
   using Shouldly;
 
   class ChangePinTests

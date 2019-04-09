@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Integration.Tests.Infrastructure
+﻿namespace Client.Integration.Tests.Infrastructure
 {
   using Fixie;
   using Microsoft.Extensions.DependencyInjection;

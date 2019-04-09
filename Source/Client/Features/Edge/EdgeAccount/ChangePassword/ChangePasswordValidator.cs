@@ -1,8 +1,8 @@
 ﻿
-namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePassword
+namespace Client.Features.Edge.EdgeAccount.ChangePassword
 {
   using FluentValidation;
-  using Herc.Pwa.Shared;
+  using Shared;
 
   public class ChangePasswordValidator : AbstractValidator<ChangePasswordAction>
 

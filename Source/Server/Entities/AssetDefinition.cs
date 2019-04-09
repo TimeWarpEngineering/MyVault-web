@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Server.Entities
+﻿namespace Server.Entities
 {
   using System.Collections.Generic;
   using System.ComponentModel.DataAnnotations.Schema;

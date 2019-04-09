@@ -1,9 +1,9 @@
-namespace Herc.Pwa.Client.Features.Edge.Components
+namespace Client.Features.Edge.Components
 {
   using System.Globalization;
-  using Herc.Pwa.Client.Components;
-  using Herc.Pwa.Client.Features.Edge.State;
-  using Herc.Pwa.Client.Services;
+  using Client.Components;
+  using Client.Features.Edge.State;
+  using Client.Services;
   using Microsoft.AspNetCore.Components;
 
   public class EdgeTransactionComponentModel : BaseComponent

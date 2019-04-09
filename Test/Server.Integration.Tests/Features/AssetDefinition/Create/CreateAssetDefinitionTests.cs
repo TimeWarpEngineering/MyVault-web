@@ -1,8 +1,8 @@
-﻿namespace Herc.Pwa.Server.Integration.Tests.Features.AssetDefinition.Create
+﻿namespace Server.Integration.Tests.Features.AssetDefinition.Create
 {
   using System.Collections.Generic;
   using System.Threading.Tasks;
-  using Herc.Pwa.Shared.Features.AssetDefinition;
+  using Shared.Features.AssetDefinition;
   using Shouldly;
   using static SliceFixture;
 

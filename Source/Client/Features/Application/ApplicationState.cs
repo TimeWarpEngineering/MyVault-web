@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Features.Application
+﻿namespace Client.Features.Application
 {
   public partial class ApplicationState 
   {

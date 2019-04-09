@@ -1,10 +1,10 @@
-﻿namespace Herc.Pwa.Client.Features.Base
+﻿namespace Client.Features.Base
 {
   using BlazorState;
-  using Herc.Pwa.Client.Features.Application;
-  using Herc.Pwa.Client.Features.Edge;
-  using Herc.Pwa.Client.Features.Edge.EdgeAccount;
-  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
+  using Client.Features.Application;
+  using Client.Features.Edge;
+  using Client.Features.Edge.EdgeAccount;
+  using Client.Features.Edge.EdgeCurrencyWallet;
   using MediatR;
 
   /// <summary>

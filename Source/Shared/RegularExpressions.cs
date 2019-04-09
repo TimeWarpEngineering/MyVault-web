@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Shared
+﻿namespace Shared
 {
   public class RegularExpressions
   {

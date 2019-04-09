@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Shared.Features.Base
+﻿namespace Shared.Features.Base
 {
   using System;
 

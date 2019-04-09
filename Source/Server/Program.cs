@@ -1,7 +1,7 @@
-﻿namespace Herc.Pwa.Server
+﻿namespace Server
 {
   using System;
-  using Herc.Pwa.Server.Data;
+  using Server.Data;
   using Microsoft.AspNetCore;
   using Microsoft.AspNetCore.Hosting;
   using Microsoft.Extensions.Configuration;

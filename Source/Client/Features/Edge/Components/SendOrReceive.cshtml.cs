@@ -1,6 +1,6 @@
-﻿namespace Herc.Pwa.Client.Features.Edge.Components
+﻿namespace Client.Features.Edge.Components
 {
-  using Herc.Pwa.Client.Components;
+  using Client.Components;
   using Microsoft.AspNetCore.Components;
 
   public class SendOrReceiveModel : BaseComponent

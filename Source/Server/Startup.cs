@@ -1,8 +1,8 @@
-﻿namespace Herc.Pwa.Server
+﻿namespace Server
 {
   using System.Reflection;
   using AutoMapper;
-  using Herc.Pwa.Server.Data;
+  using Server.Data;
   using MediatR;
   using Microsoft.AspNetCore.Builder;
   using Microsoft.AspNetCore.Hosting;

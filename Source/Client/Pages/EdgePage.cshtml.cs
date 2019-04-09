@@ -1,9 +1,9 @@
-﻿namespace Herc.Pwa.Client.Pages
+﻿namespace Client.Pages
 {
   using System;
   using System.Threading.Tasks;
-  using Herc.Pwa.Client.Components;
-  using Herc.Pwa.Client.Features.Edge;
+  using Client.Components;
+  using Client.Features.Edge;
 
   public class EdgePageModel : BaseComponent
   {

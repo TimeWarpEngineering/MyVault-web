@@ -16,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Source\Herc.Pwa.Client\Herc.Pwa.Client.csproj" />
-    <ProjectReference Include="..\..\Source\Herc.Pwa.Server\Herc.Pwa.Server.csproj" />
+    <ProjectReference Include="..\..\Source\Client\Client.csproj" />
+    <ProjectReference Include="..\..\Source\Server\Server.csproj" />
   </ItemGroup>
 
   <ItemGroup>

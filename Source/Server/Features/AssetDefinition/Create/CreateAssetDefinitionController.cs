@@ -1,8 +1,8 @@
-﻿namespace Herc.Pwa.Server.Features.AssetDefinition
+﻿namespace Server.Features.AssetDefinition
 {
   using System.Threading.Tasks;
-  using Herc.Pwa.Server.Features.Base;
-  using Herc.Pwa.Shared.Features.AssetDefinition;
+  using Server.Features.Base;
+  using Shared.Features.AssetDefinition;
   using MediatR;
   using Microsoft.AspNetCore.Mvc;
 

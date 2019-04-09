@@ -1,8 +1,8 @@
 ﻿
-namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePin
+namespace Client.Features.Edge.EdgeAccount.ChangePin
 {
   using FluentValidation;
-  using Herc.Pwa.Shared;
+  using Shared;
 
   public class ChangePinValidator : AbstractValidator<ChangePinAction>
 

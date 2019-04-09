@@ -1,7 +1,7 @@
-namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePin
+namespace Client.Features.Edge.EdgeAccount.ChangePin
 {
-  using Herc.Pwa.Client.Features.Edge.EdgeAccount;
-  using Herc.Pwa.Shared.Features.Base;
+  using Client.Features.Edge.EdgeAccount;
+  using Shared.Features.Base;
   using MediatR;
 
   public class ChangePinAction : BaseRequest, IRequest<EdgeAccountState>

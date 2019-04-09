@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Components.Iconic
+﻿namespace Client.Components.Iconic
 {
   public class IconicCogModel : IconicBase { }
 }

@@ -1,4 +1,4 @@
-﻿//namespace Herc.Pwa.Client.Features.Edge
+﻿//namespace Client.Features.Edge
 //{
 //  using MediatR;
 //  public class GetFirstWalletInfoAction : IRequest<EdgeState>

@@ -1,9 +1,9 @@
-﻿namespace Herc.Pwa.Client.Features.Edge
+﻿namespace Client.Features.Edge
 {
   using System.Threading;
   using System.Threading.Tasks;
   using BlazorState;
-  using Herc.Pwa.Client.Features.Base;
+  using Client.Features.Base;
   using Microsoft.JSInterop;
 
   //TODO: this doesn't use any state so maybe doesn't need BaseHandler

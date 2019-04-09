@@ -1,12 +1,12 @@
-﻿namespace Herc.Pwa.Client.Components
+﻿namespace Client.Components
 {
   using System;
   using BlazorState.Pipeline.ReduxDevTools;
-  using Herc.Pwa.Client.Features.Application;
-  using Herc.Pwa.Client.Features.Edge;
-  using Herc.Pwa.Client.Features.Edge.EdgeAccount;
-  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
-  using Herc.Pwa.Client.Shared;
+  using Client.Features.Application;
+  using Client.Features.Edge;
+  using Client.Features.Edge.EdgeAccount;
+  using Client.Features.Edge.EdgeCurrencyWallet;
+  using Client.Shared;
   using Microsoft.AspNetCore.Components;
 
   /// <summary>

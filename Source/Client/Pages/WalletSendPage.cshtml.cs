@@ -1,6 +1,6 @@
-﻿namespace Herc.Pwa.Client.Pages
+﻿namespace Client.Pages
 {
-  using Herc.Pwa.Client.Components;
+  using Client.Components;
   using Microsoft.AspNetCore.Components;
 
   public class WalletSendPageModel : BaseComponent

@@ -1,8 +1,8 @@
-﻿namespace Herc.Pwa.Server.Data
+﻿namespace Server.Data
 {
   using System.IO;
   using System.Linq;
-  using Herc.Pwa.Server.Entities;
+  using Server.Entities;
 
   internal class DbInitializer
   {

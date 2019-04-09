@@ -1,13 +1,13 @@
-namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePin
+namespace Client.Features.Edge.EdgeAccount.ChangePin
 {
   using System;
   using System.Threading;
   using System.Threading.Tasks;
   using BlazorState;
-  using Herc.Pwa.Client.Features.Base;
-  using Herc.Pwa.Client.Features.Edge.Dtos;
-  using Herc.Pwa.Client.Features.Edge.DTOs;
-  using Herc.Pwa.Client.Features.Edge.EdgeAccount;
+  using Client.Features.Base;
+  using Client.Features.Edge.Dtos;
+  using Client.Features.Edge.DTOs;
+  using Client.Features.Edge.EdgeAccount;
   using MediatR;
   using Microsoft.JSInterop;
 

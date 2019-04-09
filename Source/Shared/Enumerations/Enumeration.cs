@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Shared.Enumerations
+﻿namespace Shared.Enumerations
 {
   using System;
   using System.Collections.Generic;

@@ -1,8 +1,8 @@
-﻿namespace Herc.Pwa.Server.Integration.Tests.Features.Application.Get
+﻿namespace Server.Integration.Tests.Features.Application.Get
 {
   using System.Threading.Tasks;
-  using Herc.Pwa.Server.Data;
-  using Herc.Pwa.Shared.Features.Application;
+  using Server.Data;
+  using Shared.Features.Application;
   using Shouldly;
   using static SliceFixture;
 

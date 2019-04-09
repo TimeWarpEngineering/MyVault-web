@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Server.Integration.Tests
+﻿namespace Server.Integration.Tests
 {
   using System.Threading.Tasks;
 

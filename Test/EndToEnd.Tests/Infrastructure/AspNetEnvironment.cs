@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.EndToEnd.Tests.Infrastructure
+﻿namespace EndToEnd.Tests.Infrastructure
 {
   public enum AspNetEnvironment
   {

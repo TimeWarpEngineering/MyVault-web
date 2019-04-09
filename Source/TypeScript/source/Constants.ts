@@ -9,7 +9,7 @@ export const ReduxExtentionName: string = '__REDUX_DEVTOOLS_EXTENSION__';
 
 
 export const DotNetActionQualifiedNames = {
-  UpdateEdgeAccountAction: "Herc.Pwa.Client.Features.Edge.EdgeAccount.UpdateEdgeAccountAction, Herc.Pwa.Client, Version = 1.0.0.0, Culture = neutral, PublicKeyToken = null",
-  UpdateEdgeCurrencyWalletAction: "Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.UpdateEdgeCurrencyWalletAction, Herc.Pwa.Client, Version = 1.0.0.0, Culture = neutral, PublicKeyToken = null",
-  OnLoginAction: "Herc.Pwa.Client.Features.Edge.OnLoginAction, Herc.Pwa.Client, Version = 1.0.0.0, Culture = neutral, PublicKeyToken = null",
+  UpdateEdgeAccountAction: "Client.Features.Edge.EdgeAccount.UpdateEdgeAccountAction, Client, Version = 1.0.0.0, Culture = neutral, PublicKeyToken = null",
+  UpdateEdgeCurrencyWalletAction: "Client.Features.Edge.EdgeCurrencyWallet.UpdateEdgeCurrencyWalletAction, Client, Version = 1.0.0.0, Culture = neutral, PublicKeyToken = null",
+  OnLoginAction: "Client.Features.Edge.OnLoginAction, Client, Version = 1.0.0.0, Culture = neutral, PublicKeyToken = null",
 };

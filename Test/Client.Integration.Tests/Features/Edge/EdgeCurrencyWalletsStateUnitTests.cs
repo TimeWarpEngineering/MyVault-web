@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
+using Client.Features.Edge.EdgeCurrencyWallet;
 using Shouldly;
 
-namespace Herc.Pwa.Client.Integration.Tests.Features.Edge
+namespace Client.Integration.Tests.Features.Edge
 {
   public class EdgeCurrencyWalletsStateUnitTests
   {

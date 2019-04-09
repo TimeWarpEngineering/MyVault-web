@@ -1,7 +1,7 @@
-﻿namespace Herc.Pwa.Shared.Features.Application
+﻿namespace Shared.Features.Application
 {
   using System;
-  using Herc.Pwa.Shared.Features.Base;
+  using Shared.Features.Base;
 
   /// <summary>
   /// Returns the Application DTO

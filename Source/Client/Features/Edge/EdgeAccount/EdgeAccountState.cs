@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Features.Edge.EdgeAccount
+﻿namespace Client.Features.Edge.EdgeAccount
 {
   using BlazorState;
 

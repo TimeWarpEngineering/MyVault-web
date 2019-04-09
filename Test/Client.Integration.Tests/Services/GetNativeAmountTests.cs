@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Herc.Pwa.Client.Services;
+using Client.Services;
 using Shouldly;
 
-namespace Herc.Pwa.Client.Integration.Tests.Services
+namespace Client.Integration.Tests.Services
 {
   public class GetNaitveAmountTests
   {

@@ -1,8 +1,8 @@
-﻿namespace Herc.Pwa.Server.Features.Application
+﻿namespace Server.Features.Application
 {
   using AutoMapper;
-  using Herc.Pwa.Server.Entities;
-  using Herc.Pwa.Shared.Features.AssetDefinition;
+  using Server.Entities;
+  using Shared.Features.AssetDefinition;
 
   public class AssetDefinitionMappingProfile: Profile
   {

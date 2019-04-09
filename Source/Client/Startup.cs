@@ -1,11 +1,11 @@
-﻿namespace Herc.Pwa.Client
+﻿namespace Client
 {
   //using Blazor.Extensions.Logging;
   using BlazorState;
   using FluentValidation;
-  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
-  using Herc.Pwa.Client.Services;
-  using Herc.Pwa.Client.Shared;
+  using Client.Features.Edge.EdgeCurrencyWallet;
+  using Client.Services;
+  using Client.Shared;
   using Microsoft.AspNetCore.Components.Builder;
   using Microsoft.Extensions.DependencyInjection;
   using Microsoft.Extensions.Logging;

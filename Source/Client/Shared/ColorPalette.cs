@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Shared
+﻿namespace Client.Shared
 {
   public class ColorPalette
   {

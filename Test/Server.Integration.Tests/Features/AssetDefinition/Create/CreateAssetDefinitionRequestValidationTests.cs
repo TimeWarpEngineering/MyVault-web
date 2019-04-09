@@ -1,8 +1,8 @@
-﻿namespace Herc.Pwa.Server.Integration.Tests.Features.AssetDefinition.Create
+﻿namespace Server.Integration.Tests.Features.AssetDefinition.Create
 {
   using System.Threading.Tasks;
   using FluentValidation.TestHelper;
-  using Herc.Pwa.Shared.Features.AssetDefinition;
+  using Shared.Features.AssetDefinition;
 
   class CreateAssetDefinitionRequestValidationTests : IntegrationTestBase
   {

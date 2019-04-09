@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.Components
+﻿namespace Client.Features.Edge.EdgeCurrencyWallet.Components
 {
   using System;
   using System.Linq;
@@ -7,12 +7,12 @@
   using BlazorState.Features.Routing;
   using FluentValidation;
   using FluentValidation.Results;
-  using Herc.Pwa.Client.Components;
-  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
-  using Herc.Pwa.Client.Pages;
-  using Herc.Pwa.Client.Services;
-  using Herc.Pwa.Shared;
-  using Herc.Pwa.Shared.Enumerations.FeeOption;
+  using Client.Components;
+  using Client.Features.Edge.EdgeCurrencyWallet;
+  using Client.Pages;
+  using Client.Services;
+  using Shared;
+  using Shared.Enumerations.FeeOption;
   using Microsoft.AspNetCore.Components;
 
   public class WalletSendFormModel : BaseComponent

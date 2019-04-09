@@ -4,7 +4,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using Shouldly;
 
-namespace Herc.Pwa.EndToEnd.Tests.Infrastructure
+namespace EndToEnd.Tests.Infrastructure
 {
   /// <summary>
   /// Shouldly assertions, but hooked into Selenium's WebDriverWait mechanism

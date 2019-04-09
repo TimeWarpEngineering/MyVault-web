@@ -1,8 +1,8 @@
-﻿namespace Herc.Pwa.Server.Features.WeatherForecast
+﻿namespace Server.Features.WeatherForecast
 {
   using System.Threading.Tasks;
-  using Herc.Pwa.Server.Features.Base;
-  using Herc.Pwa.Shared.Features.WeatherForecast;
+  using Server.Features.Base;
+  using Shared.Features.WeatherForecast;
   using MediatR;
   using Microsoft.AspNetCore.Mvc;
 

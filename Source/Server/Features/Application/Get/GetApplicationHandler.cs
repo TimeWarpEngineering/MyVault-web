@@ -1,13 +1,13 @@
-﻿namespace Herc.Pwa.Server.Features.Application.Get
+﻿namespace Server.Features.Application.Get
 {
   using System.Linq;
   using System.Threading;
   using System.Threading.Tasks;
   using AutoMapper.QueryableExtensions;
   using Microsoft.EntityFrameworkCore;
-  using Herc.Pwa.Server.Data;
-  using Herc.Pwa.Server.Entities;
-  using Herc.Pwa.Shared.Features.Application;
+  using Server.Data;
+  using Server.Entities;
+  using Shared.Features.Application;
   using MediatR;
   using AutoMapper;
 

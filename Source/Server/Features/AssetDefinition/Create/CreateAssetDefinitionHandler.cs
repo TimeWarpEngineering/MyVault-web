@@ -1,10 +1,10 @@
-﻿namespace Herc.Pwa.Shared.Features.AssetDefinition
+﻿namespace Shared.Features.AssetDefinition
 {
   using System.Threading;
   using System.Threading.Tasks;
   using AutoMapper;
-  using Herc.Pwa.Server.Data;
-  using Herc.Pwa.Server.Entities;
+  using Server.Data;
+  using Server.Entities;
   using MediatR;
 
   public class CreateAssetDefinitionHandler : IRequestHandler<CreateAssetDefinitionRequest, CreateAssetDefinitionResponse>

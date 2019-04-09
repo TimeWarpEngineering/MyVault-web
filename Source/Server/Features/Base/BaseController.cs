@@ -1,7 +1,7 @@
-﻿namespace Herc.Pwa.Server.Features.Base
+﻿namespace Server.Features.Base
 {
   using System.Threading.Tasks;
-  using Herc.Pwa.Shared.Features.Base;
+  using Shared.Features.Base;
   using MediatR;
   using Microsoft.AspNetCore.Mvc;
 

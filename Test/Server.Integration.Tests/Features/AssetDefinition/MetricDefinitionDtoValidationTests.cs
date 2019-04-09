@@ -1,11 +1,11 @@
-﻿namespace Herc.Pwa.Server.Integration.Tests.Features.AssetDefinition
+﻿namespace Server.Integration.Tests.Features.AssetDefinition
 {
   using System.Collections.Generic;
   using System.IO;
   using System.Threading.Tasks;
   using FluentValidation.Results;
   using FluentValidation.TestHelper;
-  using Herc.Pwa.Shared.Features.AssetDefinition;
+  using Shared.Features.AssetDefinition;
   using Shouldly;
 
   class MetricDefinitionDtoValidationTests : IntegrationTestBase

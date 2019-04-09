@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Threading;
 
-namespace Herc.Pwa.EndToEnd.Tests.Infrastructure
+namespace EndToEnd.Tests.Infrastructure
 {
   public class SeleniumStandAlone : IDisposable
   {

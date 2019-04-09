@@ -1,10 +1,10 @@
-﻿namespace Herc.Pwa.Client.Integration.Tests
+﻿namespace Client.Integration.Tests
 {
   using System;
   using System.IO;
   using BlazorState;
   using BlazorState.Integration.Tests.Infrastructure;
-  using Herc.Pwa.Client.Features.Application;
+  using Client.Features.Application;
   using Microsoft.Extensions.DependencyInjection;
   using Shouldly;
 

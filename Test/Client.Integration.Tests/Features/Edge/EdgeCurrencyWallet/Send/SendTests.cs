@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Integration.Tests.Features.Edge.EdgeAccount.ChangePassword
+﻿namespace Client.Integration.Tests.Features.Edge.EdgeAccount.ChangePassword
 {
   using System;
   using System.Linq;
@@ -7,8 +7,8 @@
   using FluentValidation;
   using FluentValidation.Results;
   using FluentValidation.Validators;
-  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
-  using Herc.Pwa.Shared.Enumerations.FeeOption;
+  using Client.Features.Edge.EdgeCurrencyWallet;
+  using Shared.Enumerations.FeeOption;
   using MediatR;
   using Microsoft.Extensions.DependencyInjection;
   using Shouldly;

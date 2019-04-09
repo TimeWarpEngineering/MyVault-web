@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client
+﻿namespace Client
 {
   using Microsoft.AspNetCore.Blazor.Hosting;
 

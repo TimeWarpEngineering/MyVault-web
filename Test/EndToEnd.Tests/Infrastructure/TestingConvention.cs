@@ -1,7 +1,7 @@
-﻿namespace Herc.Pwa.EndToEnd.Tests
+﻿namespace EndToEnd.Tests
 {
   using System;
-  using Herc.Pwa.EndToEnd.Tests.Infrastructure;
+  using EndToEnd.Tests.Infrastructure;
   using Fixie;
   using Microsoft.Extensions.DependencyInjection;
 

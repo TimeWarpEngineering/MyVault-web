@@ -1,11 +1,11 @@
-﻿namespace Herc.Pwa.Client.Pages
+﻿namespace Client.Pages
 {
   using System.Net;
   using System.Threading.Tasks;
-  using Herc.Pwa.Client.Components;
-  using Herc.Pwa.Client.Features.Clipboard;
-  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
-  using Herc.Pwa.Client.Services;
+  using Client.Components;
+  using Client.Features.Clipboard;
+  using Client.Features.Edge.EdgeCurrencyWallet;
+  using Client.Services;
   using Microsoft.AspNetCore.Components;
   using Microsoft.JSInterop;
 

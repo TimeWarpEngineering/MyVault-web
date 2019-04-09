@@ -1,10 +1,10 @@
-namespace Herc.Pwa.Client.Pages
+namespace Client.Pages
 {
   using System;
   using System.Threading.Tasks;
   using FluentValidation.Results;
-  using Herc.Pwa.Client.Components;
-  using Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePin;
+  using Client.Components;
+  using Client.Features.Edge.EdgeAccount.ChangePin;
 
 
   public class ChangePinModel : BaseComponent

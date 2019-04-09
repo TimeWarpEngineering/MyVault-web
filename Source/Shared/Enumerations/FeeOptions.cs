@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Herc.Pwa.Shared.Enumerations.FeeOption
+namespace Shared.Enumerations.FeeOption
 {
   public partial class FeeOption : Enumeration
   {

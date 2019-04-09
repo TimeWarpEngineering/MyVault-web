@@ -1,3 +1,3 @@
 ﻿using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("Herc.Pwa.Server.Integration.Tests")]
+[assembly: InternalsVisibleTo("Server.Integration.Tests")]

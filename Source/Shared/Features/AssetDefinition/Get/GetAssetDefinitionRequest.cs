@@ -1,7 +1,7 @@
-﻿using Herc.Pwa.Shared.Features.Base;
+﻿using Shared.Features.Base;
 using MediatR;
 
-namespace Herc.Pwa.Shared.Features.AssetDefinition
+namespace Shared.Features.AssetDefinition
 {
   /// <summary>
   /// Get an AssetDefinition by ID

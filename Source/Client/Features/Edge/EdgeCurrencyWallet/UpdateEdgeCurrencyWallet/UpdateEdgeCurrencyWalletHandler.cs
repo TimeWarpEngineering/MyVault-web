@@ -1,13 +1,13 @@
 ﻿
-namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
+namespace Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
 {
   using System;
   using System.Collections.Generic;
   using System.Threading;
   using System.Threading.Tasks;
   using BlazorState;
-  using Herc.Pwa.Client.Features.Base;
-  using Herc.Pwa.Client.Features.Edge.State;
+  using Client.Features.Base;
+  using Client.Features.Edge.State;
   using MediatR;
 
   public class UpdateEdgeCurrencyWalletHandler : BaseHandler<UpdateEdgeCurrencyWalletAction, EdgeCurrencyWalletsState>

@@ -1,11 +1,11 @@
-﻿namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet
+﻿namespace Client.Features.Edge.EdgeCurrencyWallet
 {
   using System;
   using System.Threading;
   using System.Threading.Tasks;
   using BlazorState;
-  using Herc.Pwa.Client.Features.Base;
-  using Herc.Pwa.Client.Features.Edge.Dtos;
+  using Client.Features.Base;
+  using Client.Features.Edge.Dtos;
   using MediatR;
   using Microsoft.JSInterop;
 

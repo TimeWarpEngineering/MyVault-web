@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Components
+﻿namespace Client.Components
 {
   using System.Collections.Generic;
   using System.Linq;

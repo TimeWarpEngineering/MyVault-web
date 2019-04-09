@@ -1,7 +1,7 @@
-﻿namespace Herc.Pwa.Client.Pages
+﻿namespace Client.Pages
 {
-  using Herc.Pwa.Client.Components;
-  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
+  using Client.Components;
+  using Client.Features.Edge.EdgeCurrencyWallet;
 
   public class WalletPageModel : BaseComponent
   {

@@ -1,11 +1,11 @@
-﻿namespace Herc.Pwa.Server.Features.WeatherForecast
+﻿namespace Server.Features.WeatherForecast
 {
   using System;
   using System.Collections.Generic;
   using System.Linq;
   using System.Threading;
   using System.Threading.Tasks;
-  using Herc.Pwa.Shared.Features.WeatherForecast;
+  using Shared.Features.WeatherForecast;
   using MediatR;
 
   public class GetWeatherForecastsHandler : IRequestHandler<GetWeatherForecastsRequest, GetWeatherForecastsResponse>

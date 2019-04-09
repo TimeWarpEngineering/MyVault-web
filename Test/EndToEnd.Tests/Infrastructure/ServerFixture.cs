@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.EndToEnd.Tests.Infrastructure
+﻿namespace EndToEnd.Tests.Infrastructure
 {
   using System;
   using System.IO;
@@ -40,7 +40,7 @@
     protected static string FindSolutionDir()
     {
       return FindClosestDirectoryContaining(
-        aFilename: "Herc.Pwa.sln",
+        aFilename: "myvault.anthemgold.com.sln",
         aStartDirectory: Path.GetDirectoryName(typeof(ServerFixture).Assembly.Location));
     }
 

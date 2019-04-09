@@ -1,8 +1,8 @@
-﻿namespace Herc.Pwa.Client.Layouts.HercLayout
+﻿namespace Client.Layouts.HercLayout
 {
   using System.Threading.Tasks;
-  using Herc.Pwa.Client.Components;
-  using Herc.Pwa.Client.Pages;
+  using Client.Components;
+  using Client.Pages;
   using Microsoft.AspNetCore.Components;
 
   public class HercLayoutModel : BaseComponent, IComponent

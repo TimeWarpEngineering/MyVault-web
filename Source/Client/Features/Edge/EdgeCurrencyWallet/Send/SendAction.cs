@@ -1,7 +1,7 @@
-﻿namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet
+﻿namespace Client.Features.Edge.EdgeCurrencyWallet
 {
-  using Herc.Pwa.Shared.Enumerations.FeeOption;
-  using Herc.Pwa.Shared.Features.Base;
+  using Shared.Enumerations.FeeOption;
+  using Shared.Features.Base;
   using MediatR;
 
   public class SendAction : BaseRequest, IRequest<EdgeCurrencyWalletsState>

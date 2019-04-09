@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
-using Herc.Pwa.Client.Features.Edge.State;
+using Client.Features.Edge.EdgeCurrencyWallet;
+using Client.Features.Edge.State;
 using Shouldly;
 
-namespace Herc.Pwa.Client.Integration.Tests.Features.Edge.State
+namespace Client.Integration.Tests.Features.Edge.State
 {
   class EdgeCurrencyWalletUnitTests
   {

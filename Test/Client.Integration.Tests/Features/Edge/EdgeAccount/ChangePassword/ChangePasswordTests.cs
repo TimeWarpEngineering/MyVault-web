@@ -1,8 +1,8 @@
-﻿namespace Herc.Pwa.Client.Integration.Tests.Features.Edge.EdgeAccount.ChangePassword
+﻿namespace Client.Integration.Tests.Features.Edge.EdgeAccount.ChangePassword
 {
   using FluentValidation;
   using FluentValidation.Results;
-  using Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePassword;
+  using Client.Features.Edge.EdgeAccount.ChangePassword;
   using Shouldly;
 
   class ChangePasswordTests

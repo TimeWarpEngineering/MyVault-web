@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Shared.Features.AssetDefinition
+﻿namespace Shared.Features.AssetDefinition
 {
   public class MetricDefinitionDto
   {

@@ -1,8 +1,8 @@
-﻿namespace Herc.Pwa.Server.Features.Application.Get
+﻿namespace Server.Features.Application.Get
 {
   using System.Threading.Tasks;
-  using Herc.Pwa.Server.Features.Base;
-  using Herc.Pwa.Shared.Features.Application;
+  using Server.Features.Base;
+  using Shared.Features.Application;
   using MediatR;
   using Microsoft.AspNetCore.Mvc;
 

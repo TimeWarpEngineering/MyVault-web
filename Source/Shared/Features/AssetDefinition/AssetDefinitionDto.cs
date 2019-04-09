@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Shared.Features.AssetDefinition
+﻿namespace Shared.Features.AssetDefinition
 {
   using System;
   using System.Collections.Generic;

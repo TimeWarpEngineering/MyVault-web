@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Components.Iconic
+﻿namespace Client.Components.Iconic
 {
   using Microsoft.AspNetCore.Components;
   public class HercButtonIconModel : BaseComponent

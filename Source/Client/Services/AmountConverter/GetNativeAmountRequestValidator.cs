@@ -1,7 +1,7 @@
-﻿namespace Herc.Pwa.Client.Services
+﻿namespace Client.Services
 {
   using FluentValidation;
-  using Herc.Pwa.Shared;
+  using Shared;
   using System.Linq;
 
   public class GetNativeAmountRequestValidator : AbstractValidator<GetNativeAmountRequest>

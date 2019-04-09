@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Services
+﻿namespace Client.Services
 {
   using System;
   using System.Linq;

@@ -1,6 +1,6 @@
-﻿namespace Herc.Pwa.Shared.Features.AssetDefinition
+﻿namespace Shared.Features.AssetDefinition
 {
-  using Herc.Pwa.Shared.Features.Base;
+  using Shared.Features.Base;
   using MediatR;
 
   public class CreateAssetDefinitionRequest : BaseRequest, IRequest<CreateAssetDefinitionResponse>

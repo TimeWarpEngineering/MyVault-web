@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Server.Entities
+﻿namespace Server.Entities
 {
   /// <summary>
   /// This is base interface for all Entities.

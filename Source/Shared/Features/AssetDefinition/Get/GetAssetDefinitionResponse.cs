@@ -1,7 +1,7 @@
-﻿namespace Herc.Pwa.Shared.Features.AssetDefinition
+﻿namespace Shared.Features.AssetDefinition
 {
   using System;
-  using Herc.Pwa.Shared.Features.Base;
+  using Shared.Features.Base;
 
   /// <summary>
   /// Returns the AssetDefinitionDto if found

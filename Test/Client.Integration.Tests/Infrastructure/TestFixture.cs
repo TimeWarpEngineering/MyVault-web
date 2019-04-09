@@ -2,15 +2,15 @@
 {
   using System;
   using System.Reflection;
-  using Herc.Pwa.Client;
-  using Herc.Pwa.Client.Integration.Tests.Infrastructure;
+  using Client;
+  using Client.Integration.Tests.Infrastructure;
   using BlazorState;
   using Microsoft.AspNetCore.Blazor.Hosting;
   using Microsoft.Extensions.DependencyInjection;
-  using Herc.Pwa.Client.Services;
+  using Client.Services;
   using Nethereum.Util;
   using FluentValidation;
-  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
+  using Client.Features.Edge.EdgeCurrencyWallet;
 
   /// <summary>
   /// A known starting state(baseline) for all tests.

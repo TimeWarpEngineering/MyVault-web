@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Features.Edge.Dtos
+﻿namespace Client.Features.Edge.Dtos
 {
   public class SendDto
   {

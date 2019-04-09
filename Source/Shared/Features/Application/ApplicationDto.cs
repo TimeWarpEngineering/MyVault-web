@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Shared.Features.Application
+﻿namespace Shared.Features.Application
 {
   public class ApplicationDto
   {
