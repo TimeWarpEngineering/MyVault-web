@@ -40,8 +40,8 @@ namespace EndToEnd.Tests
           try
           {
             IWebElement noLayoutElement = WebDriver.FindElement(By.Id("NoLayout"));
-            IWebElement hercLayoutElement = WebDriver.FindElement(By.Id("HercLayout"));
-            return noLayoutElement.Displayed || hercLayoutElement.Displayed;
+            IWebElement anthemGoldLayoutElement = WebDriver.FindElement(By.Id("AnthemGoldLayout"));
+            return noLayoutElement.Displayed || anthemGoldLayoutElement.Displayed;
           }
           catch (StaleElementReferenceException)
           {

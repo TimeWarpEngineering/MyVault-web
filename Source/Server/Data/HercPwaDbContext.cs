@@ -6,11 +6,11 @@
   using Microsoft.EntityFrameworkCore;
   using Microsoft.EntityFrameworkCore.Storage;
 
-  public class HercPwaDbContext : DbContext
+  public class AnthemGoldPwaDbContext : DbContext
   {
     private IDbContextTransaction DbContextTransaction { get; set; }
 
-    public HercPwaDbContext(DbContextOptions<HercPwaDbContext> options) : base(options) { }
+    public AnthemGoldPwaDbContext(DbContextOptions<AnthemGoldPwaDbContext> options) : base(options) { }
 
     public DbSet<Application> Application { get; set; }
     public DbSet<AssetDefinition> AssetDefinitions { get; set; }

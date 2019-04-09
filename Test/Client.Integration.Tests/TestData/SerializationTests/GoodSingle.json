@@ -11,7 +11,7 @@
     "HERC": "1818985269397047952230"
   },
   "fiatCurrencyCode": "iso:USD",
-  "name": "one.herc",
+  "name": "com.anthemgold",
   "edgeTransactions": [
     {
       "blockHeight": 7350944,

@@ -1,11 +1,11 @@
-﻿namespace Client.Layouts.HercLayout
+﻿namespace Client.Layouts.AnthemGoldLayout
 {
   using System.Threading.Tasks;
   using Client.Components;
   using Client.Pages;
   using Microsoft.AspNetCore.Components;
 
-  public class HercLayoutModel : BaseComponent, IComponent
+  public class AnthemGoldLayoutModel : BaseComponent, IComponent
   {
 
     [Parameter] protected RenderFragment Body { get; set; }

@@ -28,8 +28,8 @@
         System.IServiceProvider services = scope.ServiceProvider;
         try
         {
-          HercPwaDbContext hercPwaDbContext = services.GetRequiredService<HercPwaDbContext>();
-          DbInitializer.Initialize(hercPwaDbContext);
+          AnthemGoldPwaDbContext anthemGoldPwaDbContext = services.GetRequiredService<AnthemGoldPwaDbContext>();
+          DbInitializer.Initialize(anthemGoldPwaDbContext);
         }
         catch (Exception exception)
         {

@@ -39,13 +39,13 @@ namespace Server.Integration.Tests
       };
     }
 
-    public static Task ResetCheckpoint() => s_checkpoint.Reset(s_configuration.GetConnectionString("HercPwaDbContext"));
+    public static Task ResetCheckpoint() => s_checkpoint.Reset(s_configuration.GetConnectionString("AnthemGoldPwaDbContext"));
 
     public static async Task ExecuteScopeAsync(Func<IServiceProvider, Task> action)
     {
       using (IServiceScope scope = s_scopeFactory.CreateScope())
       {
-        HercPwaDbContext dbContext = scope.ServiceProvider.GetService<HercPwaDbContext>();
+        AnthemGoldPwaDbContext dbContext = scope.ServiceProvider.GetService<AnthemGoldPwaDbContext>();
 
         try
         {
@@ -67,7 +67,7 @@ namespace Server.Integration.Tests
     {
       using (IServiceScope serviceScope = s_scopeFactory.CreateScope())
       {
-        HercPwaDbContext dbContext = serviceScope.ServiceProvider.GetService<HercPwaDbContext>();
+        AnthemGoldPwaDbContext dbContext = serviceScope.ServiceProvider.GetService<AnthemGoldPwaDbContext>();
 
         try
         {
@@ -87,17 +87,17 @@ namespace Server.Integration.Tests
       }
     }
 
-    public static Task ExecuteDbContextAsync(Func<HercPwaDbContext, Task> action)
-        => ExecuteScopeAsync(sp => action(sp.GetService<HercPwaDbContext>()));
+    public static Task ExecuteDbContextAsync(Func<AnthemGoldPwaDbContext, Task> action)
+        => ExecuteScopeAsync(sp => action(sp.GetService<AnthemGoldPwaDbContext>()));
 
-    public static Task ExecuteDbContextAsync(Func<HercPwaDbContext, IMediator, Task> action)
-        => ExecuteScopeAsync(sp => action(sp.GetService<HercPwaDbContext>(), sp.GetService<IMediator>()));
+    public static Task ExecuteDbContextAsync(Func<AnthemGoldPwaDbContext, IMediator, Task> action)
+        => ExecuteScopeAsync(sp => action(sp.GetService<AnthemGoldPwaDbContext>(), sp.GetService<IMediator>()));
 
-    public static Task<T> ExecuteDbContextAsync<T>(Func<HercPwaDbContext, Task<T>> action)
-        => ExecuteScopeAsync(sp => action(sp.GetService<HercPwaDbContext>()));
+    public static Task<T> ExecuteDbContextAsync<T>(Func<AnthemGoldPwaDbContext, Task<T>> action)
+        => ExecuteScopeAsync(sp => action(sp.GetService<AnthemGoldPwaDbContext>()));
 
-    public static Task<T> ExecuteDbContextAsync<T>(Func<HercPwaDbContext, IMediator, Task<T>> action)
-        => ExecuteScopeAsync(sp => action(sp.GetService<HercPwaDbContext>(), sp.GetService<IMediator>()));
+    public static Task<T> ExecuteDbContextAsync<T>(Func<AnthemGoldPwaDbContext, IMediator, Task<T>> action)
+        => ExecuteScopeAsync(sp => action(sp.GetService<AnthemGoldPwaDbContext>(), sp.GetService<IMediator>()));
 
     public static Task InsertAsync<T>(params T[] entities) where T : class =>
       ExecuteDbContextAsync

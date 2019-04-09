@@ -70,11 +70,11 @@
     <Exec Command="yarn install" />
   </Target>
 
-  <Target Name="RunWebpack" AfterTargets="ResolveReferences" Inputs="@(WebpackInputs)" Outputs="dist\blazorherc.js" DependsOnTargets="EnsureNpmRestored">
+  <Target Name="RunWebpack" AfterTargets="ResolveReferences" Inputs="@(WebpackInputs)" Outputs="dist\clientjs.js" DependsOnTargets="EnsureNpmRestored">
     <RemoveDir Directories="dist" />
     <Exec Command="yarn run build" />
     <ItemGroup>
-      <EmbeddedResource Include="dist\blazorherc.js" LogicalName="blazor:js:%(RecursiveDir)%(Filename)%(Extension)" />
+      <EmbeddedResource Include="dist\clientjs.js" LogicalName="blazor:js:%(RecursiveDir)%(Filename)%(Extension)" />
     </ItemGroup>
   </Target>
 </Project>

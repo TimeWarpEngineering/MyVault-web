@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Server.Data.Migrations
 {
-    [DbContext(typeof(HercPwaDbContext))]
+    [DbContext(typeof(AnthemGoldPwaDbContext))]
     [Migration("20180809072603_InitialCreate")]
     partial class InitialCreate
     {

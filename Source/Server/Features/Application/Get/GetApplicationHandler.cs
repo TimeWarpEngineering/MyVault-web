@@ -13,17 +13,17 @@
 
   public class GetApplicationHandler : IRequestHandler<GetApplicationRequest, GetApplicationResponse>
   {
-    public GetApplicationHandler(HercPwaDbContext aHercPwaDbContext, IConfigurationProvider aConfigurationProvider)
+    public GetApplicationHandler(AnthemGoldPwaDbContext aAnthemGoldPwaDbContext, IConfigurationProvider aConfigurationProvider)
     {
-      HercPwaDbContext = aHercPwaDbContext;
+      AnthemGoldPwaDbContext = aAnthemGoldPwaDbContext;
       ConfigurationProvider = aConfigurationProvider;
     }
-    private HercPwaDbContext HercPwaDbContext { get; }
+    private AnthemGoldPwaDbContext AnthemGoldPwaDbContext { get; }
     private IConfigurationProvider ConfigurationProvider { get; }
 
     public async Task<GetApplicationResponse> Handle(GetApplicationRequest aGetApplicationRequest, CancellationToken aCancellationToken)
     {
-      IQueryable<Application> applications = HercPwaDbContext.Application;
+      IQueryable<Application> applications = AnthemGoldPwaDbContext.Application;
       var getApplicationResponse = new GetApplicationResponse(aGetApplicationRequest.Id);
       getApplicationResponse.Application = await applications
           .ProjectTo<ApplicationDto>(ConfigurationProvider, aCancellationToken)

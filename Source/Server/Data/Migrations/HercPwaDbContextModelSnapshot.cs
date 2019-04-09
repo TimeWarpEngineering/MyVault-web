@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Server.Data.Migrations
 {
-    [DbContext(typeof(HercPwaDbContext))]
-    partial class HercPwaDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(AnthemGoldPwaDbContext))]
+    partial class AnthemGoldPwaDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

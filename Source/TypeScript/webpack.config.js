@@ -16,7 +16,7 @@ module.exports = {
     ]
   },
   entry: {
-    "blazorherc": "./source/Initialize.ts"
+    "clientjs": "./source/Initialize.ts"
   },
   output: {
     path: path.join(__dirname, "/dist"),

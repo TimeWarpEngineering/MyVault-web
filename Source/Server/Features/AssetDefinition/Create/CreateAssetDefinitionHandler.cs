@@ -9,13 +9,13 @@
 
   public class CreateAssetDefinitionHandler : IRequestHandler<CreateAssetDefinitionRequest, CreateAssetDefinitionResponse>
   {
-    public CreateAssetDefinitionHandler(HercPwaDbContext aHercPwaDbContext, IMapper aMapper)
+    public CreateAssetDefinitionHandler(AnthemGoldPwaDbContext aAnthemGoldPwaDbContext, IMapper aMapper)
     {
-      HercPwaDbContext = aHercPwaDbContext;
+      AnthemGoldPwaDbContext = aAnthemGoldPwaDbContext;
       Mapper = aMapper;
     }
 
-    private HercPwaDbContext HercPwaDbContext { get; }
+    private AnthemGoldPwaDbContext AnthemGoldPwaDbContext { get; }
     private IMapper Mapper { get; }
 
     public async Task<CreateAssetDefinitionResponse> Handle(
@@ -23,8 +23,8 @@
       CancellationToken aCancellationToken)
     {
       AssetDefinition assetDefintion = Mapper.Map<AssetDefinitionDto, AssetDefinition>(aCreateAssetDefinitionRequest.AssetDefinitionDto);
-      HercPwaDbContext.AssetDefinitions.Add(assetDefintion);
-      await HercPwaDbContext.SaveChangesAsync(aCancellationToken);
+      AnthemGoldPwaDbContext.AssetDefinitions.Add(assetDefintion);
+      await AnthemGoldPwaDbContext.SaveChangesAsync(aCancellationToken);
       var createAssetDefinitionResponse = new CreateAssetDefinitionResponse(aCreateAssetDefinitionRequest.Id)
       {
         AssetDefinition = Mapper.Map<AssetDefinition, AssetDefinitionDto>(assetDefintion)

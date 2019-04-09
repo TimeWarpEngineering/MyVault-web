@@ -52,8 +52,8 @@
       var assemblies = new Assembly[] { typeof(Startup).Assembly };
       aServiceCollection.AddAutoMapper(assemblies);
 
-      string connectionString = Configuration.GetConnectionString(nameof(HercPwaDbContext));
-      aServiceCollection.AddDbContext<HercPwaDbContext>(options =>
+      string connectionString = Configuration.GetConnectionString(nameof(AnthemGoldPwaDbContext));
+      aServiceCollection.AddDbContext<AnthemGoldPwaDbContext>(options =>
         options.UseSqlServer(connectionString)
       );
 

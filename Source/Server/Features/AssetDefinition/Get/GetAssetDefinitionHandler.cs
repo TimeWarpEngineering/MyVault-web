@@ -12,20 +12,20 @@
 
   public class GetAssetDefinitionHandler : IRequestHandler<GetAssetDefinitionRequest, GetAssetDefinitionResponse>
   {
-    public GetAssetDefinitionHandler(HercPwaDbContext aHercPwaDbContext,IConfigurationProvider aConfigurationProvider)
+    public GetAssetDefinitionHandler(AnthemGoldPwaDbContext aAnthemGoldPwaDbContext,IConfigurationProvider aConfigurationProvider)
     {
-      HercPwaDbContext = aHercPwaDbContext;
+      AnthemGoldPwaDbContext = aAnthemGoldPwaDbContext;
       ConfigurationProvider = aConfigurationProvider;
     }
 
-    private HercPwaDbContext HercPwaDbContext { get; }
+    private AnthemGoldPwaDbContext AnthemGoldPwaDbContext { get; }
     private IConfigurationProvider ConfigurationProvider { get; }
 
     public async Task<GetAssetDefinitionResponse> Handle(
       GetAssetDefinitionRequest aGetAssetDefinitionRequest,
       CancellationToken aCancellationToken)
     {
-      AssetDefinitionDto assetDefintionDto = await HercPwaDbContext
+      AssetDefinitionDto assetDefintionDto = await AnthemGoldPwaDbContext
         .AssetDefinitions
         .Where(aAssetDefinition => aAssetDefinition.AssetDefinitionId == aGetAssetDefinitionRequest.AssetDefinitionId)
         .ProjectTo<AssetDefinitionDto>(ConfigurationProvider)
