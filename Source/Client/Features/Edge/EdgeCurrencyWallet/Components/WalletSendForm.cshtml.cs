@@ -50,6 +50,8 @@
 
     protected async Task Send()
     {
+      FormData.Amount = FormData.Amount;
+      // TODO with next version of Blazor this should be updated.  reupdates form Amount due to side effects.
       ValidationResult = FormValidator.Validate(FormData);
 
       if (ValidationResult.IsValid)

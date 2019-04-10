@@ -12,7 +12,7 @@
 
     public string Balance => EdgeCurrencyWallet.SelectedCurrencyCode != null ? EdgeCurrencyWallet?.Balances[EdgeCurrencyWallet.SelectedCurrencyCode]: null;
 
-    public string CurrencyCode => EdgeCurrencyWallet.SelectedCurrencyCode;
+    public string CurrencyCode => EdgeCurrencyWallet.SelectedCurrencyCode ?? "ETH";
 
     public int Granularity => EdgeCurrencyWallet.Granularity[CurrencyCode];
 
