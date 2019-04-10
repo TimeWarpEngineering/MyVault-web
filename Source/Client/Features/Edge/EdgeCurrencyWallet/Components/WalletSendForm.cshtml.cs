@@ -21,7 +21,7 @@
 
     public WalletSendFormModel()
     {
-      LazyFormData = new Lazy<FormDataClass>(() => new FormDataClass(AmountConverter));
+      LazyFormData = new Lazy<FormDataClass>(() => new FormDataClass(AmountConverter, this));
     }
 
     [Inject] private AmountConverter AmountConverter { get; set; }
@@ -32,7 +32,8 @@
     protected FormValidatorClass FormValidator => new FormValidatorClass(SendValidator);
     protected string Balance => string.IsNullOrEmpty(FormData.SendAction.CurrencyCode) ? "" : EdgeCurrencyWallet.Balances[FormData.SendAction.CurrencyCode];
     protected EdgeCurrencyWallet EdgeCurrencyWallet => EdgeCurrencyWalletsState.EdgeCurrencyWallets[EdgeCurrencyWalletId];
-    protected string MaxAmount => AmountConverter.GetFormatedAmount(new FormatAmountRequest { Amount = Balance, DecimalPlacesToDisplay = 18, DecimalSeperator = '.', Granularity = 18 });
+    protected int Granularity => EdgeCurrencyWallet.Granularity[FormData.SendAction.CurrencyCode];
+    protected string MaxAmount => AmountConverter.GetFormatedAmount(new FormatAmountRequest { Amount = Balance, DecimalPlacesToDisplay = Granularity, DecimalSeperator = '.', Granularity = 18 });
     protected string Pattern => RegularExpressions.FloatingPointNumberNoSign('.');
     protected ValidationResult ValidationResult { get; set; }
     protected string WalletName => EdgeCurrencyWallet.Name;
@@ -63,14 +64,17 @@
     {
       private string _Amount;
 
-      public FormDataClass(AmountConverter aAmountConverter)
+      public FormDataClass(AmountConverter aAmountConverter, WalletSendFormModel aWalletSendFormModel)
       {
         _Amount = "";
         SendAction = new SendAction();
         AmountConverter = aAmountConverter;
+        WalletSendFormModel = aWalletSendFormModel;
       }
 
       private AmountConverter AmountConverter { get; }
+      private WalletSendFormModel WalletSendFormModel { get; }
+
       public string Amount { get => _Amount; set { _Amount = value; OnAmountChange(); } }
 
       public SendAction SendAction { get; set; }
@@ -81,7 +85,7 @@
         {
           Amount = Amount,
           DecimalSeperator = '.',
-          Granularity = 18
+          Granularity = WalletSendFormModel.Granularity
         };
         SendAction.NativeAmount = AmountConverter.GetNativeAmount(getNativeAmountRequest);
       }

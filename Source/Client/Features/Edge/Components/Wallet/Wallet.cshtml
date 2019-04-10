@@ -23,7 +23,7 @@
   </ul>
 
   <br />
-  <Balance Balance="@Balance" CurrencyCode="@CurrencyCode" DecimalPlacesToDisplay="6" />
+  <Balance Balance="@Balance" CurrencyCode="@CurrencyCode" Granularity="@Granularity" DecimalPlacesToDisplay="6" />
   <br />
 
   <div class="d-flex flex-column align-items-center mt-2">
@@ -35,7 +35,7 @@
       <span class="oi oi-data-transfer-download" aria-hidden="true"></span> Receive
     </NavLink>
   </div>
-  <EdgeTransactionList CurrencyCode="@CurrencyCode" />
+  <EdgeTransactionList CurrencyCode="@CurrencyCode" Granularity="@Granularity"/>
 </div>
 
 <style>

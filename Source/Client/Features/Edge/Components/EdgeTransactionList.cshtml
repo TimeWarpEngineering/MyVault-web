@@ -6,7 +6,7 @@
   <tbody>
     @foreach (var edgeTransaction in EdgeTransactions)
     {
-      <EdgeTransactionComponent EdgeTransaction="edgeTransaction" />
+      <EdgeTransactionComponent EdgeTransaction="edgeTransaction" Granularity="@Granularity" />
     }
   </tbody>
 </table>

@@ -14,9 +14,12 @@
       EdgeTransactions = new List<EdgeTransaction>();
       Balances = new Dictionary<string, string>();
       Keys = new Dictionary<string, string>();
+      // TODO Magic strings and numbers 
+      Granularity = new Dictionary<string, int> { { "ETH", 18 }, { "AHLD", 9 }, { "AGLD", 9 } };
     }
 
     public Dictionary<string, string> Balances { get; set; }
+    public Dictionary<string, int> Granularity { get; set; }
     public string FiatCurrencyCode { get; set; }
     public string Id { get; set; }
     public Dictionary<string, string> Keys { get; set; }

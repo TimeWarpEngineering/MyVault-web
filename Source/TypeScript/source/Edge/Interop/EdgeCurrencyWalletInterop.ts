@@ -11,11 +11,12 @@ import { EdgeGetTransactionsOptions } from '../TypeDefinitions/EdgeGetTransactio
 
 export class EdgeCurrencyWalletInterop {
   private EdgeCurrencyWallet: EdgeCurrencyWallet;
+  
   private AnthemGoldTokenInfo: EdgeTokenInfo = {
-    currencyName: 'AnthemGold',
-    contractAddress: 'TBD',
-    currencyCode: 'AGLD',
-    multiplier: '1000000000000000000'
+    currencyName: 'AnthemHold',
+    contractAddress: '0x62AbD749d52043Cd6A5542247D604491186540c2',
+    currencyCode: 'AHLD',
+    multiplier: '1000000000'
   };
 
   constructor(edgeCurrencyWallet: EdgeCurrencyWallet) {

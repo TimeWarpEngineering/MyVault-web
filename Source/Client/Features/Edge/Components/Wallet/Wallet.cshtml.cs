@@ -14,6 +14,8 @@
 
     public string CurrencyCode => EdgeCurrencyWallet.SelectedCurrencyCode;
 
+    public int Granularity => EdgeCurrencyWallet.Granularity[CurrencyCode];
+
     public void OnClickHandler(string aCurrencyCode) => EdgeCurrencyWallet.SelectedCurrencyCode = aCurrencyCode;
 
     
