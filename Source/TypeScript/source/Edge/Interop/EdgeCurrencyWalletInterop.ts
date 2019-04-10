@@ -13,9 +13,9 @@ export class EdgeCurrencyWalletInterop {
   private EdgeCurrencyWallet: EdgeCurrencyWallet;
   
   private AnthemGoldTokenInfo: EdgeTokenInfo = {
-    currencyName: 'AnthemHold',
-    contractAddress: '0x62AbD749d52043Cd6A5542247D604491186540c2',
-    currencyCode: 'AHLD',
+    currencyName: 'AnthemGold',
+    contractAddress: '0xd668dAb892F1B702a6B9EE01342508B14d4E62C5',
+    currencyCode: 'AGLD',
     multiplier: '1000000000'
   };
 
