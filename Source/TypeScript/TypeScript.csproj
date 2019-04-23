@@ -77,4 +77,6 @@
       <EmbeddedResource Include="dist\clientjs.js" LogicalName="blazor:js:clientjs.js" />
     </ItemGroup>
   </Target>
+
+  <ProjectExtensions><VisualStudio><UserProperties webpack_1config_1json__JsonSchema="http://json.schemastore.org/webextension" /></VisualStudio></ProjectExtensions>
 </Project>
