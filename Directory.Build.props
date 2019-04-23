@@ -41,6 +41,6 @@
     <SeleniumSupportVersion>3.141.0</SeleniumSupportVersion>
     <SeleniumWebDriverVersion>3.141.0</SeleniumWebDriverVersion>
     <ShouldlyVersion>3.0.2</ShouldlyVersion>
-
+    <Nethereum>3.1.2</Nethereum>
   </PropertyGroup>
 </Project>
