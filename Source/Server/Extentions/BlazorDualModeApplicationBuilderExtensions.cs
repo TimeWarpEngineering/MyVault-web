@@ -48,8 +48,8 @@
       // TODO: Make the .blazor.config file contents sane
       // Currently the items in it are bizarre and don't relate to their purpose,
       // hence all the path manipulation here. We shouldn't be hardcoding 'dist' here either.
-      var env = (IHostingEnvironment)aApplicationBuilder.ApplicationServices.GetService(typeof(IHostingEnvironment));
-      var config = BlazorConfig.Read(aBlazorOptions.ClientAssemblyPath);
+      var env = (IWebHostEnvironment)aApplicationBuilder.ApplicationServices.GetService(typeof(IWebHostEnvironment));
+      BlazorConfig config = BlazorConfig.Read(aBlazorOptions.ClientAssemblyPath);
 
       // The rebuild stuff is private and I dont' want to pull in all the source.
       // I frankly never get the auto stuff to work anyway

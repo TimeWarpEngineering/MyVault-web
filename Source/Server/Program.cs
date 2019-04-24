@@ -7,17 +7,14 @@
   using Microsoft.Extensions.Configuration;
   using Microsoft.Extensions.DependencyInjection;
   using Microsoft.Extensions.Logging;
+  using Microsoft.Extensions.Hosting;
 
   public class Program
   {
-    public static IWebHost BuildWebHost(string[] aArgumentArray) =>
-      WebHost
-        .CreateDefaultBuilder(aArgumentArray)
-        .UseConfiguration(new ConfigurationBuilder()
-          .AddCommandLine(aArgumentArray)
-          .Build())
-        .UseStartup<Startup>()
-        .Build();
+    public static IHostBuilder CreateHostBuilder(string[] aArgumentArray) =>
+      Host.CreateDefaultBuilder(aArgumentArray)
+        .ConfigureWebHostDefaults(aWebHostBuilder =>
+       
 
     public static void Main(string[] aArgumentArray)
     {
