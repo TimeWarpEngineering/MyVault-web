@@ -23,7 +23,7 @@
       {
         Console.WriteLine($"OnLoginActionHandler");
 
-        await Mediator.Send(new BlazorState.Features.Routing.RouteChangeAction { NewRoute = WalletPageModel.Route });
+        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = WalletPageModel.Route });
         return EdgeState;
       }
     }
