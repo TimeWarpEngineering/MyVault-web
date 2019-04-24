@@ -1,4 +1,4 @@
-﻿namespace MyVault_web.Client
+﻿namespace Client
 {
   using System.Threading.Tasks;
   using BlazorState.Pipeline.ReduxDevTools;
