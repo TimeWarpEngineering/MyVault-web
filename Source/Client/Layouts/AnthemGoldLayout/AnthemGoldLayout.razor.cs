@@ -16,7 +16,7 @@
       if (!EdgeAccountState.LoggedIn)
       {
         // Route to Edge to Login
-        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = EdgePageModel.Route });
+        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = EdgePageModel.Route });
       }
     }
   }

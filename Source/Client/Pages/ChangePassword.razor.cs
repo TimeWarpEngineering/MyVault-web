@@ -29,7 +29,7 @@ namespace Client.Pages
       {
         await Mediator.Send(changePasswordAction);
         Console.WriteLine("Change the Route to the Home Page.");
-        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = HomeModel.Route });
+        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = HomeModel.Route });
       }
 
     }

@@ -58,7 +58,7 @@
       {
         await Mediator.Send(FormData.SendAction);
 
-        await Mediator.Send(new ChangeRouteRequest { NewRoute = WalletPageModel.Route });
+        await Mediator.Send(new ChangeRouteAction { NewRoute = WalletPageModel.Route });
       }
     }
 
