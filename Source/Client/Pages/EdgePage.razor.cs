@@ -27,9 +27,9 @@
       await Mediator.Send(new ShowLoginWindowEdgeAction());
     }
 
-    protected override async Task OnInitAsync()
+    protected override async Task OnAfterRenderAsync()
     {
-      Console.WriteLine("EdgeModel.OnInitAsync");
+      Console.WriteLine("EdgeModel.OnAfterRenderAsync");
       Console.WriteLine(typeof(OnLoginAction).AssemblyQualifiedName);
       await InitializeEdge();
       await ShowLoginWindow();

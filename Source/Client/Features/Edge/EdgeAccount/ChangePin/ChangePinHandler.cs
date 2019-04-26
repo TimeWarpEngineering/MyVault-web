@@ -23,7 +23,7 @@ namespace Client.Features.Edge.EdgeAccount.ChangePin
     }
 
     private IMediator Mediator { get; }
-    [Inject] IJSRuntime JSRuntime { get; }
+    [Inject] IJSRuntime JSRuntime { get; set; }
 
     public override async Task<EdgeAccountState> Handle(ChangePinAction aChangePinAction, CancellationToken aCancellationToken)
     {

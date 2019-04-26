@@ -9,7 +9,7 @@
   {
     public const string Route = "logout";
 
-    protected override async Task OnInitAsync()
+    protected override async Task OnAfterRenderAsync()
     {
       await Mediator.Send(new LogoutAction());
       Console.WriteLine("Change the Route to the Home Page.");

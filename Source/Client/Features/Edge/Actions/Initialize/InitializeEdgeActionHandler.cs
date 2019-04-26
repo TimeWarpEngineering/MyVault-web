@@ -1,6 +1,5 @@
 ﻿namespace Client.Features.Edge
 {
-  using System;
   using System.Threading;
   using System.Threading.Tasks;
   using BlazorState;
@@ -12,13 +11,18 @@
 
     public class InitializeEdgeActionHandler : BaseHandler<InitailizeEdgeAction, EdgeState>
     {
+      public InitializeEdgeActionHandler(IStore aStore, IJSRuntime aJSRuntime):base(aStore)
+      {
+        JSRuntime = aJSRuntime;
+      }
+
       public InitializeEdgeActionHandler(IStore aStore) : base(aStore) { }
-        [Inject] IJSRuntime JSRuntime { get;}
+      private IJSRuntime JSRuntime { get; }
 
       public override async Task<EdgeState> Handle(InitailizeEdgeAction aInitailizeEdgeRequest, CancellationToken aCancellationToken)
       {
         await JSRuntime.InvokeAsync<bool>(EdgeInteropMethodNames.EdgeInterop_InitializeEdge);
-        
+
         return EdgeState;
       }
     }

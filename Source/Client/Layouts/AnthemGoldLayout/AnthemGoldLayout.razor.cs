@@ -10,7 +10,7 @@
 
     [Parameter] protected RenderFragment Body { get; set; }
 
-    protected override async Task OnInitAsync()
+    protected override async Task OnAfterRenderAsync()
     {
       // Are we in the proper state for this page?
       if (!EdgeAccountState.LoggedIn)
