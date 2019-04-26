@@ -1,7 +1,10 @@
-const path = require("path"); const webpack = require("webpack"); module.exports = {
+const path = require("path");
+const webpack = require("webpack");
+
+module.exports = {
   mode: 'development',
   resolve: {
-    extensions: [ ".ts", ".js" ]
+    extensions: [".ts", ".js"]
   },
   devtool: "inline-source-map",
   module: {
@@ -16,8 +19,7 @@ const path = require("path"); const webpack = require("webpack"); module.exports
     "clientjs": "./source/Initialize.ts"
   },
   output: {
-    path: path.join(__dirname,
-    "/dist"),
+    path: path.join(__dirname, "/dist"),
     filename: "[name].js"
   }
 };

@@ -12,7 +12,7 @@
     public class LogoutHandler : BaseHandler<LogoutAction, EdgeAccountState>
     {
       public LogoutHandler(IStore aStore) : base(aStore) { }
-      [Inject] IJSRuntime JSRuntime { get; }
+      [Inject] IJSRuntime JSRuntime { get; set; }
       public override async Task<EdgeAccountState> Handle(LogoutAction aShowLoginWindowEdgeRequest, CancellationToken aCancellationToken)
       {
         await JSRuntime.InvokeAsync<bool>(EdgeInteropMethodNames.EdgeAccountInterop_Logout);

@@ -18,7 +18,7 @@
     }
 
     private IMediator Mediator { get; }
-    [Inject] IJSRuntime JSRuntime { get; }
+    [Inject] IJSRuntime JSRuntime { get; set; }
     public override async Task<EdgeCurrencyWalletsState> Handle(SendAction aSendAction, CancellationToken aCancellationToken)
     {
       SendDto sendDto = MapSendActionToSendDto(aSendAction);

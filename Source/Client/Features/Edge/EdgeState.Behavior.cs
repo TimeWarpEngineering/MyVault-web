@@ -15,10 +15,7 @@
 
     public override object Clone() => new EdgeState(this);
 
-    protected override void Initialize()
-    {
-      EdgeWalletInfo = null;
-    }
+    protected override void Initialize() => EdgeWalletInfo = null;
   }
 
 }

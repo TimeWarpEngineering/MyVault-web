@@ -3,7 +3,6 @@
   using System.Reflection;
   using AutoMapper;
   using Server.Data;
-
   using BlazorState;
   using MediatR;
   using Microsoft.AspNetCore.Builder;
@@ -28,7 +27,7 @@
     public void Configure(IApplicationBuilder aApplicationBuilder, IWebHostEnvironment aWebHostEnvironment)
     {
       aApplicationBuilder.UseHttpsRedirection();
-      aApplicationBuilder.UseStaticFiles();
+      //aApplicationBuilder.UseStaticFiles();
       aApplicationBuilder.UseResponseCompression();
 
       if (aWebHostEnvironment.IsDevelopment())

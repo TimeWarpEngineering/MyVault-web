@@ -14,7 +14,7 @@
     public class ShowLoginWindowEdgeActionHandler : BaseHandler<ShowLoginWindowEdgeAction, EdgeState>
     {
       public ShowLoginWindowEdgeActionHandler(IStore aStore) : base(aStore) { }
-      [Inject] IJSRuntime JSRuntime { get; }
+      [Inject] IJSRuntime JSRuntime { get; set; }
       public override async Task<EdgeState> Handle(ShowLoginWindowEdgeAction aShowLoginWindowEdgeRequest, CancellationToken aCancellationToken)
       {
         await JSRuntime.InvokeAsync<bool>(EdgeInteropMethodNames.EdgeUiContextInterop_ShowLoginWindow);

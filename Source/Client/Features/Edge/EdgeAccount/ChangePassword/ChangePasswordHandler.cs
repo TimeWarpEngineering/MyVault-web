@@ -23,7 +23,7 @@ namespace Client.Features.Edge.EdgeAccount.ChangePassword
     }
 
     private IMediator Mediator { get; }
-    [Inject] IJSRuntime JSRuntime { get; }
+    [Inject] IJSRuntime JSRuntime { get; set; }
 
     public override async Task<EdgeAccountState> Handle(ChangePasswordAction aChangePasswordAction, CancellationToken aCancellationToken)
     {
