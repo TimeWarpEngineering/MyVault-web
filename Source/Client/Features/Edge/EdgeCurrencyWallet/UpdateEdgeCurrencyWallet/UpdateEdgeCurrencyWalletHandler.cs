@@ -8,18 +8,11 @@ namespace Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
   using BlazorState;
   using Client.Features.Base;
   using Client.Features.Edge.State;
-  using MediatR;
 
   public class UpdateEdgeCurrencyWalletHandler : BaseHandler<UpdateEdgeCurrencyWalletAction, EdgeCurrencyWalletsState>
   {
-    public UpdateEdgeCurrencyWalletHandler(
-      IStore aStore,
-      IMediator aMediator) : base(aStore)
-    {
-      Mediator = aMediator;
-    }
-
-    private IMediator Mediator { get; }
+    public UpdateEdgeCurrencyWalletHandler(IStore aStore) : base(aStore)
+    { }
 
     public override async Task<EdgeCurrencyWalletsState> Handle(UpdateEdgeCurrencyWalletAction aUpdateEdgeCurrencyWalletAction, CancellationToken aCancellationToken)
     {

@@ -6,19 +6,16 @@
   using BlazorState;
   using Client.Features.Base;
   using Client.Features.Edge.Dtos;
-  using MediatR;
-  using Microsoft.AspNetCore.Components;
   using Microsoft.JSInterop;
 
   public class SendHandler : BaseHandler<SendAction, EdgeCurrencyWalletsState>
   {
-    public SendHandler(IStore aStore, IMediator aMediator) : base(aStore)
+    public SendHandler(IStore aStore, IJSRuntime aJSRuntime) : base(aStore)
     {
-      Mediator = aMediator;
+      JSRuntime = aJSRuntime;
     }
-
-    private IMediator Mediator { get; }
-    [Inject] IJSRuntime JSRuntime { get; set; }
+    public SendHandler(IStore aStore ) : base(aStore) { }
+    private IJSRuntime JSRuntime { get; }
     public override async Task<EdgeCurrencyWalletsState> Handle(SendAction aSendAction, CancellationToken aCancellationToken)
     {
       SendDto sendDto = MapSendActionToSendDto(aSendAction);

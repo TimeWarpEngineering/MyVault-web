@@ -10,12 +10,13 @@
   using Microsoft.JSInterop;
 
   public class WalletReceivePageModel : BaseComponent
-  {
+      {
+
     private EdgeCurrencyWallet EdgeCurrencyWallet => EdgeCurrencyWalletsState.EdgeCurrencyWallets[EdgeCurrencyWalletId];
     private string EdgeCurrencyWalletId => WebUtility.UrlDecode(EdgeCurrencyWalletEncodedId);
     [Parameter] protected string EdgeCurrencyWalletEncodedId { get; set; }
     [Inject] public AmountConverter AmountConverter { get; set; }
-    [Inject] IJSRuntime JSRuntime { get; set; }
+   [Inject] IJSRuntime JSRuntime { get; set; }
     public string ReceiveAddress => EdgeCurrencyWallet.Keys["ethereumAddress"];
 
     public string WalletName => EdgeCurrencyWallet.Name;

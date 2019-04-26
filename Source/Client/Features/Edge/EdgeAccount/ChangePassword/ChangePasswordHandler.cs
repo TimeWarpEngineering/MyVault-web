@@ -15,15 +15,13 @@ namespace Client.Features.Edge.EdgeAccount.ChangePassword
   {
 
 
-    public ChangePasswordHandler(
-      IStore aStore,
-      IMediator aMediator) : base(aStore)
+    public ChangePasswordHandler(IStore aStore, IJSRuntime aJSRuntime) : base(aStore)
     {
-      Mediator = aMediator;
+      JSRuntime = aJSRuntime;
     }
 
-    private IMediator Mediator { get; }
-    [Inject] IJSRuntime JSRuntime { get; set; }
+   
+    private IJSRuntime JSRuntime { get; }
 
     public override async Task<EdgeAccountState> Handle(ChangePasswordAction aChangePasswordAction, CancellationToken aCancellationToken)
     {
