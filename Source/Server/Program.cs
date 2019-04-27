@@ -25,20 +25,20 @@
     {
       IWebHost host = BuildWebHost(aArgumentArray);
 
-      using (IServiceScope scope = host.Services.CreateScope())
-      {
-        System.IServiceProvider services = scope.ServiceProvider;
-        try
-        {
-          AnthemGoldPwaDbContext anthemGoldPwaDbContext = services.GetRequiredService<AnthemGoldPwaDbContext>();
-          DbInitializer.Initialize(anthemGoldPwaDbContext);
-        }
-        catch (Exception exception)
-        {
-          ILogger<Program> logger = services.GetRequiredService<ILogger<Program>>();
-          logger.LogError(exception, "An error occurred creating the DB.");
-        }
-      }
+      //using (IServiceScope scope = host.Services.CreateScope())
+      //{
+      //  System.IServiceProvider services = scope.ServiceProvider;
+      //  try
+      //  {
+      //    AnthemGoldPwaDbContext anthemGoldPwaDbContext = services.GetRequiredService<AnthemGoldPwaDbContext>();
+      //    DbInitializer.Initialize(anthemGoldPwaDbContext);
+      //  }
+      //  catch (Exception exception)
+      //  {
+      //    ILogger<Program> logger = services.GetRequiredService<ILogger<Program>>();
+      //    logger.LogError(exception, "An error occurred creating the DB.");
+      //  }
+      //}
       host.Run();
     }
   }
