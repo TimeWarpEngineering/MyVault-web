@@ -16,7 +16,6 @@
         JSRuntime = aJSRuntime;
       }
 
-      public InitializeEdgeActionHandler(IStore aStore) : base(aStore) { }
       private IJSRuntime JSRuntime { get; }
 
       public override async Task<EdgeState> Handle(InitailizeEdgeAction aInitailizeEdgeRequest, CancellationToken aCancellationToken)

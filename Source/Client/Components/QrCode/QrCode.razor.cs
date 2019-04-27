@@ -1,4 +1,4 @@
-﻿namespace Client.Components
+﻿namespace Client.Components.QrCode
 {
   using System.Net;
   using Microsoft.AspNetCore.Components;
