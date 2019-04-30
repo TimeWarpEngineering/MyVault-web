@@ -1,0 +1,19 @@
+{
+  "name": "myvault.anthemgold.com",
+  "short_name": "AGLD PWA",
+  "description": "Progressive Web Application Wallet for AnthemGold",
+  "background_color": "#8942f4",
+  "theme_color": "#536878",
+  "icons": [
+    {
+      "src": "/images/icon192x192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/icon512x512.png",
+      "sizes": "512x512"
+    }
+  ],
+  "display": "standalone",
+  "start_url": "/"
+}
