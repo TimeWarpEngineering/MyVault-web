@@ -4,12 +4,12 @@
   using BlazorState;
   using BlazorState.Services;
   using FluentValidation;
-  using Client.Features.Edge.EdgeCurrencyWallet;
   using Client.Services;
+  using Client.Components.Shared;
+  using Client.Features.Edge.EdgeCurrencyWallet;
   using Microsoft.AspNetCore.Components.Builder;
   using Microsoft.Extensions.DependencyInjection;
   using Nethereum.Util;
-  using Client.Components.Shared;
 
   public class Startup
   {
