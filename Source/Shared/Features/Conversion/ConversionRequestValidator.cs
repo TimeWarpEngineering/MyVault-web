@@ -6,11 +6,11 @@
   {
     public ConversionRequestValidator()
     {
-      RuleFor(aConversionRequest => aConversionRequest.FromCurrency)
-        .Equals(ConversionRequest.AgldCurrencyCode);
+      RuleFor(aConversionRequest => aConversionRequest.FromCurrency.ToLower())
+        .Equal(ConversionRequest.AgldCurrencyCode.ToLower());
 
-      RuleFor(aGetNativeAmountRequest => aGetNativeAmountRequest.ToCurrency)
-        .Equals(ConversionRequest.UsdCurrencyCode);
+      RuleFor(aGetNativeAmountRequest => aGetNativeAmountRequest.ToCurrency.ToLower())
+        .Equal(ConversionRequest.UsdCurrencyCode.ToLower());
 
     }
   }
