@@ -11,10 +11,12 @@
     /// <summary>
     /// Base constructor
     /// </summary>
+    /// Not sure if this below belongs here....
     public ConversionResponse() { }
     public string CurrencyA { get; set; }
     public string CurrencyB { get; set; }
     public double Rate { get; set; }
+   
     /// <summary>
     /// Constructor
     /// </summary>
