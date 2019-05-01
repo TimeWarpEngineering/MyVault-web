@@ -3,36 +3,40 @@
   using System;
   using Shared.Features.Base;
 
+
   /// <summary>
   /// Returns the Application DTO
   /// </summary>
   public class ConversionResponse : BaseResponse
   {
+    private ConversionRate aConversionRate;
+
     /// <summary>
     /// Base constructor
     /// </summary>
     /// Not sure if this below belongs here....
     public ConversionResponse() { }
-    public string CurrencyA { get; set; }
-    public string CurrencyB { get; set; }
-    public double Rate { get; set; }
-   
+
+
     /// <summary>
     /// Constructor
     /// </summary>
     /// <param name="aConversionRequestId">Pass in the associated RequestId</param>
-    public ConversionResponse(Guid aRequestId) : base(aRequestId)
-
+    public ConversionResponse(Guid aRequestId) 
     {
-      CurrencyA = CurrencyA;
-      CurrencyB = CurrencyB;
-      Rate = Rate;
+      aConversionRate = new ConversionRate();
+      
     }
-
+    internal class ConversionRate
+    {
+      public string CurrencyA { get; set; }
+      public string CurrencyB { get; set; }
+      public double Rate { get; set; }
+    }
     /// <summary>
     /// The Application DTO
     /// </summary>
-    
+
 
   }
 }
