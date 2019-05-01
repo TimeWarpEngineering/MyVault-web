@@ -6,7 +6,7 @@
   /// <summary>
   /// Get the Application Object
   /// </summary>
-  public class ConversionRequest : BaseRequest, IRequest<ConversionResponse>
+  public class ConversionRequest : BaseRequest, IRequest<ConversionRequest>
   {
     public const string Route = "api/Conversion";
 

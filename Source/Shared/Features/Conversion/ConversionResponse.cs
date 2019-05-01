@@ -9,7 +9,6 @@
   /// </summary>
   public class ConversionResponse : BaseResponse
   {
-    private ConversionRate aConversionRate;
 
     /// <summary>
     /// Base constructor
@@ -24,15 +23,11 @@
     /// <param name="aConversionRequestId">Pass in the associated RequestId</param>
     public ConversionResponse(Guid aRequestId) 
     {
-      aConversionRate = new ConversionRate();
+      ConversionRate = new ConversionDto();
+      RequestId = aRequestId;
       
     }
-    internal class ConversionRate
-    {
-      public string CurrencyA { get; set; }
-      public string CurrencyB { get; set; }
-      public double Rate { get; set; }
-    }
+    internal ConversionDto ConversionRate;
     /// <summary>
     /// The Application DTO
     /// </summary>
