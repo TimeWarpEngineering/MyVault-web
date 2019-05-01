@@ -23,11 +23,9 @@
     /// <param name="aConversionRequestId">Pass in the associated RequestId</param>
     public ConversionResponse(Guid aRequestId) 
     {
-      ConversionRate = new ConversionDto();
-      RequestId = aRequestId;
+      
       
     }
-    internal ConversionDto ConversionRate;
     /// <summary>
     /// The Application DTO
     /// </summary>

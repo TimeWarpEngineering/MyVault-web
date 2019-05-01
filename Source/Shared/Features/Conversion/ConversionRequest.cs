@@ -10,6 +10,5 @@
   {
     public const string Route = "api/Conversion";
 
-    
   }
 }
