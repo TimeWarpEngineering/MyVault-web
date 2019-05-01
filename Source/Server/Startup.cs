@@ -14,6 +14,9 @@
   using Microsoft.Extensions.Hosting;
   using Newtonsoft.Json.Serialization;
   using System.Linq;
+  using System.Net.Http;
+  using Shared.Features.Conversion;
+  using FluentValidation;
 
   public class Startup
   {
@@ -70,9 +73,11 @@
       );
 
       aServiceCollection.AddMvc()
+        //.AddFluentValidation()
         .AddNewtonsoftJson(aOptions =>
            aOptions.SerializerSettings.ContractResolver =
               new DefaultContractResolver());
+
 
       aServiceCollection.AddResponseCompression(opts =>
       {
@@ -86,6 +91,10 @@
          typeof(Client.Startup).GetTypeInfo().Assembly
        }
       );
+
+      aServiceCollection.AddSingleton<HttpClient>();
+      aServiceCollection.AddScoped<IValidator<ConversionRequest>, ConversionRequestValidator>();
+
       new Client.Startup().ConfigureServices(aServiceCollection);
 
       aServiceCollection.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);

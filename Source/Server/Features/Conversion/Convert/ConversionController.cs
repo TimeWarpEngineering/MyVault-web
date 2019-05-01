@@ -7,9 +7,9 @@
   using Microsoft.AspNetCore.Mvc;
 
   [Route(ConversionRequest.Route)]
-  public class ConvertController : BaseController<ConversionRequest, ConversionResponse>
+  public class ConversionController : BaseController<ConversionRequest, ConversionResponse>
   {
-    public ConvertController(IMediator aMediator) : base(aMediator) { }
+    public ConversionController(IMediator aMediator) : base(aMediator) { }
 
     [HttpGet]
     public async Task<IActionResult> Get(ConversionRequest aConversionRequest) => await Send(aConversionRequest);
