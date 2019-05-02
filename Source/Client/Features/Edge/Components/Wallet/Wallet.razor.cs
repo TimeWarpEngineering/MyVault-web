@@ -35,7 +35,7 @@
 
         }
 
-    protected override async Task OnInitAsync() => ConversionResponse = await HttpClient.SendJsonAsync<ConversionResponse>(HttpMethod.Get, ConversionRequest.Route, ConversionRequest);
+    //protected override async Task OnInitAsync() => ConversionResponse = await HttpClient.SendJsonAsync<ConversionResponse>(HttpMethod.Get, ConversionRequest.Route, ConversionRequest);
 
     //private Task<T> HttpClient<T>(string route, ConversionRequest conversionRequest) => throw new NotImplementedException();
   }
