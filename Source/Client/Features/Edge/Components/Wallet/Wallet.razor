@@ -1,16 +1,18 @@
 ﻿@inherits WalletModel
 @using Client.Pages
 @using Client.Features.Edge.Components
+@using Shared.Features.Conversion
 
-<div id="@Id">
-  <ul class="nav justify-content-center">
-    @foreach (var kvp in EdgeCurrencyWallet.Balances)
-    {
-      var isActive = kvp.Key == EdgeCurrencyWallet.SelectedCurrencyCode;
+
+  <div id="@Id">
+    <ul class="nav justify-content-center">
+      @foreach (var kvp in EdgeCurrencyWallet.Balances)
+      {
+        var isActive = kvp.Key == EdgeCurrencyWallet.SelectedCurrencyCode;
 
       <li class="nav-item">
         <button onclick="@( () => OnClickHandler(kvp.Key))"
-                class="nav-link btn btn-link @(isActive ? "active":null)">
+                class="nav-link btn btn-link @(isActive ? "active" : null)">
           @kvp.Key
           @if (isActive)
           {
@@ -19,24 +21,25 @@
         </button>
         <span class="d-none">xx%</span>
       </li>
-    }
-  </ul>
+      }
+    </ul>
 
-  <br />
-  <Balance Balance="@Balance" CurrencyCode="@CurrencyCode" Granularity="@Granularity" DecimalPlacesToDisplay="6" />
-  <br />
-
-  <div class="d-flex flex-column align-items-center mt-2">
-    <NavLink class="btn btn-primary btn-dark" href="@WalletSendPageModel.Route(EdgeCurrencyWallet.EncodedId)">
-      <span class="oi oi-data-transfer-upload" aria-hidden="true"></span> Send
-    </NavLink>
-    <div style="height: 1rem"></div>
-    <NavLink class="btn btn-primary btn-dark" href="@WalletReceivePageModel.Route(EdgeCurrencyWallet.EncodedId)">
-      <span class="oi oi-data-transfer-download" aria-hidden="true"></span> Receive
-    </NavLink>
+    <br />
+    <Balance Balance="@Balance" CurrencyCode="@CurrencyCode" Granularity="@Granularity" DecimalPlacesToDisplay="6" />
+  
+    <p>@ConversionResponse.Rate</p>
+    <br />
+    <div class="d-flex flex-column align-items-center mt-2">
+      <NavLink class="btn btn-primary btn-dark" href="@WalletSendPageModel.Route(EdgeCurrencyWallet.EncodedId)">
+        <span class="oi oi-data-transfer-upload" aria-hidden="true"></span> Send
+      </NavLink>
+      <div style="height: 1rem"></div>
+      <NavLink class="btn btn-primary btn-dark" href="@WalletReceivePageModel.Route(EdgeCurrencyWallet.EncodedId)">
+        <span class="oi oi-data-transfer-download" aria-hidden="true"></span> Receive
+      </NavLink>
+    </div>
+    <EdgeTransactionList CurrencyCode="@CurrencyCode" Granularity="@Granularity" />
   </div>
-  <EdgeTransactionList CurrencyCode="@CurrencyCode" Granularity="@Granularity"/>
-</div>
 
 <style>
 
