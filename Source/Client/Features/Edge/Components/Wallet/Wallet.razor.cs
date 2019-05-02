@@ -7,30 +7,46 @@
   using Client.Features.Edge.State;
   using Microsoft.AspNetCore.Components;
   using Shared.Features.Conversion;
+    using Blazor;
 
-  public class WalletModel : BaseComponent
-  {
+    public class WalletModel : BaseComponent
+    {
 
-    [Parameter] protected EdgeCurrencyWallet EdgeCurrencyWallet { get; set; }
+        [Parameter] protected EdgeCurrencyWallet EdgeCurrencyWallet { get; set; }
 
-    
-    public string Balance => EdgeCurrencyWallet.SelectedCurrencyCode != null ? EdgeCurrencyWallet?.Balances[EdgeCurrencyWallet.SelectedCurrencyCode] : null;
 
-    public string CurrencyCode => EdgeCurrencyWallet.SelectedCurrencyCode ?? "ETH";
+        public string Balance => EdgeCurrencyWallet.SelectedCurrencyCode != null ? EdgeCurrencyWallet?.Balances[EdgeCurrencyWallet.SelectedCurrencyCode] : null;
 
-    public int Granularity => EdgeCurrencyWallet.Granularity[CurrencyCode];
+        public string CurrencyCode => EdgeCurrencyWallet.SelectedCurrencyCode ?? "AGLD";
 
-    public void OnClickHandler(string aCurrencyCode) => EdgeCurrencyWallet.SelectedCurrencyCode = aCurrencyCode;
+        public int Granularity => EdgeCurrencyWallet.Granularity[CurrencyCode];
 
-    public ConversionResponse ConversionResponse { get; set; }
+        public void OnClickHandler(string aCurrencyCode) => EdgeCurrencyWallet.SelectedCurrencyCode = aCurrencyCode;
 
-    protected override async Task OnAfterRenderAsync() =>
+        public ConversionResponse ConversionResponse { get; set; }
 
-      ConversionResponse = await Mediator.Send(new ConversionRequest(CurrencyCode, "USD"));
+        public ConversionRequest ConversionRequest
+        {
+            get
+            {
+                ConversionRequest.FromCurrency = CurrencyCode;
+                ConversionRequest.ToCurrency = "usd";
+                return ConversionRequest;
+            }
+
+        }
+
+        protected override async Task OnInitAsync()
+        {
+            ConversionResponse = await HttpClient<ConversionResponse>(ConversionRequest.Route, ConversionRequest);
+        }
+
+    }
   }
+
 
   //FromCurrency=AGLD&ToCurrency=USD"
 
   
   
-}
+
