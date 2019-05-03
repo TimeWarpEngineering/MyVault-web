@@ -25,18 +25,12 @@
 
         public ConversionResponse ConversionResponse { get; set; }
 
-        public ConversionRequest aConversionRequest { get; set; }
-
 
         public async Task PrintStuff()
         {
-        ConversionResponse = new ConversionResponse();
-            aConversionRequest = new ConversionRequest("agld", "usd");
-          Console.WriteLine(aConversionRequest.ToCurrency + "theConversionrequest");
-           Console.WriteLine(ConversionRequest.Route + "conversion route");
+           var conversionRequest = new ConversionRequest("agld", "usd");
 
-
-        ConversionResponse = await HttpClient.SendJsonAsync<ConversionResponse>(HttpMethod.Get, HttpClient, ConversionRequest.Route, aConversionRequest);
+        ConversionResponse = await HttpClient.SendJsonAsync<ConversionResponse>(HttpMethod.Get, HttpClient, ConversionRequest.Route, ConversionRequest);
             Console.WriteLine(ConversionResponse.Rate + "response");
             
 

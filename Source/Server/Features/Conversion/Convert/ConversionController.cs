@@ -12,6 +12,6 @@
     public ConversionController(IMediator aMediator) : base(aMediator) { }
 
     [HttpGet]
-    public async Task<IActionResult> Get(ConversionRequest aConversionRequest) => await Send(aConversionRequest);
+    public async Task<IActionResult> Get([FromBody]ConversionRequest aConversionRequest) => await Send(aConversionRequest);
   }
 }
