@@ -1,11 +1,12 @@
 ﻿namespace Client.Features.Edge.Components.Wallet
 {
+  using System;
   using System.Threading.Tasks;
   using Client.Components;
   using Client.Features.Edge.EdgeCurrencyWallet;
   using Microsoft.AspNetCore.Components;
   using Shared.Features.Conversion;
-  using System.Net.Http;
+  //using System.Net.Http;
 
   public class WalletModel : BaseComponent
     {
@@ -20,25 +21,30 @@
 
         public void OnClickHandler(string aCurrencyCode) => EdgeCurrencyWallet.SelectedCurrencyCode = aCurrencyCode;
 
-        public ConversionResponse ConversionResponse { get; set; }
+    public ConversionResponse ConversionResponse { get; set; }
 
-        private HttpClient HttpClient { get; set; }
+    //public HttpClient HttpClient { get; set; }
 
-        public ConversionRequest ConversionRequest
-        {
-            get
-            {
-                ConversionRequest.FromCurrency = CurrencyCode;
-                ConversionRequest.ToCurrency = "usd";
-                return ConversionRequest;
-            }
+        public ConversionRequest ConversionRequest { get; set; } 
+                
 
+        public void PrintStuff()
+        {   ConversionRequest = new ConversionRequest("Hello", "again");
+
+      Console.WriteLine(CurrencyCode);
+
+            Console.WriteLine(ConversionRequest.FromCurrency);
+      Console.WriteLine(ConversionRequest.ToCurrency);
+      Console.WriteLine(ConversionRequest.Route);
+            Console.WriteLine("Stuff!!!!");
         }
 
-    //protected override async Task OnInitAsync() => ConversionResponse = await HttpClient.SendJsonAsync<ConversionResponse>(HttpMethod.Get, ConversionRequest.Route, ConversionRequest);
-
-    //private Task<T> HttpClient<T>(string route, ConversionRequest conversionRequest) => throw new NotImplementedException();
-  }
+        //private Task<T> HttpClient<T>(string route, ConversionRequest conversionRequest) => throw new NotImplementedException();
+        //var response = await HttpClient.SendJsonAsync<ConversionResponse>(HttpMethod.Get, "api/Conversion", ConversionRequest);
+        //Console.WriteLine(response + "response here maybe");
+        //          return response;
+        //        }
+}
   }
 
 

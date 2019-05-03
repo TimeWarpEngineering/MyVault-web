@@ -33,6 +33,7 @@
       PriceDto priceDto =
            await HttpClient.GetJsonAsync<PriceDto>
            (PriceUrl);
+      Console.WriteLine(priceDto + "hopefully the stuff");
       return new ConversionResponse
       {
         Rate = priceDto.C
