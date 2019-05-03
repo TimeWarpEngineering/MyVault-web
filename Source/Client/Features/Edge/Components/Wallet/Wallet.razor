@@ -2,7 +2,7 @@
 @using Client.Pages
 @using Client.Features.Edge.Components
 @using Shared.Features.Conversion
-@inject HttpClient HttpClient
+@*@inject HttpClient HttpClient*@
 
   <div id="@Id">
     <ul class="nav justify-content-center">
@@ -28,15 +28,6 @@
     <Balance Balance="@Balance" CurrencyCode="@CurrencyCode" Granularity="@Granularity" DecimalPlacesToDisplay="6" />
 
     <buton onclick="@(() => PrintStuff())">print balance</buton>
-
-            @*@functions {
-                async Task<ConversionResponse> GetRate()
-                {
-                  Console.WriteLine(ConversionRequest +"request" + CurrencyCode + "CCode");
-
-                  return await HttpClient.PostAsync(ConversionRequest.Route, ConversionRequest);
-                }
-            };*@
 
       <br />
       <div class="d-flex flex-column align-items-center mt-2">
