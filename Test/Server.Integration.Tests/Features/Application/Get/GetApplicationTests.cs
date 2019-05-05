@@ -4,7 +4,6 @@
   using Server.Data;
   using Shared.Features.Application;
   using Shouldly;
-  using static SliceFixture;
 
   class GetApplicationTests : IntegrationTestBase
   {
