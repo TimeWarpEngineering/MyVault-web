@@ -26,21 +26,21 @@
         public ConversionResponse ConversionResponse { get; set; }
 
 
-        public async Task PrintStuff()
-        {
-           var conversionRequest = new ConversionRequest("agld", "usd");
+    public void PrintStuff()
+    {
+      var conversionRequest = new ConversionRequest("agld", "usd");
 
-        ConversionResponse = await HttpClient.SendJsonAsync<ConversionResponse>(HttpMethod.Get, HttpClient, ConversionRequest.Route, ConversionRequest);
-            Console.WriteLine(ConversionResponse.Rate + "response");
-            
+      //ConversionResponse = await HttpClient.SendJsonAsync<ConversionResponse>(HttpMethod.Get, HttpClient, ConversionRequest.Route, ConversionRequest);
+      //    Console.WriteLine(ConversionResponse.Rate + "response");
 
-        }
 
-        //private Task<T> HttpClient<T>(string route, ConversionRequest conversionRequest) => throw new NotImplementedException();
-        //var response = await HttpClient.SendJsonAsync<ConversionResponse>(HttpMethod.Get, "api/Conversion", ConversionRequest);
-        //Console.WriteLine(response + "response here maybe");
-        //          return response;
-        //        }
+    }
+
+    //private Task<T> HttpClient<T>(string route, ConversionRequest conversionRequest) => throw new NotImplementedException();
+    //var response = await HttpClient.SendJsonAsync<ConversionResponse>(HttpMethod.Get, "api/Conversion", ConversionRequest);
+    //Console.WriteLine(response + "response here maybe");
+    //          return response;
+    //        }
   }
 }
 
