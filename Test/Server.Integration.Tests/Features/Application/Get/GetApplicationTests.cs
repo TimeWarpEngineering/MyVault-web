@@ -12,7 +12,7 @@
       // Arrange
       var getApplicationRequest = new GetApplicationRequest();
       // Act
-      GetApplicationResponse getApplicationResponse = await SendAsync(getApplicationRequest);
+      GetApplicationResponse getApplicationResponse = await Send(getApplicationRequest);
       // Assert
       getApplicationResponse.ShouldNotBeNull();
       ApplicationDto application = getApplicationResponse.Application;

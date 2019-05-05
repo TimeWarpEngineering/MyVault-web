@@ -5,7 +5,10 @@
   using System.Linq;
   using System.Threading;
   using Microsoft.AspNetCore.Hosting;
+  using Microsoft.AspNetCore.Hosting.Server;
   using Microsoft.AspNetCore.Hosting.Server.Features;
+  using Microsoft.Extensions.DependencyInjection;
+  using Microsoft.Extensions.Hosting;
 
   public class ServerFixture
   {
@@ -17,31 +20,25 @@
         new Uri(StartAndGetRootUri()));
     }
 
-    public delegate IWebHost BuildWebHost(string[] args);
+    public delegate IHostBuilder CreateHostBuilder(string[] args);
 
-    public BuildWebHost BuildWebHostMethod { get; set; }
+    public CreateHostBuilder CreateHostBuilderDelegate { get; set; }
     public AspNetEnvironment Environment { get; set; } = AspNetEnvironment.Production;
     public Uri RootUri => LazyUri.Value;
-    private IWebHost WebHost { get; set; }
+    private IHost Host { get; set; }
 
+    /// <summary>
+    /// Find the path to the server that you are testing.
+    /// </summary>
+    /// <param name="aProjectName"></param>
+    /// <returns>The Path to the project</returns>
     protected static string FindSitePath(string aProjectName)
     {
-      string solutionDir = FindSolutionDir();
-      string[] possibleLocations = new[]
-      {
-        Path.Combine(solutionDir, aProjectName),
-        Path.Combine(solutionDir, "Source", aProjectName),
-      };
-
-      return possibleLocations.FirstOrDefault(Directory.Exists)
-        ?? throw new ArgumentException($"Cannot find a sample or test site with name '{aProjectName}'.");
-    }
-
-    protected static string FindSolutionDir()
-    {
-      return FindClosestDirectoryContaining(
-        aFilename: "myvault.anthemgold.com.sln",
-        aStartDirectory: Path.GetDirectoryName(typeof(ServerFixture).Assembly.Location));
+      DirectoryInfo gitRootDirectory = new DirectoryService().FindSolutionRoot();
+      string serverProjectName = "Server";
+      serverProjectName = serverProjectName.Replace("_", "-");
+      string path = Path.Combine(gitRootDirectory.FullName, "Source", serverProjectName);
+      return path;
     }
 
     protected static void RunInBackgroundThread(Action aAction)
@@ -57,56 +54,38 @@
       isDone.WaitOne();
     }
 
-    protected IWebHost CreateWebHost()
+    protected IHost CreateWebHost()
     {
-      if (BuildWebHostMethod == null)
+      if (CreateHostBuilderDelegate == null)
       {
         throw new InvalidOperationException(
-            $"No value was provided for {nameof(BuildWebHostMethod)}");
+            $"No value was provided for {nameof(CreateHostBuilderDelegate)}");
       }
 
       string sitePath = FindSitePath(
-                BuildWebHostMethod.Method.DeclaringType.Assembly.GetName().Name);
+                CreateHostBuilderDelegate.Method.DeclaringType.Assembly.GetName().Name);
 
-      IWebHost webHost = BuildWebHostMethod(new[]
+      IHostBuilder hostBuilder = CreateHostBuilderDelegate(new[]
       {
         "--urls", "http://127.0.0.1:0",
         "--contentroot", sitePath,
         "--environment", Environment.ToString(),
       });
 
-      return webHost;
+      return hostBuilder.Build();
     }
 
     protected string StartAndGetRootUri()
     {
-      WebHost = CreateWebHost();
-      RunInBackgroundThread(WebHost.Start);
-      return WebHost.ServerFeatures
-          .Get<IServerAddressesFeature>()
-          .Addresses.Single();
+      Host = CreateWebHost();
+      RunInBackgroundThread(Host.Start);
+      return Host
+        .Services
+        .GetRequiredService<IServer>()
+        .Features
+        .Get<IServerAddressesFeature>()
+        .Addresses.Single();
     }
 
-    private static string FindClosestDirectoryContaining(
-      string aFilename,
-      string aStartDirectory)
-    {
-      string directory = aStartDirectory;
-      while (true)
-      {
-        if (File.Exists(Path.Combine(directory, aFilename)))
-        {
-          return directory;
-        }
-
-        directory = Directory.GetParent(directory)?.FullName;
-        if (string.IsNullOrEmpty(directory))
-        {
-          throw new FileNotFoundException(
-              $"Could not locate a file called '{aFilename}' in " +
-              $"directory '{aStartDirectory}' or any parent directory.");
-        }
-      }
-    }
   }
 }

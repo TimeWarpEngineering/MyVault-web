@@ -1,11 +1,11 @@
-using System;
-using System.Collections.Generic;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using Shouldly;
-
 namespace EndToEnd.Tests.Infrastructure
 {
+  using System;
+  using System.Collections.Generic;
+  using OpenQA.Selenium;
+  using OpenQA.Selenium.Support.UI;
+  using Shouldly;
+
   /// <summary>
   /// Shouldly assertions, but hooked into Selenium's WebDriverWait mechanism
   /// </summary>
