@@ -4,6 +4,6 @@
 
   public class IntegrationTestBase
   {
-    public virtual async Task Setup() => await SliceFixture.ResetCheckpoint();
+    //public virtual async Task Setup() => await SliceFixture.ResetCheckpoint();
   }
 }
