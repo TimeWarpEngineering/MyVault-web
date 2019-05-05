@@ -30,7 +30,6 @@
     public void Configure(IApplicationBuilder aApplicationBuilder, IWebHostEnvironment aWebHostEnvironment)
     {
       aApplicationBuilder.UseHttpsRedirection();
-      //aApplicationBuilder.UseStaticFiles();
       aApplicationBuilder.UseResponseCompression();
 
       if (aWebHostEnvironment.IsDevelopment())
@@ -73,11 +72,7 @@
       );
 
       aServiceCollection.AddMvc()
-        //.AddFluentValidation()
-        .AddNewtonsoftJson(aOptions =>
-           aOptions.SerializerSettings.ContractResolver =
-              new DefaultContractResolver());
-
+        .AddNewtonsoftJson();
 
       aServiceCollection.AddResponseCompression(opts =>
       {
