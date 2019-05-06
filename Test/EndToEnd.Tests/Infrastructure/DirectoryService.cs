@@ -1,4 +1,4 @@
-﻿namespace MyVault_web.EndToEnd.Tests.Infrastructure
+﻿namespace EndToEnd.Tests.Infrastructure
 {
   using System;
   using System.IO;
