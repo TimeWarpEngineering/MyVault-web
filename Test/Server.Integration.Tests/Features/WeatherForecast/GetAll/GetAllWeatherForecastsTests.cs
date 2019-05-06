@@ -1,5 +1,6 @@
 ﻿namespace Server.Integration.Tests.Features.WeatherForecast.GetAll
 {
+  using System;
   using System.Threading.Tasks;
   using Shared.Features.WeatherForecast;
   using MediatR;
@@ -11,9 +12,11 @@
 
     public GetAllWeatherForecastsTests(TestFixture aTestFixture)
     {
-      Mediator = aTestFixture.ServiceProvider.GetService<IMediator>();
+      ServiceProvider = aTestFixture.ServiceProvider;
+      Mediator = ServiceProvider.GetService<IMediator>();
     }
 
+    private IServiceProvider ServiceProvider { get; }
     private IMediator Mediator { get; }
 
     public async Task ShouldGetAllWeatherForecasts()
