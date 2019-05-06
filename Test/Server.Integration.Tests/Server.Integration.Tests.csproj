@@ -8,6 +8,7 @@
     <PackageReference Include="Fixie" Version="$(FixieVersion)" />
     <PackageReference Include="Shouldly" Version="$(ShouldlyVersion)" />
     <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="$(MicrosoftAspNetCoreTestHostVersion)" />
+    <PackageReference Include="Respawn" Version="$(RespawnVersion)" />
     <DotNetCliToolReference Include="Fixie.Console" Version="$(FixieConsoleVersion)" />
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>

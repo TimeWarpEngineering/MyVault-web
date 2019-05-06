@@ -37,6 +37,7 @@
     <MediatrExtensionsMicrosoftDependencyInjectionVersion>6.0.1</MediatrExtensionsMicrosoftDependencyInjectionVersion>
     <MediatrVersion>6.0.0</MediatrVersion>
     <MoqVersion>4.10.1</MoqVersion>
+    <RespawnVersion>3.2.0</RespawnVersion>
     <ScrutorVersion>3.0.2</ScrutorVersion>
     <SeleniumSupportVersion>3.141.0</SeleniumSupportVersion>
     <SeleniumWebDriverVersion>3.141.0</SeleniumWebDriverVersion>
