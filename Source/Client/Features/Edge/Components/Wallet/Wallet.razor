@@ -3,43 +3,60 @@
 @using Client.Features.Edge.Components
 @using Shared.Features.Conversion
 
-<div id="@Id">
-  <ul class="nav justify-content-center">
-    @foreach (var kvp in EdgeCurrencyWallet.Balances)
+  <div id="@Id">
+    <ul class="nav justify-content-center">
+      @foreach (var kvp in EdgeCurrencyWallet.Balances)
+      {
+        var isActive = kvp.Key == EdgeCurrencyWallet.SelectedCurrencyCode;
+
+        <li class="nav-item">
+          <button onclick="@( () => OnClickHandler(kvp.Key))"
+                  class="nav-link btn btn-link @(isActive ? "active" : null)">
+            @kvp.Key
+            @if (isActive)
+            {
+              <span class="sr-only">(current)</span>
+            }
+          </button>
+          <span class="d-none">xx%</span>
+        </li>
+      }
+    </ul>
+
+    <br />
+    <Balance Balance="@Balance" CurrencyCode="@CurrencyCode" Granularity="@Granularity" DecimalPlacesToDisplay="6" />
+
+
+    @if (CurrencyCode == "AHLD")
     {
-      var isActive = kvp.Key == EdgeCurrencyWallet.SelectedCurrencyCode;
 
-      <li class="nav-item">
-        <button onclick="@( () => OnClickHandler(kvp.Key))"
-                class="nav-link btn btn-link @(isActive ? "active" : null)">
-          @kvp.Key
-          @if (isActive)
-          {
-            <span class="sr-only">(current)</span>
-          }
-        </button>
-        <span class="d-none">xx%</span>
-      </li>
+
+      <div>Conversion Rate: @ConversionResponse?.Rate</div>
+      <div>rate rounded down</div>
+      <div>@(Math.Round(ConversionResponse.Rate, 2))</div>
+      <div>Balance Formatted down</div>
+      <div>@FormattedBalanceForConversion</div>
+      <div>Balance Formatted down and converted to decimal</div>
+      <div>@Decimal.Parse(FormattedBalanceForConversion)</div>
+      <div>the math</div>
+      <div>@(Math.Round(ConversionResponse.Rate * Decimal.Parse(FormattedBalanceForConversion), 2))</div>
+
+
+      @*<div>@(Decimal.Parse(FormattedBalanceForConversion * Decimal.Parse(FormattedRateForConversion))</div>*@
     }
-  </ul>
 
-  <br />
-  <Balance Balance="@Balance" CurrencyCode="@CurrencyCode" Granularity="@Granularity" DecimalPlacesToDisplay="6" />
-
-  <div>Conversion Rate: @ConversionResponse?.Rate</div>
-
-  <br />
-  <div class="d-flex flex-column align-items-center mt-2">
-    <NavLink class="btn btn-primary btn-dark" href="@WalletSendPageModel.Route(EdgeCurrencyWallet.EncodedId)">
-      <span class="oi oi-data-transfer-upload" aria-hidden="true"></span> Send
-    </NavLink>
-    <div style="height: 1rem"></div>
-    <NavLink class="btn btn-primary btn-dark" href="@WalletReceivePageModel.Route(EdgeCurrencyWallet.EncodedId)">
-      <span class="oi oi-data-transfer-download" aria-hidden="true"></span> Receive
-    </NavLink>
+    <br />
+    <div class="d-flex flex-column align-items-center mt-2">
+      <NavLink class="btn btn-primary btn-dark" href="@WalletSendPageModel.Route(EdgeCurrencyWallet.EncodedId)">
+        <span class="oi oi-data-transfer-upload" aria-hidden="true"></span> Send
+      </NavLink>
+      <div style="height: 1rem"></div>
+      <NavLink class="btn btn-primary btn-dark" href="@WalletReceivePageModel.Route(EdgeCurrencyWallet.EncodedId)">
+        <span class="oi oi-data-transfer-download" aria-hidden="true"></span> Receive
+      </NavLink>
+    </div>
+    <EdgeTransactionList CurrencyCode="@CurrencyCode" Granularity="@Granularity" />
   </div>
-  <EdgeTransactionList CurrencyCode="@CurrencyCode" Granularity="@Granularity" />
-</div>
 
 <style>
 

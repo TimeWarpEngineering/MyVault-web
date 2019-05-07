@@ -1,11 +1,9 @@
 ﻿namespace Client.Features.Edge.Components.Wallet
 {
-  using System.Threading.Tasks;
   using Client.Components;
   using Client.Services;
   using Microsoft.AspNetCore.Components;
-  using Shared.Features.Conversion;
- 
+
 
   public class BalanceModel : BaseComponent
   {

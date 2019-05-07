@@ -1,9 +1,11 @@
 ﻿namespace Server.Integration.Tests.Features.Application.Get
 {
+  using Server.Integration.Tests;
   using System.Threading.Tasks;
   using Server.Data;
   using Shared.Features.Application;
   using Shouldly;
+  using static SliceFixture;
 
   class GetApplicationTests : IntegrationTestBase
   {
@@ -12,7 +14,7 @@
       // Arrange
       var getApplicationRequest = new GetApplicationRequest();
       // Act
-      GetApplicationResponse getApplicationResponse = await Send(getApplicationRequest);
+      GetApplicationResponse getApplicationResponse = await SendAsync(getApplicationRequest);
       // Assert
       getApplicationResponse.ShouldNotBeNull();
       ApplicationDto application = getApplicationResponse.Application;
