@@ -29,20 +29,8 @@
 
     @if (CurrencyCode == "AHLD")
     {
-
-
-      <div>Conversion Rate: @ConversionResponse?.Rate</div>
-      <div>rate rounded down</div>
-      <div>@(Math.Round(ConversionResponse.Rate, 2))</div>
-      <div>Balance Formatted down</div>
-      <div>@FormattedBalanceForConversion</div>
-      <div>Balance Formatted down and converted to decimal</div>
-      <div>@Decimal.Parse(FormattedBalanceForConversion)</div>
-      <div>the math</div>
-      <div>@(Math.Round(ConversionResponse.Rate * Decimal.Parse(FormattedBalanceForConversion), 2))</div>
-
-
-      @*<div>@(Decimal.Parse(FormattedBalanceForConversion * Decimal.Parse(FormattedRateForConversion))</div>*@
+      <div>$ @(Math.Round(ConversionResponse.Rate * Decimal.Parse(FormattedBalanceForConversion), 2))</div>
+      <div>1 AGLD = @ConversionResponse?.Rate $</div>
     }
 
     <br />
