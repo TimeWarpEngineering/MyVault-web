@@ -10,6 +10,7 @@
   using Microsoft.AspNetCore.Components.Builder;
   using Microsoft.Extensions.DependencyInjection;
   using Nethereum.Util;
+  using Shared.Features.Conversion;
 
   public class Startup
   {
@@ -27,6 +28,7 @@
       };
       aServiceCollection.AddSingleton<ColorPalette>();
       aServiceCollection.AddSingleton<AmountConverter>();
+      aServiceCollection.AddScoped<IValidator<ConversionRequest>, ConversionRequestValidator>();
       aServiceCollection.AddSingleton<AddressUtil>();
       aServiceCollection.AddScoped(typeof(IValidator<SendAction>), typeof(SendValidator));
       aServiceCollection.AddBlazorState();
