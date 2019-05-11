@@ -13,9 +13,8 @@ namespace Client.Features.Conversion.AgldRate
   {
     public decimal AgldRate { get; private set; }
 
-    protected override void Initalize() => AgldRate = await Task<ConversionResponse> HttpClient.GetJsonAsync<ConversionResponse>(ConversionRequest.Route);
-
-
+    public override object Clone() => throw new NotImplementedException();
+    protected override void Initialize() => AgldRate = 0;
   }
 }
 
