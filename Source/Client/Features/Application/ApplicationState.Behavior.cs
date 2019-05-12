@@ -11,8 +11,7 @@
       Name = aState.Name;
     }
 
-    public override object Clone() => new ApplicationState(this);
-
+   
     protected override void Initialize() => Name = "myvault.anthemgold.com";
   }
 }

@@ -13,8 +13,6 @@
       EdgeWalletInfo = EdgeWalletInfo?.Clone() as EdgeWalletInfo;
     }
 
-    public override object Clone() => new EdgeState(this);
-
     protected override void Initialize() => EdgeWalletInfo = null;
   }
 

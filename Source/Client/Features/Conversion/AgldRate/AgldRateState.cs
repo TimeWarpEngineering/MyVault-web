@@ -13,7 +13,7 @@ namespace Client.Features.Conversion.AgldRate
   {
     public decimal AgldRate { get; private set; }
 
-    public override object Clone() => throw new NotImplementedException();
+   
     protected override void Initialize() => AgldRate = 0;
   }
 }

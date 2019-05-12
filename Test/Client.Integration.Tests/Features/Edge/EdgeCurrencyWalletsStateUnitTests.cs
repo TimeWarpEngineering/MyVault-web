@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Client.Features.Edge.EdgeCurrencyWallet;
-using Shouldly;
-
-namespace Client.Integration.Tests.Features.Edge
+﻿namespace Client.Integration.Tests.Features.Edge
 {
+  using System.Collections.Generic;
+  using Client.Features.Edge.EdgeCurrencyWallet;
+  using Shouldly;
+  using AnyClone;
+
   public class EdgeCurrencyWalletsStateUnitTests
   {
     /// <summary>
