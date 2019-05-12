@@ -17,6 +17,8 @@
   using System.Net.Http;
   using Shared.Features.Conversion;
   using FluentValidation;
+  using Server.Services.AnthemGold.Price;
+  using Server.Services.AnthemGold;
 
   public class Startup
   {
@@ -87,17 +89,21 @@
        }
       );
 
-      aServiceCollection.AddSingleton<HttpClient>();
+      //aServiceCollection.AddSingleton<HttpClient>();
+      // TODO: when FluentValidation updated for dotnet core 3 we can use AddFluentValidation and it will scan for validators.
+      // Until then we register them manually.
       aServiceCollection.AddScoped<IValidator<ConversionRequest>, ConversionRequestValidator>();
+      aServiceCollection.AddScoped<IValidator<PriceRequest>, PriceRequestValidator>();
 
       new Client.Startup().ConfigureServices(aServiceCollection);
 
       aServiceCollection.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
-      aServiceCollection.Scan(aTypeSourceSelector => aTypeSourceSelector
-        .FromAssemblyOf<Startup>()
-        .AddClasses()
-        .AsSelf()
-        .WithScopedLifetime());
+      aServiceCollection.AddScoped<AnthemGoldHttpClient>();
+      //aServiceCollection.Scan(aTypeSourceSelector => aTypeSourceSelector
+      //  .FromAssemblyOf<Startup>()
+      //  .AddClasses()
+      //  .AsSelf()
+      //  .WithScopedLifetime());
     }
   }
 }
