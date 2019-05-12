@@ -4,6 +4,7 @@
   using System.Net.Http;
   using System.Threading.Tasks;
   using Client.Components;
+  using Client.Features.Conversion.AgldRate;
   using Client.Features.Edge.EdgeCurrencyWallet;
   using Client.Services;
   using Microsoft.AspNetCore.Components;
@@ -31,18 +32,7 @@
 
     protected override async Task OnInitAsync()
     {
-      Console.WriteLine("WalletModel OnInitAsync");
-      var conversionRequest = new ConversionRequest
-      {
-        FromCurrency = "agld",
-        ToCurrency = "usd"
-      };
-
-      // The HttpClient.Base Address is configured before registering with the DI container.
-      string uri = $"{ConversionRequest.Route}?{conversionRequest.ToQueryString()}";
-      ConversionResponse = await HttpClient.GetJsonAsync<ConversionResponse>(uri);
-
-      StateHasChanged();
+      await Mediator.Send(new AgldGetRateAction());
     }
   }
 }

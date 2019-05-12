@@ -9,7 +9,6 @@
   [Route(ConversionRequest.Route)]
   public class ConversionController : BaseController<ConversionRequest, ConversionResponse>
   {
-    public ConversionController(IMediator aMediator) : base(aMediator) { }
 
     [HttpGet]
     public async Task<IActionResult> Get(ConversionRequest aConversionRequest) => await Send(aConversionRequest);
