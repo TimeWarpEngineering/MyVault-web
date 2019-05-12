@@ -1,6 +1,6 @@
 ﻿namespace Client
 {
-  //using Blazor.Extensions.Logging;
+  using Blazor.Extensions.Logging;
   using BlazorState;
   using BlazorState.Services;
   using FluentValidation;
@@ -11,6 +11,9 @@
   using Microsoft.Extensions.DependencyInjection;
   using Nethereum.Util;
   using Shared.Features.Conversion;
+  using BlazorHostedCSharp.Client.Features.ClientLoader;
+  using MediatR;
+  using Microsoft.Extensions.Logging;
 
   public class Startup
   {
@@ -21,10 +24,9 @@
     {
       if (new BlazorHostingLocation().IsClientSide)
       {
-        // TODO add this back once Blazor.Extentions.Logging is updated to 0.8.0
-        //aServiceCollection.AddLogging(aLoggingBuilder => aLoggingBuilder
-        //    .AddBrowserConsole()
-        //    .SetMinimumLevel(LogLevel.Trace));
+        aServiceCollection.AddLogging(aLoggingBuilder => aLoggingBuilder
+            .AddBrowserConsole()
+            .SetMinimumLevel(LogLevel.Trace));
       };
       aServiceCollection.AddSingleton<ColorPalette>();
       aServiceCollection.AddSingleton<AmountConverter>();
@@ -32,6 +34,8 @@
       aServiceCollection.AddSingleton<AddressUtil>();
       aServiceCollection.AddScoped(typeof(IValidator<SendAction>), typeof(SendValidator));
       aServiceCollection.AddBlazorState();
+      aServiceCollection.AddScoped<ClientLoader>();
+      aServiceCollection.AddScoped<IClientLoaderConfiguration, ClientLoaderConfiguration>();
     }
   }
 }

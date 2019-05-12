@@ -7,24 +7,19 @@
       https://dotnet.myget.org/F/blazor-dev/api/v3/index.json;
     </RestoreAdditionalProjectSources>
     <Description>Blazor Hosted Client</Description>
-    <LangVersion>7.3</LangVersion>
-    <Description>BlazorState Sample Client Application</Description>
-    <!-- Temporary workaround for a VS build issue -->
-    <BlazorRebuildOnFileChange>false</BlazorRebuildOnFileChange>
-    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
-<RazorLangVersion>3.0</RazorLangVersion>
+    <RazorLangVersion>3.0</RazorLangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <BlazorLinkerDescriptor Include="Linker.xml" />
     <PackageReference Include="Blazor-State" Version="$(BlazorStateVersion)" />
+    <PackageReference Include="Blazor.Extensions.Logging" Version="$(BlazorExtensionsLoggingVersion)" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="$(MicrosoftAspNetCoreBlazorVersion)" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="$(MicrosoftAspNetCoreBlazorVersion)" PrivateAssets="all" />
     <PackageReference Include="Nethereum.Util" Version="$(Nethereum)" />
   </ItemGroup>
 
   <ItemGroup>
- 
+
     <Folder Include="Properties\" />
   </ItemGroup>
 
