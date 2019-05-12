@@ -9,7 +9,6 @@
   [Route(GetAssetDefinitionRequest.Route)]
   public class GetAssetDefinitionController : BaseController<GetAssetDefinitionRequest, GetAssetDefinitionResponse>
   {
-    public GetAssetDefinitionController(IMediator aMediator) : base(aMediator) { }
     
     [HttpGet]
     public async Task<IActionResult> Process(GetAssetDefinitionRequest aGetAssetDefinitionRequest) => await Send(aGetAssetDefinitionRequest);

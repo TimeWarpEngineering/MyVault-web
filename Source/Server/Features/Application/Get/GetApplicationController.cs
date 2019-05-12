@@ -9,7 +9,6 @@
   [Route(GetApplicationRequest.Route)]
   public class GetApplicationController : BaseController<GetApplicationRequest, GetApplicationResponse>
   {
-    public GetApplicationController(IMediator aMediator) : base(aMediator) { }
 
     [HttpPost]
     public async Task<IActionResult> Post(GetApplicationRequest aRequest) => await Send(aRequest);
