@@ -19,7 +19,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <TestProjectTargetFramework>netstandard2.0</TestProjectTargetFramework>
-    <BlazorLinkOnBuild>true</BlazorLinkOnBuild>
+    <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
   </PropertyGroup>
 
   <!--Versions of packages used across the solution-->
