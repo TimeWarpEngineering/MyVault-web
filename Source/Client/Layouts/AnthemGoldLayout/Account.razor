@@ -1,5 +1,6 @@
 ﻿@inherits BaseComponent
 @using  Client.Pages
+@using  static Shared.Services.BuyAnthemGoldConstants
 
 <div id="@Id" class="dropdown d-block">
   <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -16,6 +17,18 @@
     </NavLink>
     <NavLink class="nav-link nav-item" href="@LogoutPageModel.Route">
       <span class="oi oi-account-logout" aria-hidden="true"></span> Logout
+    </NavLink>
+    <NavLink class="nav-link nav-item" href="@MyAccountUrl">
+      <span class="oi oi-person" aria-hidden="true"></span> My Account
+    </NavLink>
+    <NavLink class="nav-link nav-item" href="@MyLedgerUrl">
+      <span class="oi oi-book" aria-hidden="true"></span> My Ledger
+    </NavLink>
+    <NavLink class="nav-link nav-item" href="@BunkerAssetsUrl">
+      <span class="oi oi oi-layers" aria-hidden="true"></span> Bunker Assests
+    </NavLink>
+    <NavLink class="nav-link nav-item" href="@BuyGoldUrl">
+      <span class="oi oi-cart" aria-hidden="true"></span> Buy Gold
     </NavLink>
   </div>
 </div>
