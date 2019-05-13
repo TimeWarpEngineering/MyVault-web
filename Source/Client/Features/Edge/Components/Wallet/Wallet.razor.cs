@@ -4,7 +4,7 @@
   using System.Net.Http;
   using System.Threading.Tasks;
   using Client.Components;
-  using Client.Features.Conversion.AgldRate;
+  using Client.Features.AgldRate;
   using Client.Features.Edge.EdgeCurrencyWallet;
   using Client.Services;
   using Microsoft.AspNetCore.Components;
@@ -26,13 +26,10 @@
 
     protected string FormattedBalanceForConversion => AmountConverter.GetFormatedAmount(new FormatAmountRequest { Amount = Balance, DecimalPlacesToDisplay = 2, DecimalSeperator = '.', Granularity = Granularity });
 
- 
+
     //protected string FormattedRateForConversion => AmountConverter.GetFormatedAmount(new FormatAmountRequest { Amount = ConversionResponse.Rate.ToString(), DecimalPlacesToDisplay = 2, DecimalSeperator = '.', Granularity = 8 });
 
 
-    protected override async Task OnInitAsync()
-    {
-      await Mediator.Send(new AgldGetRateAction());
-    }
+    protected override async Task OnInitAsync() => await Mediator.Send(new AgldGetRateAction());
   }
 }

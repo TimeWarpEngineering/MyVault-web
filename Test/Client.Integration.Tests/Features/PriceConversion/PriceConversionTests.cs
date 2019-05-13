@@ -8,15 +8,15 @@
   using static Server.Services.AnthemGold.AnthemGoldConstants;
   public class IsValidPriceRequest
   {
-    // Arrange
-     static PriceRequestValidator PriceRequestValidator = new PriceRequestValidator();
+    //// Arrange
+    // static PriceRequestValidator PriceRequestValidator = new PriceRequestValidator();
 
-    PriceRequest PriceRequest = new PriceRequest();
+    //PriceRequest PriceRequest = new PriceRequest();
 
-        // Assert
+    //    // Assert
 
 
-        public ValidationResult Result { get; } = PriceRequestValidator.Validate(PriceRequest);
+    //    public ValidationResult Result { get; } = PriceRequestValidator.Validate(instance: PriceRequest);
   }
 
 

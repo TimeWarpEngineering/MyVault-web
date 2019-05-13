@@ -2,7 +2,7 @@
 {
   using BlazorState;
   using Client.Features.Application;
-  using Client.Features.Conversion.AgldRate;
+  using Client.Features.AgldRate;
   using Client.Features.Edge;
   using Client.Features.Edge.EdgeAccount;
   using Client.Features.Edge.EdgeCurrencyWallet;
