@@ -1,4 +1,4 @@
-﻿namespace Client.Features.Conversion.AgldRate
+﻿namespace Client.Features.AgldRate
 {
   // I would like to have one Conversion State that has the values for both AGLD and Eth and the EdgeWallet.CurrencyCode 
   // will pick which one is used applicable.
@@ -20,7 +20,7 @@
         HttpClient = aHttpClient;
       }
       private HttpClient HttpClient { get; }
-      
+
       ConversionRequest ConversionRequest = new ConversionRequest() { FromCurrency = "agld", ToCurrency = "usd" };
 
       public override async Task<AgldRateState> Handle(AgldGetRateAction aAgldGetRateAction, CancellationToken ACancellationToken)

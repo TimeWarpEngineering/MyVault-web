@@ -1,24 +1,22 @@
 ﻿namespace Client.Integration.Tests.Features.PriceConversion
 {
+  using FluentValidation;
   using FluentValidation.Results;
   using Server.Services.AnthemGold.Price;
   using System;
+  using Server.Services.AnthemGold;
   using static Server.Services.AnthemGold.AnthemGoldConstants;
   public class IsValidPriceRequest
   {
     // Arrange
+     static PriceRequestValidator PriceRequestValidator = new PriceRequestValidator();
 
-    readonly PriceRequest priceRequest = new PriceRequest();
+    PriceRequest PriceRequest = new PriceRequest();
 
-    PriceRequestValidator priceRequestValdiator = new PriceRequestValidator();
-    
-    // Assert
-    PriceRequestValidator priceRequestValidator { get; set; }
+        // Assert
 
-    public ValidationResult Result => result;
 
-    readonly ValidationResult result = priceRequestValidator.Validate(priceRequest)
-
+        public ValidationResult Result { get; } = PriceRequestValidator.Validate(PriceRequest);
   }
 
 
