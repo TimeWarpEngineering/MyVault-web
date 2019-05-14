@@ -10,7 +10,6 @@
   using Microsoft.AspNetCore.Components;
   using TimeWarp.Extensions;
   using Client.Features.Base;
-
   public partial class AgldRateState
   {
     public class AgldGetRateHandler : BaseHandler<AgldGetRateAction, AgldRateState>
