@@ -7,7 +7,7 @@
 
     public AnthemGoldHttpClient()
     {
-      BaseAddress = new System.Uri(AnthemGoldConstants.BaseUrl);
+      BaseAddress = new System.Uri(EthPriceConstants.BaseUrl);
     }
 
   }
