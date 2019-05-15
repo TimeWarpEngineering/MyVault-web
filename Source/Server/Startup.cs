@@ -19,6 +19,8 @@
   using FluentValidation;
   using Server.Services.AnthemGold.Price;
   using Server.Services.AnthemGold;
+  using Server.Services.CryptoCompare.SingleSymbolPrice;
+  using Server.Services.CryptoCompare;
 
   public class Startup
   {
@@ -94,11 +96,14 @@
       // Until then we register them manually.
       aServiceCollection.AddScoped<IValidator<ConversionRequest>, ConversionRequestValidator>();
       aServiceCollection.AddScoped<IValidator<PriceRequest>, PriceRequestValidator>();
+      aServiceCollection.AddScoped<IValidator<SingleSymbolPriceRequest>, SingleSymbolPriceRequestValidator>();
+
 
       new Client.Startup().ConfigureServices(aServiceCollection);
 
       aServiceCollection.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
       aServiceCollection.AddScoped<AnthemGoldHttpClient>();
+      aServiceCollection.AddScoped<CryptoCompareHttpClient>();
       //aServiceCollection.Scan(aTypeSourceSelector => aTypeSourceSelector
       //  .FromAssemblyOf<Startup>()
       //  .AddClasses()

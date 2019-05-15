@@ -2,7 +2,7 @@
 namespace Server.Services.AnthemGold
 {
   using Ardalis.SmartEnum;
-  public class EthPriceConstants
+  public class AnthemGoldConstants
   {
     public const string AgldCurrencyCode = "AGLD";
     public const string BaseUrl = @"https://chart.anthemgold.com/";

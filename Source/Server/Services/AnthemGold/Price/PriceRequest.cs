@@ -1,7 +1,7 @@
 ﻿namespace Server.Services.AnthemGold.Price
 {
   using MediatR;
-  using static Server.Services.AnthemGold.EthPriceConstants;
+  using static Server.Services.AnthemGold.AnthemGoldConstants;
 
   public class PriceRequest: IRequest<PriceResponse>
     {

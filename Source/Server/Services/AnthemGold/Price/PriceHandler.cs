@@ -7,7 +7,7 @@
   using System.Threading;
   using System.Threading.Tasks;
   using TimeWarp.Extensions;
-  using static Server.Services.AnthemGold.EthPriceConstants;
+  using static Server.Services.AnthemGold.AnthemGoldConstants;
 
   public class PriceHandler : IRequestHandler<PriceRequest, PriceResponse>
   {
