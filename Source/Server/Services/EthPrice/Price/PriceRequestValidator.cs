@@ -7,7 +7,7 @@
   {
     public PriceRequestValidator()
     {
-      RuleFor(aPriceRequest => aPriceRequest.Symbol.ToLower())
+      RuleFor(aPriceRequest => aPriceRequest.Url.ToLower())
         .Equal($"{UsdCurrencyCode}{AgldCurrencyCode}".ToLower());
     }
   }

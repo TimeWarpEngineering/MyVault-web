@@ -4,23 +4,24 @@
   using FluentValidation.Results;
   using MediatR;
   using Microsoft.AspNetCore.Components;
+  using System.Net.Http;
   using System.Threading;
   using System.Threading.Tasks;
   using TimeWarp.Extensions;
-  using static Server.Services.AnthemGold.EthPriceConstants;
+  using static Server.Services.EthPrice.EthPriceConstants;
 
   public class PriceHandler : IRequestHandler<PriceRequest, PriceResponse>
   {
     public PriceHandler(
-      AnthemGoldHttpClient aAnthemGoldHttpClient,
+      HttpClient aHttpClient,
       IValidator<PriceRequest> aPriceRequestValidator
       )
     {
-      AnthemGoldHttpClient = aAnthemGoldHttpClient;
+      HttpClient = aHttpClient;
       PriceRequestValidator = aPriceRequestValidator;
     }
 
-    private AnthemGoldHttpClient AnthemGoldHttpClient { get; }
+    private HttpClient HttpClient { get; }
     private IValidator<PriceRequest> PriceRequestValidator { get; }
 
     public async Task<PriceResponse> Handle(PriceRequest aPriceRequest, CancellationToken aCancellationToken)
@@ -31,8 +32,8 @@
         throw new ValidationException(validationResult.Errors);
       }
       //?symbol=USDAGLD&range=MINUTE_1";
-      string uri = $"{PriceUrl}?{nameof(aPriceRequest.Symbol).ToLower()}={aPriceRequest.Symbol}&{nameof(aPriceRequest.Range).ToLower()}={aPriceRequest.Range}";
-      return await AnthemGoldHttpClient.GetJsonAsync<PriceResponse>(uri);
+      string uri = $"{PriceUrl}?{nameof(aPriceRequest.Url).ToLower()}={aPriceRequest.Url}&{nameof(aPriceRequest.Range).ToLower()}={aPriceRequest.Range}";
+      return await HttpClient.GetJsonAsync<PriceResponse>(uri);
     }
   }
 }

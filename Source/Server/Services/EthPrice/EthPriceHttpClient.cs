@@ -5,10 +5,10 @@
   public class EthPriceHttpClient : HttpClient
   {
 
-    public EthPriceHttpClient()
-    {
-      BaseAddress = new System.Uri(EthPriceConstants.EthPriceUrl);
-    }
+    //public EthPriceHttpClient()
+    //{
+    //  BaseAddress = new System.Uri(EthPriceConstants.EthPriceUrl);
+    //}
 
   }
 }
