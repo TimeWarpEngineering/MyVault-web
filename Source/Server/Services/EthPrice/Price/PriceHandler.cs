@@ -32,7 +32,7 @@
         throw new ValidationException(validationResult.Errors);
       }
       //?symbol=USDAGLD&range=MINUTE_1";
-      string uri = $"{PriceUrl}?{nameof(aPriceRequest.Url).ToLower()}={aPriceRequest.Url}&{nameof(aPriceRequest.Range).ToLower()}={aPriceRequest.Range}";
+      string uri = $"{EthApi}";
       return await HttpClient.GetJsonAsync<PriceResponse>(uri);
     }
   }
