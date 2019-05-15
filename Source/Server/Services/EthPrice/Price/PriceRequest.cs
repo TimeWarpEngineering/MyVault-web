@@ -1,4 +1,4 @@
-﻿namespace Server.Services.AnthemGold.Price
+﻿namespace Server.Services.EthPrice.Price
 {
   using MediatR;
   using static Server.Services.AnthemGold.EthPriceConstants;
