@@ -22,12 +22,15 @@
       Mediator = ServiceProvider.GetService<IMediator>();
     }
 
-    ConversionRequest ConversionRequest = new ConversionRequest { FromCurrency = "ETH", ToCurrency = "USD" };
+    readonly ConversionRequest.SingleSymbolPriceRequest SingleSymbolPriceRequest = new ConversionRequest.SingleSymbolPriceRequest { fsym = "ETH", tsyms = "USD" };
 
-
+    
     public async Task WillItWork()
     {
-      IDictionary<string, decimal> result = await Mediator.Send()
+      ConversionResponse.SingleSymbolPriceResponse result = await Mediator.Send(SingleSymbolPriceRequest);
+
+      result.ShouldNotBeNull();
+
     }
 
 

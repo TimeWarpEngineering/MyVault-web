@@ -10,5 +10,7 @@
     public decimal L { get; set; }
     public decimal O { get; set; }
     public DateTime Ts { get; set; }
+
+
   }
 }

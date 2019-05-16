@@ -30,6 +30,6 @@
     //protected string FormattedRateForConversion => AmountConverter.GetFormatedAmount(new FormatAmountRequest { Amount = ConversionResponse.Rate.ToString(), DecimalPlacesToDisplay = 2, DecimalSeperator = '.', Granularity = 8 });
 
 
-    protected override async Task OnInitAsync() => await Mediator.Send(new AgldGetRateAction());
+    //protected override async Task OnInitAsync() => await Mediator.Send(new AgldGetRateAction());
   }
 }

@@ -1,4 +1,4 @@
-﻿namespace Client.Features.Rate.EthRate
+﻿namespace Client.Features.RateState.EthRate
 {
   using BlazorState;
   using System.Threading;
@@ -10,24 +10,21 @@
   using Client.Features.Base;
   using MediatR;
 
-  public partial class RateState : State<RateState>
-  {
-   
-    public class EthRate
-    {
+  //public partial class RateState : State<RateState.EthRateState>
+  //{
+  //  public class EthRateState
+  //  {
 
-      public EthRate(IStore aStore, Mediator aMediator) 
-      {
-        Mediator = aMediator;
-      }
-    private Mediator Mediator { get; }
+  //    public EthRateState(IStore aStore, Mediator aMediator)
+  //    {
+  //      Mediator = aMediator;
+  //    }
+  //    private Mediator Mediator { get; }
 
-    SingleService ConversionRequest = new ConversionRequest() { FromCurrency = "agld", ToCurrency = "usd" };
+  //    ConversionResponse.SingleSymbolPriceResponse EthPrice = new ConversionRequest.SingleSymbolPriceRequest() { FromCurrency = "agld", ToCurrency = "usd" };
 
-    public decimal Rate { get; private set; } = await 
+  //    public decimal Rate { get; private set; };
 
 
-    protected override void Initialize() => Rate = 0;
-  }
-}
-}
+  //  protected override void Initialize() =>RateState.EthRateState. = 0;
+    }
