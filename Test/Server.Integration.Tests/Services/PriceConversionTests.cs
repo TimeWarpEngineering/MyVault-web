@@ -1,4 +1,4 @@
-﻿namespace Client.Integration.Tests.Features.PriceConversion
+﻿namespace Server.Integration.Tests.Features.PriceConversion
 {
   using MediatR;
   using Microsoft.Extensions.DependencyInjection;

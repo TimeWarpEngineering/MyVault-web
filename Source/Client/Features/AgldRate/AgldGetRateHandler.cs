@@ -27,7 +27,7 @@
 
         string uri = $"{ConversionRequest.Route}?{ConversionRequest.ToQueryString()}";
         ConversionResponse ConversionResponse = await HttpClient.GetJsonAsync<ConversionResponse>(uri);
-        AgldRateState.AgldRate = ConversionResponse.Rate;
+        AgldRateState.AgldRate = ConversionResponse.AgldRate;
 
         return AgldRateState;
       }

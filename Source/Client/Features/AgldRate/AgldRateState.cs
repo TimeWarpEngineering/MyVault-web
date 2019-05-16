@@ -1,5 +1,5 @@
 ﻿namespace Client.Features.AgldRate
-{
+{ 
   using BlazorState;
 
   public partial class AgldRateState : State<AgldRateState>

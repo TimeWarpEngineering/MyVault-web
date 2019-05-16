@@ -7,8 +7,10 @@
   {
     public SingleSymbolPriceRequestValidator()
     {
-      //RuleFor(aPriceRequest => aPriceRequest.Url.ToLower())
-      //  .Equal($"{UsdCurrencyCode}{EthCurrencyCode}".ToLower());
+      RuleFor(aSingleSymbolPriceRequest => aSingleSymbolPriceRequest.tsyms.ToLower())
+        .Equal($"{UsdCurrencyCode}".ToLower());
+      RuleFor(aSingleSymbolPriceRequest => aSingleSymbolPriceRequest.fsym.ToLower())
+        .Equal($"{EthCurrencyCode}".ToLower());
     }
   }
 }
