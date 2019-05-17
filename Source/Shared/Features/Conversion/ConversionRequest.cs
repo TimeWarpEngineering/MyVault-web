@@ -4,7 +4,7 @@
   using MediatR;
   using static Shared.Features.Conversion.ConversionResponse;
   using System;
-
+  
   /// <summary>
   /// Get the Application Object
   /// </summary>
