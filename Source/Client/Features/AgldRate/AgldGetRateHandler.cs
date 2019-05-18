@@ -20,17 +20,17 @@
       }
       private HttpClient HttpClient { get; }
 
-      ConversionRequest.PriceRequest ConversionRequest = new ConversionRequest.PriceRequest { Symbol = "agld", ToCurrency = "usd" };
+      readonly ConversionRequest conversionRequest = new ConversionRequest() { FromCurrency = "agld", ToCurrency = "usd" };
 
-      //public override async Task<AgldRateState> Handle(AgldGetRateAction aAgldGetRateAction, CancellationToken ACancellationToken)
-      //{
+      public override async Task<AgldRateState> Handle(AgldGetRateAction aAgldGetRateAction, CancellationToken aCancellationToken)
+      {
 
-      //  string uri = $"{ConversionRequest.Route}?{ConversionRequest.ToQueryString()}";
-      //  ConversionResponse ConversionResponse = await HttpClient.GetJsonAsync<ConversionResponse>(uri);
-      //  AgldRateState.AgldRate = ConversionResponse.AgldRate;
+        string uri = $"{ConversionRequest.Route}?{conversionRequest.ToQueryString()}";
+        ConversionResponse conversionResponse = await HttpClient.GetJsonAsync<ConversionResponse>(uri);
+        AgldRateState.AgldRate = conversionResponse.Rate;
 
-      //  return AgldRateState;
-      //}
+        return AgldRateState;
+      }
     }
   }
 }

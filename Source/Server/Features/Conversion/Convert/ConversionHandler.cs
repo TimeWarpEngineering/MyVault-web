@@ -36,7 +36,7 @@
 
       PriceResponse priceResponse = await Mediator.Send(new PriceRequest());
 
-      return new ConversionResponse.PriceResponse
+      return new ConversionResponse
       {
         Rate = priceResponse.C
       };
