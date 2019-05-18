@@ -4,54 +4,59 @@
   using System.Collections.Generic;
   using System.Text;
   using MediatR;
-  using Server.Services.CryptoCompare.SingleSymbolPrice;
   using Shouldly;
   using System.Threading.Tasks;
   using Microsoft.Extensions.DependencyInjection;
   using BlazorState.Integration.Tests.Infrastructure;
   using Shared.Features.Conversion;
-  class GetSharedConversionTests
+  class  GetSharedConversionTests
   {
     private IMediator Mediator;
     private IServiceProvider ServiceProvider { get; }
 
+    public AgldRateRequest.PriceRequest PriceRequest1 => PriceRequest;
+
+    //AgldRateRequest PriceRequest { get; } = new AgldRateRequest();
     public GetSharedConversionTests(TestFixture aTestFixture)
     {
       ServiceProvider = aTestFixture.ServiceProvider;
       Mediator = ServiceProvider.GetService<IMediator>();
     }
 
-    readonly ConversionRequest.SingleSymbolPriceRequest SingleSymbolPriceRequest = new ConversionRequest.SingleSymbolPriceRequest { fsym = "ETH", tsyms = "USD" };
+    private readonly AgldRateRequest.PriceRequest PriceRequest = new AgldRateRequest.PriceRequest();
 
-    readonly ConversionRequest.PriceRequest PriceRequest = new ConversionRequest.PriceRequest { Range = "MINUTE_5" };
-
-
-    public async Task GetEthPrice()
+    public async Task GetAgldRate()
     {
-
-      ConversionResponse.SingleSymbolPriceResponse result = await Mediator.Send(SingleSymbolPriceRequest);
-
+      ConversionResponse.PriceResponse result = await Mediator.Send(PriceRequest1);
       result.ShouldNotBeNull();
-      result.Prices.ContainsKey("USD").ShouldBe(true);
-      result.Prices.Values.ShouldNotBe(null);
-
-      //Dictionary<string, decimal>.KeyCollection kvp = result.Prices.Keys;
-
-
     }
 
-    public async Task GetAGldPrice()
-    {
-
-      ConversionResponse.PriceResponse result = await Mediator.Send(PriceRequest);
-
-      result.ShouldNotBeNull();
-
-      //Dictionary<string, decimal>.KeyCollection kvp = result.Prices.Keys;
-
-
-    }
+    //Dictionary<string, decimal>.KeyCollection kvp = result.Prices.Keys;
 
 
   }
 }
+
+    //readonly ConversionRequest.SingleSymbolPriceRequest SingleSymbolPriceRequest = new ConversionRequest.SingleSymbolPriceRequest { fsym = "ETH", tsyms = "USD" };
+
+
+
+    //public async Task GetEthPrice()
+    //{
+
+    //  ConversionResponse.SingleSymbolPriceResponse result = await Mediator.Send(SingleSymbolPriceRequest);
+
+    //  result.ShouldNotBeNull();
+    //  result.Prices.ContainsKey("USD").ShouldBe(true);
+    //  result.Prices.Values.ShouldNotBe(null);
+
+    //  //Dictionary<string, decimal>.KeyCollection kvp = result.Prices.Keys;
+
+
+    //}
+
+
+
+
+  
+

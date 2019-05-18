@@ -4,9 +4,9 @@
   using Shared;
   using Shared.Features.Conversion;
 
-  public class Conversionrequestvalidator : AbstractValidator<ConversionRequest.PriceRequest>
+  public class AgldRateRequestValidator : AbstractValidator<AgldRateRequest.PriceRequest>
   {
-    public Conversionrequestvalidator()
+    public AgldRateRequestValidator()
     {
       //rulefor(aConversionRequest.PriceRequest => aconversionrequestP.symbol.tolower())
       //  .equal(conversionrequest.agldcurrencycode + conversionrequest.usdcurrencycode.tolower());
