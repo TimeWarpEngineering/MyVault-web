@@ -1,19 +1,16 @@
 ﻿namespace Shared.Features.Conversion
 {
   using FluentValidation;
-  using Shared;
-  using Shared.Features.Conversion;
-
-  public class AgldRateRequestValidator : AbstractValidator<AgldRateRequest.PriceRequest>
+  public class ConversionRequestValidator : AbstractValidator<ConversionRequest>
+{
+  public ConversionRequestValidator()
   {
-    public AgldRateRequestValidator()
-    {
-      //rulefor(aConversionRequest.PriceRequest => aconversionrequestP.symbol.tolower())
-      //  .equal(conversionrequest.agldcurrencycode + conversionrequest.usdcurrencycode.tolower());
+    RuleFor(aConversionRequest => aConversionRequest.FromCurrency.ToLower())
+      .Equal(ConversionRequest.AgldCurrencyCode.ToLower());
 
-      //rulefor(agetnativeamountrequest => agetnativeamountrequest.tocurrency.tolower())
-      //  .equal(tolower());
+    RuleFor(aGetNativeAmountRequest => aGetNativeAmountRequest.ToCurrency.ToLower())
+      .Equal(ConversionRequest.UsdCurrencyCode.ToLower());
 
-    }
   }
+}
 }
