@@ -4,7 +4,7 @@
   using System.Net.Http;
   using System.Threading.Tasks;
   using Client.Components;
-  using Client.Features.AgldRate;
+  using Client.Features.Rate;
   using Client.Features.Edge.EdgeCurrencyWallet;
   using Client.Services;
   using Microsoft.AspNetCore.Components;

@@ -94,7 +94,7 @@
       //aServiceCollection.AddSingleton<HttpClient>();
       // TODO: when FluentValidation updated for dotnet core 3 we can use AddFluentValidation and it will scan for validators.
       // Until then we register them manually.
-      //aServiceCollection.AddScoped<IValidator<ConversionRequest>, ConversionRequestValidator>();
+      aServiceCollection.AddScoped<IValidator<ConversionRequest>, ConversionRequestValidator>();
       aServiceCollection.AddScoped<IValidator<PriceRequest>, PriceRequestValidator>();
       aServiceCollection.AddScoped<IValidator<SingleSymbolPriceRequest>, SingleSymbolPriceRequestValidator>();
 

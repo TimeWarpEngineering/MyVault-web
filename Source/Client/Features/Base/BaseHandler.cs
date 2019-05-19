@@ -2,7 +2,7 @@
 {
   using BlazorState;
   using Client.Features.Application;
-  using Client.Features.AgldRate;
+  using Client.Features.Rate;
   using Client.Features.Edge;
   using Client.Features.Edge.EdgeAccount;
   using Client.Features.Edge.EdgeCurrencyWallet;
@@ -19,7 +19,7 @@
   {
     public BaseHandler(IStore aStore) : base(aStore) { }
 
-    public AgldRateState AgldRateState => Store.GetState<AgldRateState>();
+    public RateState RateState => Store.GetState<RateState>();
     public ApplicationState ApplicationState => Store.GetState<ApplicationState>();
     public EdgeState EdgeState => Store.GetState<EdgeState>();
     public EdgeCurrencyWalletsState EdgeCurrencyWalletsState => Store.GetState<EdgeCurrencyWalletsState>();

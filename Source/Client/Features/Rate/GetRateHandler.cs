@@ -1,4 +1,4 @@
-﻿namespace Client.Features.AgldRate
+﻿namespace Client.Features.Rate
 {
   // I would like to have one Conversion State that has the values for both AGLD and Eth and the EdgeWallet.CurrencyCode 
   // will pick which one is used applicable.
@@ -10,26 +10,26 @@
   using Microsoft.AspNetCore.Components;
   using TimeWarp.Extensions;
   using Client.Features.Base;
-  public partial class AgldRateState
+  public partial class RateState
   {
-    public class AgldGetRateHandler : BaseHandler<AgldGetRateAction, AgldRateState>
+    public class GetRateHandler : BaseHandler<GetRateAction, RateState>
     {
-      public AgldGetRateHandler(IStore aStore, HttpClient aHttpClient) : base(aStore)
+      public GetRateHandler(IStore aStore, HttpClient aHttpClient) : base(aStore)
       {
         HttpClient = aHttpClient;
       }
       private HttpClient HttpClient { get; }
 
-      readonly ConversionRequest conversionRequest = new ConversionRequest() { FromCurrency = "agld", ToCurrency = "usd" };
 
-      public override async Task<AgldRateState> Handle(AgldGetRateAction aAgldGetRateAction, CancellationToken aCancellationToken)
+      public override async Task<RateState> Handle(GetRateAction aGetRateAction, CancellationToken aCancellationToken)
       {
 
+        var conversionRequest = new ConversionRequest() { FromCurrency = aGetRateAction.FromCurrency, ToCurrency = aGetRateAction.ToCurrency };
         string uri = $"{ConversionRequest.Route}?{conversionRequest.ToQueryString()}";
         ConversionResponse conversionResponse = await HttpClient.GetJsonAsync<ConversionResponse>(uri);
-        AgldRateState.AgldRate = conversionResponse.Rate;
+        RateState.Rate = conversionResponse.Rate;
 
-        return AgldRateState;
+        return RateState;
       }
     }
   }

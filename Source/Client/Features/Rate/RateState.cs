@@ -1,13 +1,13 @@
-﻿namespace Client.Features.AgldRate
+﻿namespace Client.Features.Rate
 { 
   using BlazorState;
 
-  public partial class AgldRateState : State<AgldRateState>
+  public partial class RateState : State<RateState>
   {
-    public decimal AgldRate { get; private set; }
+    public decimal Rate { get; private set; }
 
 
-    protected override void Initialize() => AgldRate = 0;
+    protected override void Initialize() => Rate = 0;
   }
 }
 

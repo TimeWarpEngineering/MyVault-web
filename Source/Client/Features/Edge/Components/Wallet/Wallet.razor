@@ -27,11 +27,7 @@
     <Balance Balance="@Balance" CurrencyCode="@CurrencyCode" Granularity="@Granularity" DecimalPlacesToDisplay="6" />
 
 
-    @*@if (CurrencyCode == "AHLD")
-    {
-      <div>$ @(Math.Round(ConversionResponse.Rate * Decimal.Parse(FormattedBalanceForConversion), 2))</div>
-      <div>1 AGLD = $ @ConversionResponse?.Rate</div>
-    }*@
+   <FiatBalance />
 
     <br />
     <div class="d-flex flex-column align-items-center mt-2">

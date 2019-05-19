@@ -30,7 +30,7 @@
       };
       aServiceCollection.AddSingleton<ColorPalette>();
       aServiceCollection.AddSingleton<AmountConverter>();
-      //aServiceCollection.AddScoped<IValidator<ConversionRequest>, ConversionRequestValidator>();
+      aServiceCollection.AddScoped<IValidator<ConversionRequest>, ConversionRequestValidator>();
       aServiceCollection.AddSingleton<AddressUtil>();
       aServiceCollection.AddScoped(typeof(IValidator<SendAction>), typeof(SendValidator));
       aServiceCollection.AddBlazorState();

@@ -1,10 +1,11 @@
-﻿namespace Client.Features.AgldRate
+﻿namespace Client.Features.Rate
 {
   using MediatR;
 
-  public class AgldGetRateAction : IRequest<AgldRateState>
+  public class GetRateAction : IRequest<RateState>
   {
-    public decimal AgldRate { get; set; }
+    public string FromCurrency { get; set; }
+    public string ToCurrency { get; set; }
 
   }
 }

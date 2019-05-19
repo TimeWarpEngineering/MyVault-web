@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "edge-login-ui-web": "0.5.18",
-    "edge-core-js": "0.15.11"
+    "edge-core-js": "0.16.0",
+    "yaob": "0.3.4"
   }
 }
