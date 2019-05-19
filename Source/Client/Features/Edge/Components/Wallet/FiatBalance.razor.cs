@@ -1,22 +1,20 @@
-﻿using Client.Components;
-using Client.Features.Rate;
-using Client.Features.Edge.EdgeCurrencyWallet;
-using Client.Services;
-using Microsoft.AspNetCore.Components;
-using Shared.Features.Conversion;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Client.Features.Edge.Components.Wallet
+﻿namespace Client.Features.Edge.Components.Wallet
 {
+  using Client.Components;
+  using Client.Features.Rate;
+  using Client.Features.Edge.EdgeCurrencyWallet;
+  using Client.Services;
+  using Microsoft.AspNetCore.Components;
+  using System;
+  using System.Linq;
+  using System.Threading.Tasks;
+
   public class FiatBalanceBase : BaseComponent
   {
     [Inject]
     AmountConverter AmountConverter { get; set; }
 
-    private EdgeCurrencyWallet.EdgeCurrencyWallet SelectedEdgeCurrencyWallet => EdgeCurrencyWalletsState.SelectedEdgeCurrencyWallet;
+    private EdgeCurrencyWallet SelectedEdgeCurrencyWallet => EdgeCurrencyWalletsState.SelectedEdgeCurrencyWallet;
     public string FiatCurrencyCode => SelectedEdgeCurrencyWallet.FiatCurrencyCode.Split(':').Last();
 
     public decimal Rate => RateState.Rate;
