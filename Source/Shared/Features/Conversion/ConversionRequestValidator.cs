@@ -1,16 +1,23 @@
 ﻿namespace Shared.Features.Conversion
 {
   using FluentValidation;
-  public class ConversionRequestValidator : AbstractValidator<ConversionRequest>
-{
-  public ConversionRequestValidator()
-  {
-    RuleFor(aConversionRequest => aConversionRequest.FromCurrency.ToLower())
-      .Equal(ConversionRequest.AgldCurrencyCode.ToLower());
+  using System.Collections.Generic;
 
-    RuleFor(aGetNativeAmountRequest => aGetNativeAmountRequest.ToCurrency.ToLower())
-      .Equal(ConversionRequest.UsdCurrencyCode.ToLower());
+  public class ConversionRequestValidator : AbstractValidator<ConversionRequest>
+  {
+
+    public ConversionRequestValidator()
+    {
+      var ValidTokens = new List<string> { "agld", "eth" };
+
+      RuleFor(aConversionRequest => aConversionRequest.FromCurrency.ToLower())
+        .Must(aToken => ValidTokens.Contains(aToken));
+
+      RuleFor(aGetNativeAmountRequest => aGetNativeAmountRequest.ToCurrency.ToLower())
+        .Equal(ConversionRequest.UsdCurrencyCode.ToLower());
+
+    }
+    
 
   }
-}
 }

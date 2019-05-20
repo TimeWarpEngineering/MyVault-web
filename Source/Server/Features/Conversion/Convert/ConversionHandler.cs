@@ -1,11 +1,13 @@
 ﻿namespace Server.Features.Conversion
 {
+  using System;
   using System.Threading;
   using System.Threading.Tasks;
   using FluentValidation;
   using FluentValidation.Results;
   using MediatR;
   using Server.Services.AnthemGold.Price;
+  using Server.Services.CryptoCompare.SingleSymbolPrice;
   using Shared.Features.Conversion;
 
   public class ConversionHandler : IRequestHandler<ConversionRequest, ConversionResponse>
@@ -34,12 +36,34 @@
         throw new ValidationException(validationResult.Errors);
       }
 
-      PriceResponse priceResponse = await Mediator.Send(new PriceRequest());
-
-      return new ConversionResponse
+      if (aConversionRequest.FromCurrency == "AGLD")
       {
-        Rate = priceResponse.C
-      };
+
+        PriceResponse priceResponse = await Mediator.Send(new PriceRequest());
+
+        return new ConversionResponse
+        {
+          Rate = priceResponse.C
+        };
+      }
+
+      else
+      {
+        var singleSymbolPriceRequest = new SingleSymbolPriceRequest { fsym = "ETH", tsyms = "USD" };
+
+        SingleSymbolPriceResponse singleSymbolPriceResponse = await Mediator.Send(singleSymbolPriceRequest);
+        decimal value = 0;
+        System.Collections.Generic.Dictionary<string, decimal>.ValueCollection values = singleSymbolPriceResponse.Prices.Values;
+
+        foreach (decimal v in values)
+        {
+          value = v;
+        }
+        return new ConversionResponse
+        {
+          Rate = value
+        };
+      }
     }
   }
 }

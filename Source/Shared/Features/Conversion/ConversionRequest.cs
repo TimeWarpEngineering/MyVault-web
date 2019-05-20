@@ -10,6 +10,7 @@
   {
     public const string Route = "api/Conversion";
 
+    public const string EthCurrencyCode = "ETH";
     public const string AgldCurrencyCode = "AGLD";
     public const string UsdCurrencyCode = "USD";
 

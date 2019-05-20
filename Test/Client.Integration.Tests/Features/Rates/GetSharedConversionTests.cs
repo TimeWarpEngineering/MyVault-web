@@ -1,8 +1,6 @@
 ﻿namespace Client.Integration.Tests.Features.Rates
 {
   using System;
-  using System.Collections.Generic;
-  using System.Text;
   using MediatR;
   using Shouldly;
   using System.Threading.Tasks;
@@ -11,10 +9,9 @@
   using Client.Features.Rate;
   class ClientGetRateTests
   {
-    private IMediator Mediator;
+    private readonly IMediator Mediator;
     private IServiceProvider ServiceProvider { get; }
 
-    public GetRateAction GetRateAction  { get; } = new GetRateAction { FromCurrency = "AGLD", ToCurrency = "USD" };
 
     public ClientGetRateTests(TestFixture aTestFixture)
     {
@@ -22,11 +19,23 @@
       Mediator = ServiceProvider.GetService<IMediator>();
     }
 
+    //public GetRateAction GetRateAction  { get; set; } 
 
     public async Task GetAgldRate()
     {
-      RateState result = await Mediator.Send(GetRateAction);
+      var getRateAction = new GetRateAction { FromCurrency = "AGLD", ToCurrency = "USD" };
+      RateState result = await Mediator.Send(getRateAction);
       result.ShouldNotBe(null);
+      Console.WriteLine(result.Rate);
+
+    }
+
+    public async Task GetEthRate()
+    {
+      var getRateAction = new GetRateAction { FromCurrency = "ETH", ToCurrency = "USD" };
+      RateState result = await Mediator.Send(getRateAction);
+      result.ShouldNotBe(null);
+      Console.WriteLine("{ result.Rate}");
 
     }
 
@@ -34,26 +43,3 @@
 
   }
 }
-
-
-
-
-//public async Task GetEthPrice()
-//{
-
-//  ConversionResponse.SingleSymbolPriceResponse result = await Mediator.Send(SingleSymbolPriceRequest);
-
-//  result.ShouldNotBeNull();
-//  result.Prices.ContainsKey("USD").ShouldBe(true);
-//  result.Prices.Values.ShouldNotBe(null);
-
-//  //Dictionary<string, decimal>.KeyCollection kvp = result.Prices.Keys;
-
-
-//}
-
-
-
-
-
-
