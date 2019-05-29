@@ -67,12 +67,12 @@
 
   <Target Name="EnsureNpmRestored" Condition="!Exists('node_modules')">
     <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
-    <Exec Command="yarn install" />
+    <Exec Command="npm install" />
   </Target>
 
   <Target Name="RunWebpack" AfterTargets="ResolveReferences" Inputs="@(WebpackInputs)" Outputs="dist\clientjs.js" DependsOnTargets="EnsureNpmRestored">
     <RemoveDir Directories="dist" />
-    <Exec Command="yarn run build" />
+    <Exec Command="npm run build" />
     <ItemGroup>
       <EmbeddedResource Include="dist\clientjs.js" LogicalName="blazor:js:clientjs.js" />
     </ItemGroup>
