@@ -17,12 +17,16 @@
     public ConversionResponse ConversionResponse { get; set; }
     public string CurrencyCode => EdgeCurrencyWallet.SelectedCurrencyCode ?? "AGLD";
     public int Granularity => EdgeCurrencyWallet.Granularity[CurrencyCode];
-    [Parameter] protected EdgeCurrencyWallet EdgeCurrencyWallet { get; set; }
+    public EdgeCurrencyWallet EdgeCurrencyWallet => EdgeCurrencyWalletsState.SelectedEdgeCurrencyWallet;
     [Inject] private AmountConverter AmountConverter { get; set; }
 
     [Inject] protected HttpClient HttpClient { get; set; }
 
-    public void OnClickHandler(string aCurrencyCode) => EdgeCurrencyWallet.SelectedCurrencyCode = aCurrencyCode;
+    public void OnClickHandler(string aCurrencyCode)
+    {
+
+      EdgeCurrencyWallet.SelectedCurrencyCode = aCurrencyCode;
+    }
 
     protected string FormattedBalanceForConversion => AmountConverter.GetFormatedAmount(new FormatAmountRequest { Amount = Balance, DecimalPlacesToDisplay = 2, DecimalSeperator = '.', Granularity = Granularity });
 
