@@ -8,10 +8,10 @@
 
     public ConversionRequestValidator()
     {
-      var ValidTokens = new List<string> { "agld", "eth" };
+      var validTokens = new List<string> { "agld", "eth", "ahld" };
 
       RuleFor(aConversionRequest => aConversionRequest.FromCurrency.ToLower())
-        .Must(aToken => ValidTokens.Contains(aToken));
+        .Must(aToken => validTokens.Contains(aToken));
 
       RuleFor(aGetNativeAmountRequest => aGetNativeAmountRequest.ToCurrency.ToLower())
         .Equal(ConversionRequest.UsdCurrencyCode.ToLower());

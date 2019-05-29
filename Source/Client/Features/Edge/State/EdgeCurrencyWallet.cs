@@ -18,6 +18,7 @@
       Granularity = new Dictionary<string, int> { { "ETH", 18 }, { "AHLD", 9 }, { "AGLD", 9 } };
     }
 
+    public string ShortFiatCurrencyCode => FiatCurrencyCode.Split(':').Last();
     public Dictionary<string, string> Balances { get; set; }
     public Dictionary<string, int> Granularity { get; set; }
     public string FiatCurrencyCode { get; set; }

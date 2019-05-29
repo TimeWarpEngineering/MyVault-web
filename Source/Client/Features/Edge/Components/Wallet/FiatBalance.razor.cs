@@ -1,8 +1,8 @@
 ﻿namespace Client.Features.Edge.Components.Wallet
 {
   using Client.Components;
-  using Client.Features.Rate;
   using Client.Features.Edge.EdgeCurrencyWallet;
+  using Client.Features.Rate;
   using Client.Services;
   using Microsoft.AspNetCore.Components;
   using System;
@@ -11,34 +11,35 @@
 
   public class FiatBalanceBase : BaseComponent
   {
-    [Inject]
-    AmountConverter AmountConverter { get; set; }
+    public decimal Balance => decimal.Parse(FormattedBalanceForConversion);
 
-    private EdgeCurrencyWallet SelectedEdgeCurrencyWallet => EdgeCurrencyWalletsState.SelectedEdgeCurrencyWallet;
-    public string FiatCurrencyCode => SelectedEdgeCurrencyWallet.FiatCurrencyCode.Split(':').Last();
+    public decimal BalanceInFiat => Rate * Balance;
 
-    public decimal Rate => RateState.Rate;
+    public string CurrencyCode => SelectedEdgeCurrencyWallet.SelectedCurrencyCode;
+
+    public string ShortFiatCurrencyCode => SelectedEdgeCurrencyWallet.ShortFiatCurrencyCode;
 
     //Math.Round(Shared.Features.Conversion.ConversionResponse.Rate* Decimal.Parse(FormattedBalanceForConversion), 2)
     public int Granularity => SelectedEdgeCurrencyWallet.Granularity[CurrencyCode];
 
-    public decimal BalanceInFiat => Rate * Balance;
+    public decimal Rate => RateState.Rate;
 
-    public decimal Balance => decimal.Parse(FormattedBalanceForConversion);
-    public string CurrencyCode => SelectedEdgeCurrencyWallet.SelectedCurrencyCode;
+    private EdgeCurrencyWallet SelectedEdgeCurrencyWallet => EdgeCurrencyWalletsState.SelectedEdgeCurrencyWallet;
+
     protected string FormattedBalanceForConversion => AmountConverter.GetFormatedAmount(
       new FormatAmountRequest { Amount = SelectedEdgeCurrencyWallet.Balances[CurrencyCode], DecimalPlacesToDisplay = 2, DecimalSeperator = '.', Granularity = Granularity });
+
+    [Inject]
+    private AmountConverter AmountConverter { get; set; }
 
     protected override async Task OnInitAsync()
     {
       var getRateAction = new GetRateAction
       {
-        ToCurrency = FiatCurrencyCode,
+        ToCurrency = ShortFiatCurrencyCode,
         FromCurrency = CurrencyCode
       };
-      RateState result =  await Mediator.Send(getRateAction);
-      Console.WriteLine($"{result.Rate}, {RateState.Rate} should be same");
+      _ = await Mediator.Send(getRateAction);
     }
-
   }
 }

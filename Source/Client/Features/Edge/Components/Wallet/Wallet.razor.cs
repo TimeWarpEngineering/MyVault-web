@@ -22,11 +22,8 @@
 
     [Inject] protected HttpClient HttpClient { get; set; }
 
-    public void OnClickHandler(string aCurrencyCode)
-    {
-
-      EdgeCurrencyWallet.SelectedCurrencyCode = aCurrencyCode;
-    }
+    public async Task OnClickHandler(string aCurrencyCode) => 
+      _ = await Mediator.Send(new SetSelectedCurrencyAction { CurrencyCode = aCurrencyCode });
 
     protected string FormattedBalanceForConversion => AmountConverter.GetFormatedAmount(new FormatAmountRequest { Amount = Balance, DecimalPlacesToDisplay = 2, DecimalSeperator = '.', Granularity = Granularity });
 
