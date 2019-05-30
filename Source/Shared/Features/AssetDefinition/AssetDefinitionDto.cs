@@ -3,23 +3,11 @@
   using System;
   using System.Collections.Generic;
 
-  public class AssetDefinitionDto : ICloneable
+  public class AssetDefinitionDto
   {
     public AssetDefinitionDto()
     {
       MetricDefinitions = new List<MetricDefinitionDto>();
-    }
-
-    protected AssetDefinitionDto(AssetDefinitionDto aAssetDefinition) : this()
-    {
-      Name = aAssetDefinition.Name;
-      Url = aAssetDefinition.Url;
-      Logo = aAssetDefinition.Logo;
-
-      foreach (MetricDefinitionDto metricDefinition in aAssetDefinition.MetricDefinitions)
-      {
-        MetricDefinitions.Add((MetricDefinitionDto)metricDefinition.Clone());
-      }
     }
 
     /// <summary>
@@ -45,7 +33,5 @@
     /// TODO: 
     /// </summary>
     public string Url { get; set; }
-
-    public object Clone() => new AssetDefinitionDto(this);
   }
 }

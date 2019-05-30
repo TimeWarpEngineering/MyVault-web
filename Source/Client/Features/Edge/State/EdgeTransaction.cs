@@ -2,9 +2,8 @@
 {
   using System;
   using System.Collections.Generic;
-  using System.Linq;
 
- public class EdgeTransaction : ICloneable
+  public class EdgeTransaction
   {
     const string NegativeChar = "-";
 
@@ -18,16 +17,6 @@
     public string ParentNetworkFee { get; set; }
     public string TxId { get; set; }
     public bool IsSend => NativeAmount.StartsWith(NegativeChar);
-
-    public object Clone()
-    {
-      var clone = MemberwiseClone() as EdgeTransaction;
-
-      clone.OurReceiveAddresses = new List<string>(OurReceiveAddresses);
-
-      return clone;
-    }
-
   };
 }
 

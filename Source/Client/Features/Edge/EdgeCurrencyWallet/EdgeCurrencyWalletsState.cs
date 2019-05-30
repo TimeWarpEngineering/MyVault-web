@@ -1,29 +1,37 @@
 ﻿namespace Client.Features.Edge.EdgeCurrencyWallet
 {
+  using BlazorState;
   using System.Collections.Generic;
   using System.Linq;
 
-  public partial class EdgeCurrencyWalletsState
+  public partial class EdgeCurrencyWalletsState : State<EdgeCurrencyWalletsState>
   {
+    public EdgeCurrencyWalletsState()
+    {
+      EdgeCurrencyWallets = new Dictionary<string, EdgeCurrencyWallet>();
+    }
+
     public Dictionary<string, EdgeCurrencyWallet> EdgeCurrencyWallets { get; set; }
 
-    public string SelectedEdgeCurrencyWalletId { get; set; }
-
-    public EdgeCurrencyWallet SelectedEdgeCurrencyWallet {
-      get {
-        if ( SelectedEdgeCurrencyWalletId != null &&
+    public EdgeCurrencyWallet SelectedEdgeCurrencyWallet
+    {
+      get
+      {
+        if (SelectedEdgeCurrencyWalletId != null &&
             EdgeCurrencyWallets.ContainsKey(SelectedEdgeCurrencyWalletId))
         {
           return EdgeCurrencyWallets[SelectedEdgeCurrencyWalletId];
         };
-        if(EdgeCurrencyWallets.Count > 0)
+        if (EdgeCurrencyWallets.Count > 0)
         {
           return EdgeCurrencyWallets.First().Value;
         }
         return null;
       }
     }
-    
-  }
 
+    public string SelectedEdgeCurrencyWalletId { get; set; }
+
+    protected override void Initialize() => EdgeCurrencyWallets = new Dictionary<string, EdgeCurrencyWallet>();
+  }
 }

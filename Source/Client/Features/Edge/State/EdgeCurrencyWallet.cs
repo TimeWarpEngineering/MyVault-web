@@ -6,7 +6,7 @@
   using System.Net;
   using Client.Features.Edge.State;
 
-  public class EdgeCurrencyWallet : ICloneable
+  public class EdgeCurrencyWallet
   {
 
     public EdgeCurrencyWallet()
@@ -34,21 +34,5 @@
       set => _SelectedCurrencyCode = value;
     }
     public string EncodedId => WebUtility.UrlEncode(Id);
-
-    public object Clone()
-    {
-      var clone = MemberwiseClone() as EdgeCurrencyWallet;
-      clone.Keys = new Dictionary<string, string>(Keys);
-      clone.Balances = new Dictionary<string, string>(Balances);
-
-      clone.EdgeTransactions = new List<EdgeTransaction>();
-
-      EdgeTransactions.ForEach((aEdgeTransaction) =>
-      {
-        clone.EdgeTransactions.Add(aEdgeTransaction.Clone() as EdgeTransaction);
-      });
-
-      return clone;
-    }
   }
 }

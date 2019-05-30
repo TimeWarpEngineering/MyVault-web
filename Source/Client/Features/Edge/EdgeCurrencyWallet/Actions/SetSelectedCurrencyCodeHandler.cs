@@ -22,7 +22,7 @@ namespace Client.Features.Edge.EdgeCurrencyWallet
 
       private IMediator Mediator { get; }
 
-      public override async Task<EdgeCurrencyWalletsState> Handle(SetSelectedCurrencyAction aSetSelectedCurrencyAction, CancellationToken aCancellationToken)
+      public override Task<EdgeCurrencyWalletsState> Handle(SetSelectedCurrencyAction aSetSelectedCurrencyAction, CancellationToken aCancellationToken)
       {
         EdgeCurrencyWalletsState.SelectedEdgeCurrencyWallet.SelectedCurrencyCode = aSetSelectedCurrencyAction.CurrencyCode;
 
@@ -31,9 +31,9 @@ namespace Client.Features.Edge.EdgeCurrencyWallet
           ToCurrency = EdgeCurrencyWalletsState.SelectedEdgeCurrencyWallet.ShortFiatCurrencyCode,
           FromCurrency = aSetSelectedCurrencyAction.CurrencyCode
         };
-        _ = await Mediator.Send(getRateAction);
+        //_ = await Mediator.Send(getRateAction);
 
-        return EdgeCurrencyWalletsState;
+        return Task.FromResult(EdgeCurrencyWalletsState);
       }
     }
   }
