@@ -15,7 +15,7 @@ namespace Client.Features.Edge.Components.Wallet
   {
     public decimal Balance => decimal.Parse(FormattedBalanceForConversion);
 
-    public decimal? BalanceInFiat => Rate * Balance;
+    public string? BalanceInFiat => (Rate * Balance)?.ToString("C");
 
     public string CurrencyCode => SelectedEdgeCurrencyWallet.SelectedCurrencyCode;
 
@@ -29,7 +29,7 @@ namespace Client.Features.Edge.Components.Wallet
     private EdgeCurrencyWallet SelectedEdgeCurrencyWallet => EdgeCurrencyWalletsState.SelectedEdgeCurrencyWallet;
 
     protected string FormattedBalanceForConversion => AmountConverter.GetFormatedAmount(
-      new FormatAmountRequest { Amount = SelectedEdgeCurrencyWallet.Balances[CurrencyCode], DecimalPlacesToDisplay = 2, DecimalSeperator = '.', Granularity = Granularity });
+      new FormatAmountRequest { Amount = SelectedEdgeCurrencyWallet.Balances[CurrencyCode], DecimalPlacesToDisplay = Granularity, DecimalSeperator = '.', Granularity = Granularity });
 
     [Inject]
     private AmountConverter AmountConverter { get; set; } = default!;

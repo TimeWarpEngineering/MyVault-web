@@ -36,7 +36,7 @@
         throw new ValidationException(validationResult.Errors);
       }
 
-      if (aConversionRequest.FromCurrency == "AGLD")
+      if (aConversionRequest.FromCurrency == "AGLD" | aConversionRequest.FromCurrency == "AHLD")
       {
 
         PriceResponse priceResponse = await Mediator.Send(new PriceRequest());
