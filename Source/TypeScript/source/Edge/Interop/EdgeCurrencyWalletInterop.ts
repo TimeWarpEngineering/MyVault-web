@@ -19,6 +19,13 @@ export class EdgeCurrencyWalletInterop {
     multiplier: '1000000000'
   };
 
+  private AnthemHoldTokenInfo: EdgeTokenInfo = {
+    currencyName: 'AnthemHold',
+    contractAddress: '0x62AbD749d52043Cd6A5542247D604491186540c2',
+    currencyCode: 'AHLD',
+    multiplier: '1000000000'
+  };
+
   constructor(edgeCurrencyWallet: EdgeCurrencyWallet) {
     this.EdgeCurrencyWallet = edgeCurrencyWallet;
     console.log(`EdgeCurrencyWalletInterop constructor ${edgeCurrencyWallet.id}`);
@@ -27,6 +34,9 @@ export class EdgeCurrencyWalletInterop {
   public async Initialize(): Promise<void> {
     console.log(`Initialize EdgeCurrencyWalletInterop for ${this.EdgeCurrencyWallet.id}`);
     await this.EdgeCurrencyWallet.addCustomToken(this.AnthemGoldTokenInfo);
+
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+       await this.EdgeCurrencyWallet.addCustomToken(this.AnthemHoldTokenInfo);
 
     const enabledTokens: Array<string> = await this.EdgeCurrencyWallet.getEnabledTokens();
     if (!enabledTokens.includes(this.AnthemGoldTokenInfo.currencyCode)) {      
