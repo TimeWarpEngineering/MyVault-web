@@ -23,11 +23,13 @@
 
       public override async Task<RateState> Handle(GetRateAction aGetRateAction, CancellationToken aCancellationToken)
       {
-
         var conversionRequest = new ConversionRequest() { FromCurrency = aGetRateAction.FromCurrency, ToCurrency = aGetRateAction.ToCurrency };
         string uri = $"{ConversionRequest.Route}?{conversionRequest.ToQueryString()}";
         ConversionResponse conversionResponse = await HttpClient.GetJsonAsync<ConversionResponse>(uri);
-        RateState.Rate = conversionResponse.Rate;
+        RateState._Conversions.Add(new Conversion(
+          conversionRequest.FromCurrency,
+          conversionRequest.ToCurrency,
+          conversionResponse.Rate));
 
         return RateState;
       }

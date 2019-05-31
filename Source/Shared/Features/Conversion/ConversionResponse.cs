@@ -7,4 +7,3 @@
       public decimal Rate { get; set; }
     }
   }
-

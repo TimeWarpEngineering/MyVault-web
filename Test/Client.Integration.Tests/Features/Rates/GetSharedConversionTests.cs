@@ -26,8 +26,10 @@
       var getRateAction = new GetRateAction { FromCurrency = "AGLD", ToCurrency = "USD" };
       RateState result = await Mediator.Send(getRateAction);
       result.ShouldNotBe(null);
-      Console.WriteLine(result.Rate);
-
+      result.Conversions.Count.ShouldBeGreaterThan(0);
+      RateState.Conversion conversion = result.GetConversion("AGLD", "USD");
+      conversion.ShouldNotBeNull();
+      // TODO add more asserts
     }
 
     public async Task GetEthRate()

@@ -1,4 +1,5 @@
-﻿namespace Client.Features.Edge.Components.Wallet
+﻿#nullable enable
+namespace Client.Features.Edge.Components.Wallet
 {
   using Client.Components;
   using Client.Features.Edge.EdgeCurrencyWallet;
@@ -8,12 +9,13 @@
   using System;
   using System.Linq;
   using System.Threading.Tasks;
+  using static Client.Features.Rate.RateState;
 
   public class FiatBalanceBase : BaseComponent
   {
     public decimal Balance => decimal.Parse(FormattedBalanceForConversion);
 
-    public decimal BalanceInFiat => Rate * Balance;
+    public decimal? BalanceInFiat => Rate * Balance;
 
     public string CurrencyCode => SelectedEdgeCurrencyWallet.SelectedCurrencyCode;
 
@@ -22,7 +24,7 @@
     //Math.Round(Shared.Features.Conversion.ConversionResponse.Rate* Decimal.Parse(FormattedBalanceForConversion), 2)
     public int Granularity => SelectedEdgeCurrencyWallet.Granularity[CurrencyCode];
 
-    public decimal Rate => RateState.Rate;
+    public decimal? Rate => RateState.Conversions.FirstOrDefault(c => c.FromCurrency == CurrencyCode && c.ToCurrency == ShortFiatCurrencyCode)?.Rate;
 
     private EdgeCurrencyWallet SelectedEdgeCurrencyWallet => EdgeCurrencyWalletsState.SelectedEdgeCurrencyWallet;
 
@@ -30,16 +32,21 @@
       new FormatAmountRequest { Amount = SelectedEdgeCurrencyWallet.Balances[CurrencyCode], DecimalPlacesToDisplay = 2, DecimalSeperator = '.', Granularity = Granularity });
 
     [Inject]
-    private AmountConverter AmountConverter { get; set; }
+    private AmountConverter AmountConverter { get; set; } = default!;
 
-    protected override async Task OnInitAsync()
+    protected override async Task OnAfterRenderAsync()
     {
-      var getRateAction = new GetRateAction
+      Conversion? conversion = RateState.GetConversion(CurrencyCode, ShortFiatCurrencyCode);
+
+      if (conversion == null || conversion.TimeStamp.AddMinutes(5) < DateTime.UtcNow)
       {
-        ToCurrency = ShortFiatCurrencyCode,
-        FromCurrency = CurrencyCode
-      };
-      _ = await Mediator.Send(getRateAction);
+        var getRateAction = new GetRateAction
+        {
+          ToCurrency = ShortFiatCurrencyCode,
+          FromCurrency = CurrencyCode
+        };
+        _ = await Mediator.Send(getRateAction);
+      }
     }
   }
 }

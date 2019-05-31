@@ -20,6 +20,8 @@
 
   <ItemGroup>
 
+    <Folder Include="Features\Rate\Actions\GetRate\" />
+
     <Folder Include="Properties\" />
   </ItemGroup>
 
