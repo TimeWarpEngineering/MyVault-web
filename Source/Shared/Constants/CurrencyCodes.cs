@@ -1,4 +1,4 @@
-﻿namespace Shared.Features.Conversion
+﻿namespace Shared.Constants
 {
   public class CurrencyCodes
   {

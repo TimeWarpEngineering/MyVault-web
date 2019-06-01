@@ -1,7 +1,7 @@
 ﻿namespace Server.Services.AnthemGold
 {
   using System.Net.Http;
-
+  using Shared.Constants;
   public class AnthemGoldHttpClient : HttpClient
   {
 

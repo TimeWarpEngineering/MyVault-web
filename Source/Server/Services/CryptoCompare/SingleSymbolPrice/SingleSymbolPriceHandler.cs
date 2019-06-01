@@ -5,10 +5,9 @@
   using MediatR;
   using Microsoft.AspNetCore.Components;
   using System.Collections.Generic;
-  using System.Net.Http;
   using System.Threading;
   using System.Threading.Tasks;
-  using static Server.Services.CryptoCompare.CryptoCompareConstants;
+  using static Shared.Constants.CryptoCompareConstants;
   using TimeWarp.Extensions;
 
   public class SingleSymbolPriceHandler : IRequestHandler<SingleSymbolPriceRequest, SingleSymbolPriceResponse>

@@ -6,8 +6,7 @@
   using Microsoft.AspNetCore.Components;
   using System.Threading;
   using System.Threading.Tasks;
-  using TimeWarp.Extensions;
-  using static Server.Services.AnthemGold.AnthemGoldConstants;
+  using static Shared.Constants.AnthemGoldConstants;
 
   public class PriceHandler : IRequestHandler<PriceRequest, PriceResponse>
   {

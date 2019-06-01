@@ -1,14 +1,11 @@
 ﻿
-namespace Server.Services.AnthemGold
+namespace Shared.Constants
 {
   using Ardalis.SmartEnum;
-  using Shared.Features.Conversion;
   public class AnthemGoldConstants
   {
-    public const string AgldCurrencyCode = CurrencyCodes.AgldCurrencyCode;
     public const string BaseUrl = @"https://chart.anthemgold.com/";
     public const string PriceUrl = @"service-1.0-SNAPSHOT/PRICE";
-    public const string UsdCurrencyCode = CurrencyCodes.UsdCurrencyCode;
 
     //?symbol=USDAGLD&range=MINUTE_1";
 

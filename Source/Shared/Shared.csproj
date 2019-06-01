@@ -10,4 +10,8 @@
     <PackageReference Include="MediatR" Version="$(MediatrVersion)" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Constants\" />
+  </ItemGroup>
+
 </Project>

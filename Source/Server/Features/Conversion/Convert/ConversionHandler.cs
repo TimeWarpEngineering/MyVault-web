@@ -1,6 +1,5 @@
 ﻿namespace Server.Features.Conversion
 {
-  using System;
   using System.Threading;
   using System.Threading.Tasks;
   using FluentValidation;
@@ -8,6 +7,7 @@
   using MediatR;
   using Server.Services.AnthemGold.Price;
   using Server.Services.CryptoCompare.SingleSymbolPrice;
+  using Shared.Constants;
   using Shared.Features.Conversion;
 
   public class ConversionHandler : IRequestHandler<ConversionRequest, ConversionResponse>

@@ -1,8 +1,7 @@
 ﻿namespace Server.Services.CryptoCompare.SingleSymbolPrice
-{ 
+{
   using FluentValidation;
-  using static Server.Services.CryptoCompare.CryptoCompareConstants;
-
+  using static Shared.Constants.CurrencyCodes;
   public class SingleSymbolPriceRequestValidator : AbstractValidator<SingleSymbolPriceRequest>
   {
     public SingleSymbolPriceRequestValidator()

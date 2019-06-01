@@ -1,7 +1,7 @@
 ﻿namespace Server.Services.AnthemGold.Price
 {
   using FluentValidation;
-  using static Server.Services.AnthemGold.AnthemGoldConstants;
+  using static Shared.Constants.CurrencyCodes;
 
   public class PriceRequestValidator : AbstractValidator<PriceRequest>
   {

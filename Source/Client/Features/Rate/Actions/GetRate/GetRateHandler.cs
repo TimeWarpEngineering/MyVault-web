@@ -1,7 +1,5 @@
 ﻿namespace Client.Features.Rate
 {
-  // I would like to have one Conversion State that has the values for both AGLD and Eth and the EdgeWallet.CurrencyCode 
-  // will pick which one is used applicable.
   using BlazorState;
   using System.Threading;
   using System.Threading.Tasks;
