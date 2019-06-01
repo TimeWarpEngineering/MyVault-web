@@ -36,7 +36,7 @@
         throw new ValidationException(validationResult.Errors);
       }
 
-      if (aConversionRequest.FromCurrency == "AGLD" | aConversionRequest.FromCurrency == "AHLD")
+      if (aConversionRequest.FromCurrency == CurrencyCodes.AgldCurrencyCode | aConversionRequest.FromCurrency == CurrencyCodes.AhldCurrencyCode)
       {
 
         PriceResponse priceResponse = await Mediator.Send(new PriceRequest());
@@ -49,7 +49,7 @@
 
       else
       {
-        var singleSymbolPriceRequest = new SingleSymbolPriceRequest { fsym = "ETH", tsyms = "USD" };
+        var singleSymbolPriceRequest = new SingleSymbolPriceRequest { fsym = CurrencyCodes.EthCurrencyCode, tsyms = CurrencyCodes.UsdCurrencyCode };
 
         SingleSymbolPriceResponse singleSymbolPriceResponse = await Mediator.Send(singleSymbolPriceRequest);
         decimal value = 0;

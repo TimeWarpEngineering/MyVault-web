@@ -8,7 +8,7 @@
 
     public ConversionRequestValidator()
     {
-      var validTokens = new List<string> { CurrencyCodes.AgldCurrencyCode, CurrencyCodes.EthCurrencyCode, CurrencyCodes.AhldCurrencyCode };
+      var validTokens = new List<string> { CurrencyCodes.AgldCurrencyCode.ToLower(), CurrencyCodes.EthCurrencyCode.ToLower(), CurrencyCodes.AhldCurrencyCode.ToLower() };
 
       RuleFor(aConversionRequest => aConversionRequest.FromCurrency.ToLower())
         .Must(aToken => validTokens.Contains(aToken));
