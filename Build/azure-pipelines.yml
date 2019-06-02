@@ -7,7 +7,7 @@ trigger:
   - master
  paths:
   include:
-  - source/*
+  - Source/*
 
 # no PR builds
 pr: none
