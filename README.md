@@ -2,8 +2,10 @@
 A Progressive Web Application for the AnthemGold.
 
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+Contains an ERC-20 Standard Token Wallet that handles Ethereum and the AnthemGold (AGLD) Token. 
 
-Reposoitory: 
+Reposoitory: https://github.com/AnthemGold/MyVault-web
+
 
 # Getting Started
 TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
