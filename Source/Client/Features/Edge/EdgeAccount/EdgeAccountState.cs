@@ -10,7 +10,6 @@
     public bool LoggedIn { get; set; }
     public string Id { get; set; }
 
-    public override object Clone() => MemberwiseClone();
 
     protected override void Initialize() => LoggedIn = false;
   }

@@ -4,7 +4,6 @@
   using Server.Entities;
   using Shared.Features.AssetDefinition;
   using Shouldly;
-  using static SliceFixture;
 
   class GetAssetDefinitionTests : IntegrationTestBase
   {

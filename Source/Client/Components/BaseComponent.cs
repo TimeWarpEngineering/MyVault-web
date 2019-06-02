@@ -8,6 +8,7 @@
   using Client.Features.Edge.EdgeCurrencyWallet;
   using Client.Components.Shared;
   using Microsoft.AspNetCore.Components;
+  using Client.Features.Rate;
 
   /// <summary>
   /// Makes access to the State a little easier and by inheriting from
@@ -27,5 +28,6 @@
     public EdgeState EdgeState => GetState<EdgeState>();
     public EdgeAccountState EdgeAccountState => GetState<EdgeAccountState>();
     public EdgeCurrencyWalletsState EdgeCurrencyWalletsState => GetState<EdgeCurrencyWalletsState>();
+    public RateState RateState => GetState<RateState>();
   }
 }

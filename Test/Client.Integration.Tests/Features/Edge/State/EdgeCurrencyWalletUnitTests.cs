@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Client.Features.Edge.EdgeCurrencyWallet;
-using Client.Features.Edge.State;
-using Shouldly;
-
-namespace Client.Integration.Tests.Features.Edge.State
+﻿namespace Client.Integration.Tests.Features.Edge.State
 {
+  using System;
+  using System.Collections.Generic;
+  using AnyClone;
+  using Client.Features.Edge.EdgeCurrencyWallet;
+  using Client.Features.Edge.State;
+  using Shouldly;
+
   class EdgeCurrencyWalletUnitTests
   {
     public void ShouldClone()

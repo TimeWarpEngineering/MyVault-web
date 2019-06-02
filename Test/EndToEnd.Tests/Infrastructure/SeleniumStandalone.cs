@@ -1,10 +1,10 @@
-using System;
-using System.Diagnostics;
-using System.Net.Http;
-using System.Threading;
-
 namespace EndToEnd.Tests.Infrastructure
 {
+  using System;
+  using System.Diagnostics;
+  using System.Net.Http;
+  using System.Threading;
+
   public class SeleniumStandAlone : IDisposable
   {
     public SeleniumStandAlone()

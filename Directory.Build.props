@@ -1,0 +1,51 @@
+<!-- Intentionally empty to isolate templates projects from the rest of the repo -->
+<Project>
+  <!-- Set common properties regarding assembly information and nuget packages -->
+  
+  <PropertyGroup>
+    <Authors>Steven T. Cramer</Authors>
+    <Product>MyVault-web</Product>
+  </PropertyGroup>
+
+  <!-- Common compile parameters -->
+  <PropertyGroup>
+    <LangVersion>preview</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <!-- We use full (Windows PDBs) until cross platform support for source link will get better -->
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <TestProjectTargetFramework>netstandard2.0</TestProjectTargetFramework>
+    <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
+  </PropertyGroup>
+
+  <!--Versions of packages used across the solution-->
+  <PropertyGroup Label="Package Versions">
+    <BlazorPreviewVersion>preview5-19227-01</BlazorPreviewVersion>
+    <MicrosoftAspNetCoreVersion>3.0.0-preview5-19227-01</MicrosoftAspNetCoreVersion>
+    <MicrosoftAspNetCoreBlazorVersion>$(MicrosoftAspNetCoreVersion)</MicrosoftAspNetCoreBlazorVersion>
+    <MicrosoftAspNetCoreComponentsBrowserVersion>$(MicrosoftAspNetCoreVersion)</MicrosoftAspNetCoreComponentsBrowserVersion>
+    <MicrosoftAspNetCoreMvcNewtonsoftJsonVersion>$(MicrosoftAspNetCoreBlazorVersion)</MicrosoftAspNetCoreMvcNewtonsoftJsonVersion>
+    <MicrosoftAspNetCoreTestHostVersion>$(MicrosoftAspNetCoreVersion)</MicrosoftAspNetCoreTestHostVersion>
+    <MicrosoftExtensionsFileProvidersEmbeddedVersion>3.0.0-preview5.19227.9</MicrosoftExtensionsFileProvidersEmbeddedVersion>
+    <MicrosoftExtensionsLoggingAbstractionsVersion>3.0.0-preview5.19227.9</MicrosoftExtensionsLoggingAbstractionsVersion>
+    <MicrosoftSourceLinkGitHubVersion>1.0.0-beta2-18618-05</MicrosoftSourceLinkGitHubVersion>
+    <FluentValidation>8.1.3</FluentValidation>
+    <BlazorStateVersion>1.0.0-preview5-19227-01-20190509-100700</BlazorStateVersion>
+    <BlazorExtensionsLoggingVersion>0.1.11</BlazorExtensionsLoggingVersion>
+    <FixieVersion>2.0.4</FixieVersion>
+    <FixieConsoleVersion>2.0.4</FixieConsoleVersion>
+    <MediatrExtensionsMicrosoftDependencyInjectionVersion>6.0.1</MediatrExtensionsMicrosoftDependencyInjectionVersion>
+    <MediatrVersion>6.0.0</MediatrVersion>
+    <MoqVersion>4.10.1</MoqVersion>
+    <RespawnVersion>3.2.0</RespawnVersion>
+    <ScrutorVersion>3.0.2</ScrutorVersion>
+    <SeleniumSupportVersion>3.141.0</SeleniumSupportVersion>
+    <SeleniumWebDriverVersion>3.141.0</SeleniumWebDriverVersion>
+    <ShouldlyVersion>3.0.2</ShouldlyVersion>
+    <Nethereum>3.1.2</Nethereum>
+  </PropertyGroup>
+</Project>

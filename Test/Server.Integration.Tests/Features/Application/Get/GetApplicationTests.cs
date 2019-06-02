@@ -1,5 +1,6 @@
 ﻿namespace Server.Integration.Tests.Features.Application.Get
 {
+  using Server.Integration.Tests;
   using System.Threading.Tasks;
   using Server.Data;
   using Shared.Features.Application;

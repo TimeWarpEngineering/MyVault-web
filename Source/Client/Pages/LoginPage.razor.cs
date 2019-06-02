@@ -1,0 +1,49 @@
+﻿namespace Client.Pages
+{
+  using System.Threading.Tasks;
+  using Client.Components;
+
+  public class LoginPageModel : BaseComponent
+  {
+    public const string Route = "Login";
+
+
+    protected override async Task OnAfterRenderAsync()
+    {
+
+      // Are we in the proper state for this page?
+      if (EdgeAccountState.LoggedIn)
+      {
+          // Route them to Home Page
+          await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = HomeModel.Route });
+      }
+      else
+      {
+        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = EdgePageModel.Route });
+      }
+    }
+
+    //protected override void OnInit()
+    //{
+    //  // Are we in the proper state for this page?
+    //  if (EdgeState.IsLoggedIn) 
+    //  {
+    //    if (IdologyState.IsValid)
+    //    {
+    //      // Route them to Home Page
+    //      Mediator.Send(new BlazorState.Features.Routing.RouteChangeAction { NewRoute = HomeModel.Route});
+    //    } else
+    //    {
+    //      // Route them to Idology Page
+    //      Mediator.Send(new BlazorState.Features.Routing.RouteChangeAction { NewRoute = IdologyModel.Route});
+    //    }
+    //  } else
+    //  {
+    //    Mediator.Send(new BlazorState.Features.Routing.RouteChangeAction { NewRoute = EdgeModel.Route });
+    //  }
+
+
+    //  base.OnInit();
+    //}
+  }
+}

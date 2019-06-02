@@ -5,22 +5,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="appsettings.json" />
+    <Compile Remove="Features\AssetDefinition\**" />
+    <EmbeddedResource Remove="Features\AssetDefinition\**" />
+    <None Remove="Features\AssetDefinition\**" />
   </ItemGroup>
-
+  
   <ItemGroup>
     <Content Include="appsettings.json">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-
+  
   <ItemGroup>
-    <PackageReference Include="Fixie" Version="2.0.3" />
-    <PackageReference Include="Shouldly" Version="3.0.2" />
-    <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="3.0.0-preview-19075-0444" />
-    <PackageReference Include="Respawn" Version="3.1.0" />
-    <DotNetCliToolReference Include="Fixie.Console" Version="2.0.3" />
+    <PackageReference Include="Fixie" Version="$(FixieVersion)" />
+    <PackageReference Include="Shouldly" Version="$(ShouldlyVersion)" />
+    <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="$(MicrosoftAspNetCoreTestHostVersion)" />
+    <PackageReference Include="Respawn" Version="$(RespawnVersion)" />
+    <DotNetCliToolReference Include="Fixie.Console" Version="$(FixieConsoleVersion)" />
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 

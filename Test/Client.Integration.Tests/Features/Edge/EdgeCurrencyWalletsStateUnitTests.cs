@@ -1,17 +1,17 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Client.Features.Edge.EdgeCurrencyWallet;
-using Shouldly;
-
-namespace Client.Integration.Tests.Features.Edge
+﻿namespace Client.Integration.Tests.Features.Edge
 {
+  using System.Collections.Generic;
+  using Client.Features.Edge.EdgeCurrencyWallet;
+  using Shouldly;
+  using AnyClone;
+
   public class EdgeCurrencyWalletsStateUnitTests
   {
     /// <summary>
     /// If no Id is selected then result should be first one if one exists.
     /// </summary>
     /// <returns></returns>
-    public async Task SelectedEdgeCurrencyWallet_Should_Be_Selected_Id()
+    public void SelectedEdgeCurrencyWallet_Should_Be_Selected_Id()
     {
       EdgeCurrencyWalletsState original = GetTestState();
       original.SelectedEdgeCurrencyWalletId = "EdgeCurrencyWallet2";
@@ -22,7 +22,7 @@ namespace Client.Integration.Tests.Features.Edge
     /// If no Id is selected then result should be first one if one exists.
     /// </summary>
     /// <returns></returns>
-    public async Task SelectedEdgeCurrencyWallet_Should_Be_First()
+    public void SelectedEdgeCurrencyWallet_Should_Be_First()
     {
       EdgeCurrencyWalletsState original = GetTestState();
       original.SelectedEdgeCurrencyWallet.Id.ShouldBe("EdgeCurrencyWallet1");
@@ -32,7 +32,7 @@ namespace Client.Integration.Tests.Features.Edge
     /// If no Id is selected then result should be null if no wallets exist.
     /// </summary>
     /// <returns></returns>
-    public async Task SelectedEdgeCurrencyWallet_Should_Be_Null()
+    public void SelectedEdgeCurrencyWallet_Should_Be_Null()
     {
       var original = new EdgeCurrencyWalletsState();
       original.SelectedEdgeCurrencyWallet.ShouldBeNull();
@@ -72,7 +72,7 @@ namespace Client.Integration.Tests.Features.Edge
     /// Test the clone ability of EdgeCurrencyWalletsState and all its child classes
     /// </summary>
     /// <returns></returns>
-    public async Task Should_Clone()
+    public void Should_Clone()
     {
       // Arrange
       var original = new EdgeCurrencyWalletsState()

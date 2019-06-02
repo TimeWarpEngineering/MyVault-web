@@ -4,18 +4,12 @@
   using System.Threading.Tasks;
   using BlazorState;
   using Client.Features.Base;
-  using MediatR;
 
   public class UpdateEdgeAccountHandler : BaseHandler<UpdateEdgeAccountAction, EdgeAccountState>
   {
-    public UpdateEdgeAccountHandler(
-      IStore aStore, 
-      IMediator aMediator) : base(aStore)
+    public UpdateEdgeAccountHandler(IStore aStore) : base(aStore)
     {
-      Mediator = aMediator;
     }
-
-    private IMediator Mediator { get; }
 
     public override async Task<EdgeAccountState> Handle(UpdateEdgeAccountAction aUpdateEdgeAccountAction, CancellationToken aCancellationToken)
     {

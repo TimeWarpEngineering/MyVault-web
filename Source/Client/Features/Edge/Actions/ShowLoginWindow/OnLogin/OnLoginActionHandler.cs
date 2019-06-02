@@ -22,7 +22,8 @@
       public override async Task<EdgeState> Handle(OnLoginAction aOnLoginRequest, CancellationToken aCancellationToken)
       {
         Console.WriteLine($"OnLoginActionHandler");
-        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = WalletPageModel.Route });
+
+        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = WalletPageModel.Route });
         return EdgeState;
       }
     }

@@ -1,8 +1,10 @@
 ﻿namespace Client.Features.Edge
 {
-  public partial class EdgeState
+  using BlazorState;
+
+  public partial class EdgeState : State<EdgeState>
   {
     public EdgeWalletInfo EdgeWalletInfo { get; set; }
+    protected override void Initialize() => EdgeWalletInfo = null;
   }
-  
 }

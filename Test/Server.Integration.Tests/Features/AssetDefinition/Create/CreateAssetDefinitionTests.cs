@@ -4,7 +4,6 @@
   using System.Threading.Tasks;
   using Shared.Features.AssetDefinition;
   using Shouldly;
-  using static SliceFixture;
 
   class CreateAssetDefinitionTests : IntegrationTestBase
   {

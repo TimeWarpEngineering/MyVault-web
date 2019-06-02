@@ -1,31 +1,31 @@
-﻿using System;
-using EndToEnd.Tests.Infrastructure;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-
+﻿
 namespace EndToEnd.Tests
 {
+  using System;
+  using EndToEnd.Tests.Infrastructure;
+  using OpenQA.Selenium;
+  using OpenQA.Selenium.Support.UI;
   public abstract class BaseTest
   {
-    private readonly TimeSpan DefaultTimeout = TimeSpan.FromSeconds(1);
+    protected IJavaScriptExecutor JavaScriptExecutor { get; }
+    protected TimeSpan Timeout { get; set; } = TimeSpan.FromSeconds(1);
+    protected IWebDriver WebDriver { get; }
+
+    private ServerFixture ServerFixture { get; }
 
     public BaseTest(IWebDriver aWebDriver, ServerFixture aServerFixture)
     {
       WebDriver = aWebDriver;
       ServerFixture = aServerFixture;
+      JavaScriptExecutor = WebDriver as IJavaScriptExecutor;
     }
-
-    private ServerFixture ServerFixture { get; }
-    private IWebDriver WebDriver { get; }
 
     protected void Navigate(string aRelativeUrl, bool aReload = true)
     {
       var absoluteUrl = new Uri(ServerFixture.RootUri, aRelativeUrl);
 
       if (!aReload && string.Equals(WebDriver.Url, absoluteUrl.AbsoluteUri, StringComparison.Ordinal))
-      {
         return;
-      }
 
       WebDriver.Navigate().GoToUrl("about:blank");
       WebDriver.Navigate().GoToUrl(absoluteUrl);
@@ -33,26 +33,10 @@ namespace EndToEnd.Tests
 
     protected void WaitUntilLoaded()
     {
-      var webDriverWait = new WebDriverWait(WebDriver, TimeSpan.FromSeconds(30));
-
-      bool loaded = webDriverWait.Until(aCondition =>
-        {
-          try
-          {
-            IWebElement noLayoutElement = WebDriver.FindElement(By.Id("NoLayout"));
-            IWebElement anthemGoldLayoutElement = WebDriver.FindElement(By.Id("AnthemGoldLayout"));
-            return noLayoutElement.Displayed || anthemGoldLayoutElement.Displayed;
-          }
-          catch (StaleElementReferenceException)
-          {
-            return false;
-          }
-          catch (NoSuchElementException)
-          {
-            return false;
-          }
-        }
-      );
+      new WebDriverWait(WebDriver, Timeout)
+        .Until(aWebDriver =>
+          JavaScriptExecutor.ExecuteScript("return window.jsonRequestHandler;") != null
+          );
     }
   }
 }
