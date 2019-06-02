@@ -13,15 +13,14 @@
   <ItemGroup>
     <PackageReference Include="Blazor-State" Version="$(BlazorStateVersion)" />
     <PackageReference Include="Blazor.Extensions.Logging" Version="$(BlazorExtensionsLoggingVersion)" />
+    <PackageReference Include="BuildWebCompiler" Version="1.12.394" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="$(MicrosoftAspNetCoreBlazorVersion)" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="$(MicrosoftAspNetCoreBlazorVersion)" PrivateAssets="all" />
     <PackageReference Include="Nethereum.Util" Version="$(Nethereum)" />
   </ItemGroup>
 
   <ItemGroup>
-
     <Folder Include="Features\Rate\Actions\GetRate\" />
-
     <Folder Include="Properties\" />
   </ItemGroup>
 
