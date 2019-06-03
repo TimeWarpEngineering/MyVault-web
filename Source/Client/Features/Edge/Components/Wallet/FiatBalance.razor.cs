@@ -15,7 +15,7 @@ namespace Client.Features.Edge.Components.Wallet
   {
     public decimal Balance => decimal.Parse(FormattedBalanceForConversion);
 
-    public string? BalanceInFiat => (Rate * Balance)?.ToString("C");
+    public string? BalanceInFiat => (Rate * Balance)?.ToString("0.##");
 
     public string CurrencyCode => SelectedEdgeCurrencyWallet.SelectedCurrencyCode;
 
