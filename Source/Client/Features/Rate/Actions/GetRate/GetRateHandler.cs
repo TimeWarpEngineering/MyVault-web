@@ -1,4 +1,5 @@
-﻿namespace Client.Features.Rate
+﻿# nullable enable
+namespace Client.Features.Rate
 {
   using BlazorState;
   using System.Threading;
@@ -8,6 +9,8 @@
   using Microsoft.AspNetCore.Components;
   using TimeWarp.Extensions;
   using Client.Features.Base;
+  using System.Linq;
+
   public partial class RateState
   {
     public class GetRateHandler : BaseHandler<GetRateAction, RateState>
@@ -24,6 +27,9 @@
         var conversionRequest = new ConversionRequest() { FromCurrency = aGetRateAction.FromCurrency, ToCurrency = aGetRateAction.ToCurrency };
         string uri = $"{ConversionRequest.Route}?{conversionRequest.ToQueryString()}";
         ConversionResponse conversionResponse = await HttpClient.GetJsonAsync<ConversionResponse>(uri);
+        Conversion? conversion = RateState.Conversions.FirstOrDefault(x => x.FromCurrency == aGetRateAction.FromCurrency && x.ToCurrency == aGetRateAction.ToCurrency);
+
+        RateState._Conversions.Remove(conversion);
         RateState._Conversions.Add(new Conversion(
           conversionRequest.FromCurrency,
           conversionRequest.ToCurrency,
