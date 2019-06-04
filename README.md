@@ -6,6 +6,7 @@ Contains an ERC-20 Standard Token Wallet that handles Ethereum and the AnthemGol
 
 Repository: https://github.com/AnthemGold/MyVault-web
 
+Test Site: https://agld.azurewebsites.net/
 
 # Getting Started
 TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
