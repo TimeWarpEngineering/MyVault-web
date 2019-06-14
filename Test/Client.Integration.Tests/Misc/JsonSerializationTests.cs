@@ -1,7 +1,9 @@
 ﻿namespace Server.Integration.Tests.Misc
 {
+  using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
   using Microsoft.JSInterop;
   using Client.Features.Edge.EdgeCurrencyWallet;
+  using System.Text.Json.Serialization;
   using System.IO;
   using System;
 
@@ -9,9 +11,11 @@
   {
     public void GoodSingle()
     {
+      
       string json = System.IO.File.ReadAllText(@".\TestData\SerializationTests\GoodSingle.json");
-      UpdateEdgeCurrencyWalletAction updateEdgeCurrencyWalletAction = Json.Deserialize<UpdateEdgeCurrencyWalletAction>(json);
+      UpdateEdgeCurrencyWalletAction updateEdgeCurrencyWalletAction = JsonSerializer.Parse<UpdateEdgeCurrencyWalletAction>(json);
     }
+
 
     // Skip: By making private will skip the test
     private void BadSingle()
@@ -20,7 +24,7 @@
       // But given we don't care about the field we now remove it prior to serialization
       string currentDirectory = Environment.CurrentDirectory;
       string json = System.IO.File.ReadAllText(@".\TestData\SerializationTests\BadSingle.json");
-      UpdateEdgeCurrencyWalletAction updateEdgeCurrencyWalletAction = Json.Deserialize<UpdateEdgeCurrencyWalletAction>(json);
+      UpdateEdgeCurrencyWalletAction updateEdgeCurrencyWalletAction = JsonSerializer.Parse<UpdateEdgeCurrencyWalletAction>(json);
     }
 
   }

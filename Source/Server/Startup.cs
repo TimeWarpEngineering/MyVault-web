@@ -12,9 +12,7 @@
   using Microsoft.AspNetCore.ResponseCompression;
   using Microsoft.Extensions.DependencyInjection;
   using Microsoft.Extensions.Hosting;
-  using Newtonsoft.Json.Serialization;
   using System.Linq;
-  using System.Net.Http;
   using Shared.Features.Conversion;
   using FluentValidation;
   using Server.Services.AnthemGold.Price;
@@ -41,15 +39,15 @@
         aApplicationBuilder.UseDeveloperExceptionPage();
         aApplicationBuilder.UseBlazorDebugging();
       }
+      aApplicationBuilder.UseClientSideBlazorFiles<Client.Startup>();
 
       aApplicationBuilder.UseRouting();
       aApplicationBuilder.UseEndpoints(aEndpointRouteBuilder =>
       {
         aEndpointRouteBuilder.MapControllers(); // We use explicit attribute routing so dont need MapDefaultControllerRoute
         aEndpointRouteBuilder.MapBlazorHub();
-        aEndpointRouteBuilder.MapFallbackToPage("/_Host");
+        aEndpointRouteBuilder.MapFallbackToClientSideBlazor<Client.Startup>("/_Host");
       });
-      aApplicationBuilder.UseBlazor<Client.Startup>();
     }
 
     public void ConfigureServices(IServiceCollection aServiceCollection)
