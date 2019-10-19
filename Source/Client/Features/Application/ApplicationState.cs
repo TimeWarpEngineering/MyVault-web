@@ -7,6 +7,6 @@
     public string Name { get; private set; }
     public string Version => GetType().Assembly.GetName().Version.ToString();
 
-    protected override void Initialize() => Name = "myvault.anthemgold.com";
+    public override void Initialize() => Name = "myvault.anthemgold.com";
   }
 }

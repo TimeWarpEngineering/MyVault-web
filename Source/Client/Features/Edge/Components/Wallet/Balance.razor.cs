@@ -5,18 +5,16 @@
   using Microsoft.AspNetCore.Components;
 
 
-  public class BalanceModel : BaseComponent
+  public class BalanceBase : BaseComponent
   {
-    [Parameter] protected string Balance { get; set; }
+    [Parameter] public string Balance { get; set; }
 
-    [Parameter] protected string CurrencyCode { get; set; }
+    [Parameter] public string CurrencyCode { get; set; }
 
     [Inject] public AmountConverter AmountConverter { get; set; }
-    
-    [Parameter] protected int Granularity { get; set; } = 18; // multiplier is 10^X
-    [Parameter] protected int DecimalPlacesToDisplay { get; set; } = 18;
 
-
+    [Parameter] public int Granularity { get; set; } = 18; // 10^X
+    [Parameter] public int DecimalPlacesToDisplay { get; set; } = 18;
 
 
     public string DisplayBalance

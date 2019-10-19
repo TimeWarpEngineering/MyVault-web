@@ -1,20 +1,22 @@
 ﻿namespace Client.Integration.Tests.Features.Edge.EdgeAccount.ChangePassword
 {
-  using System;
-  using System.Linq;
   using BlazorState;
   using BlazorState.Integration.Tests.Infrastructure;
+  using Client.Features.Edge;
   using FluentValidation;
   using FluentValidation.Results;
   using FluentValidation.Validators;
-  using Client.Features.Edge.EdgeCurrencyWallet;
-  using Shared.Enumerations.FeeOption;
   using MediatR;
   using Microsoft.Extensions.DependencyInjection;
+  using Shared.Enumerations.FeeOption;
   using Shouldly;
+  using System;
+  using System.Linq;
+  using static Client.Features.Edge.EdgeCurrencyWalletsState;
 
   internal class SendTests
   {
+    private const string AgldStartBalance = "1500000000000000000";
     private const string WalletId = "1fu3+YTRMVRb6R6uwO7DDCH31iVKkBMtkYHLA0P3hMo=";
 
     public SendTests(TestFixture aTestFixture)
@@ -28,42 +30,11 @@
 
     private EdgeCurrencyWalletsState EdgeCurrencyWalletsState { get; set; }
     private IMediator Mediator { get; }
+    private SendAction SendAction { get; set; }
+    private IValidator<SendAction> SendValidator { get; }
     private IServiceProvider ServiceProvider { get; }
     private IStore Store { get; }
-    private IValidator<SendAction> SendValidator { get; }
     private EdgeCurrencyWalletsState ValidEdgeCurrencyWalletsState { get; set; }
-    private SendAction SendAction { get; set; }
-
-    private const string AgldStartBalance = "1500000000000000000";
-
-    public void Setup()
-    {
-      // Setup known state valid State.required for a Send to be valid
-
-      ValidEdgeCurrencyWalletsState = new EdgeCurrencyWalletsState();
-      // setup wallet
-
-      var edgeCurrencyWallet = new EdgeCurrencyWallet
-      {
-        SelectedCurrencyCode = "AGLD"
-      };
-      edgeCurrencyWallet.Balances.Add("AGLD", AgldStartBalance); //1.5 AGLD
-
-      ValidEdgeCurrencyWalletsState.EdgeCurrencyWallets.Add(
-        WalletId,
-        edgeCurrencyWallet);
-      EdgeCurrencyWalletsState.Initialize(ValidEdgeCurrencyWalletsState);
-
-      SendAction = new SendAction
-      {
-        CurrencyCode = "AGLD",
-        DestinationAddress = "0xe3d6f1e0434b870c3b3a0066bdcbffd4ba3f7ea6",
-        EdgeCurrencyWalletId = "1fu3+YTRMVRb6R6uwO7DDCH31iVKkBMtkYHLA0P3hMo=",
-        NativeAmount = "500000000000000000", // 0.5 AGLD
-        Fee = FeeOption.Standard,
-      };
-
-    }
 
     public void CurrencyCodeIsRequired()
     {
@@ -166,7 +137,7 @@
     {
       // Arrange
       SendAction.NativeAmount = "0000";
-      
+
       // Act
 
       ValidationResult validationResult = SendValidator.Validate(SendAction);
@@ -185,7 +156,7 @@
     {
       // Arrange
       SendAction.NativeAmount = $"1{AgldStartBalance}"; // Greater than Balance
-      
+
       // Act
 
       ValidationResult validationResult = SendValidator.Validate(SendAction);
@@ -198,6 +169,34 @@
       validationFailure.PropertyName.ShouldBe(string.Empty);
       validationFailure.ErrorCode.ShouldBe(nameof(PredicateValidator));
       validationFailure.Severity.ShouldBe(Severity.Error);
+    }
+
+    public void Setup()
+    {
+      // Setup known state valid State.required for a Send to be valid
+
+      ValidEdgeCurrencyWalletsState = new EdgeCurrencyWalletsState();
+      // setup wallet
+
+      var edgeCurrencyWallet = new EdgeCurrencyWallet
+      {
+        SelectedCurrencyCode = "AGLD"
+      };
+      edgeCurrencyWallet.Balances.Add("AGLD", AgldStartBalance); //1.5 AGLD
+
+      ValidEdgeCurrencyWalletsState.EdgeCurrencyWallets.Add(
+        WalletId,
+        edgeCurrencyWallet);
+      EdgeCurrencyWalletsState.Initialize(ValidEdgeCurrencyWalletsState);
+
+      SendAction = new SendAction
+      {
+        CurrencyCode = "AGLD",
+        DestinationAddress = "0xe3d6f1e0434b870c3b3a0066bdcbffd4ba3f7ea6",
+        EdgeCurrencyWalletId = "1fu3+YTRMVRb6R6uwO7DDCH31iVKkBMtkYHLA0P3hMo=",
+        NativeAmount = "500000000000000000", // 0.5 AGLD
+        Fee = FeeOption.Standard,
+      };
     }
 
     public void ShouldBeValid()
@@ -215,7 +214,7 @@
     public void WalletMustExist()
     {
       SendAction.EdgeCurrencyWalletId = "x";
-        
+
       // Act
 
       ValidationResult validationResult = SendValidator.Validate(SendAction);

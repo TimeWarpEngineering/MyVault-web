@@ -4,12 +4,13 @@
   using System.Threading.Tasks;
   using BlazorState;
   using Client.Features.Base;
+  using MediatR;
   using Microsoft.AspNetCore.Components;
   using Microsoft.JSInterop;
   public partial class EdgeState
   {
 
-    public class InitializeEdgeActionHandler : BaseHandler<InitailizeEdgeAction, EdgeState>
+    public class InitializeEdgeActionHandler : BaseHandler<InitailizeEdgeAction>
     {
       public InitializeEdgeActionHandler(IStore aStore, IJSRuntime aJSRuntime):base(aStore)
       {
@@ -18,11 +19,11 @@
 
       private IJSRuntime JSRuntime { get; }
 
-      public override async Task<EdgeState> Handle(InitailizeEdgeAction aInitailizeEdgeRequest, CancellationToken aCancellationToken)
+      public override async Task<Unit> Handle(InitailizeEdgeAction aInitailizeEdgeRequest, CancellationToken aCancellationToken)
       {
         await JSRuntime.InvokeAsync<bool>(EdgeInteropMethodNames.EdgeInterop_InitializeEdge);
 
-        return EdgeState;
+        return Unit.Value;
       }
     }
   }

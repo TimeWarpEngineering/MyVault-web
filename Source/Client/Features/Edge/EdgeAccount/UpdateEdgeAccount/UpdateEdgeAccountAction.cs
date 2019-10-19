@@ -1,10 +1,14 @@
 ﻿namespace Client.Features.Edge.EdgeAccount
 {
-  using MediatR;
-  public class UpdateEdgeAccountAction : IRequest<EdgeAccountState>
+  using Client.Features.Base;
+
+  public partial class EdgeAccountState
   {
-    public string Username { get; set; }
-    public bool LoggedIn { get; set; }
-    public string Id { get; set; }
+    public class UpdateEdgeAccountAction : BaseAction
+    {
+      public string Id { get; set; }
+      public bool LoggedIn { get; set; }
+      public string Username { get; set; }
+    }
   }
 }

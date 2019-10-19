@@ -1,7 +1,9 @@
 ﻿namespace Client.Features.Edge
 {
-  using MediatR;
+  using Client.Features.Base;
 
-  public class ShowLoginWindowEdgeAction : IRequest<EdgeState> { }
-
+  public partial class EdgeState
+  {
+    public class ShowLoginWindowEdgeAction : BaseAction { }
+  }
 }

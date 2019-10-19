@@ -2,7 +2,7 @@
 namespace Client.Features.Edge.Components.Wallet
 {
   using Client.Components;
-  using Client.Features.Edge.EdgeCurrencyWallet;
+  using Client.Features.Edge;
   using Client.Features.Rate;
   using Client.Services;
   using Microsoft.AspNetCore.Components;
@@ -34,7 +34,7 @@ namespace Client.Features.Edge.Components.Wallet
     [Inject]
     private AmountConverter AmountConverter { get; set; } = default!;
 
-    protected override async Task OnAfterRenderAsync()
+    protected override async Task OnAfterRenderAsync(bool aFirstRender)
     {
       Conversion? conversion = RateState.GetConversion(CurrencyCode, ShortFiatCurrencyCode);
 

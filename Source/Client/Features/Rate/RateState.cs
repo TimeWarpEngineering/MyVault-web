@@ -17,7 +17,7 @@ namespace Client.Features.Rate
 
     public IReadOnlyList<Conversion> Conversions => _Conversions.AsReadOnly();
 
-    protected override void Initialize() { }
+    public override void Initialize() { }
 
     public Conversion? GetConversion(string aFromCurrency, string aToCurrency)
     {

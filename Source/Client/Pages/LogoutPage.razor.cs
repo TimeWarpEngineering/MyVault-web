@@ -1,19 +1,18 @@
 ﻿namespace Client.Pages
 {
-  using System;
-  using System.Threading.Tasks;
   using Client.Components;
-  using Client.Features.Edge.EdgeAccount;
+  using System.Threading.Tasks;
+  using static BlazorState.Features.Routing.RouteState;
+  using static Client.Features.Edge.EdgeAccount.EdgeAccountState;
 
-  public class LogoutPageModel : BaseComponent
+  public class LogoutPageBase : BaseComponent
   {
     public const string Route = "logout";
 
-    protected override async Task OnAfterRenderAsync()
+    protected override async Task OnAfterRenderAsync(bool aFirstRender)
     {
       await Mediator.Send(new LogoutAction());
-      Console.WriteLine("Change the Route to the Home Page.");
-      await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = HomeModel.Route });
+      await Mediator.Send(new ChangeRouteAction { NewRoute = HomeBase.Route });
     }
   }
 }

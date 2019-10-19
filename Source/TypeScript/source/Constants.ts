@@ -8,7 +8,7 @@ export const ReduxDevToolsName: string = "reduxDevTools";
 export const ReduxExtentionName: string = '__REDUX_DEVTOOLS_EXTENSION__';
 
 export const DotNetActionQualifiedNames = {
-  UpdateEdgeAccountAction: "Client.Features.Edge.EdgeAccount.UpdateEdgeAccountAction, Client, Version = 1.0.0.0, Culture = neutral, PublicKeyToken = null",
-  UpdateEdgeCurrencyWalletAction: "Client.Features.Edge.EdgeCurrencyWallet.UpdateEdgeCurrencyWalletAction, Client, Version = 1.0.0.0, Culture = neutral, PublicKeyToken = null",
-  OnLoginAction: "Client.Features.Edge.OnLoginAction, Client, Version = 1.0.0.0, Culture = neutral, PublicKeyToken = null",
+  UpdateEdgeAccountAction: "Client.Features.Edge.EdgeAccount.EdgeAccountState+UpdateEdgeAccountAction, Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+  UpdateEdgeCurrencyWalletAction: "Client.Features.Edge.EdgeCurrencyWalletsState+UpdateEdgeCurrencyWalletAction, Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+  OnLoginAction: "Client.Features.Edge.EdgeState+OnLoginAction, Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
 };

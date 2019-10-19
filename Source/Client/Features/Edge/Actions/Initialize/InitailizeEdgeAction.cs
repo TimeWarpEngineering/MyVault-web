@@ -1,7 +1,9 @@
 ﻿namespace Client.Features.Edge
 {
-  using MediatR;
+  using BlazorState;
 
-  public class InitailizeEdgeAction : IRequest<EdgeState> { }
-
+  public partial class EdgeState
+  {
+    public class InitailizeEdgeAction : IAction { }
+  }
 }

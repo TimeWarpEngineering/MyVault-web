@@ -1,7 +1,7 @@
 ﻿namespace Client.Integration.Tests.Features.Edge
 {
   using System.Collections.Generic;
-  using Client.Features.Edge.EdgeCurrencyWallet;
+  using Client.Features.Edge;
   using Shouldly;
   using AnyClone;
 

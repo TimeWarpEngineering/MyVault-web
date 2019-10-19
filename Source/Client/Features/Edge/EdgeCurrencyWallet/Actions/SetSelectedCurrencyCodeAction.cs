@@ -1,8 +1,8 @@
-﻿namespace Client.Features.Edge.EdgeCurrencyWallet
+﻿namespace Client.Features.Edge
 {
-  using MediatR;
+  using Client.Features.Base;
 
-  public class SetSelectedCurrencyAction: IRequest<EdgeCurrencyWalletsState>
+  public class SetSelectedCurrencyAction : BaseAction
   {
     public string CurrencyCode { get; set; }
   }

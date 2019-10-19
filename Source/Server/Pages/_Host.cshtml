@@ -10,16 +10,18 @@
   <title>Anthem Gold Vault</title>
   <base href="~/" />
   <link href="css/site.css" rel="stylesheet" />
+  <style id="styled"></style>
 </head>
 <body>
-  <app>@(await Html.RenderComponentAsync<Client.App>())</app>
+  <app>@(await Html.RenderComponentAsync<Client.App>(RenderMode.ServerPrerendered))</app>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script>
-    <script src="~/blazorstate.js"></script>
+  <script src="_content/BlazorState.js/blazorstate.js"></script>
+  <script src="_content/TypeScript/client.js"></script>
   <script src="BlazorDualMode.js"></script>
   <script>
-    const applicationVersion = 'myvault.anthemgold.com.0.0.2';
+    const applicationVersion = 'myvault.anthemgold.com.0.0.3';
     configureBlazor(applicationVersion);
   </script>
 </body>

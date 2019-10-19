@@ -16,7 +16,7 @@ module.exports = {
     ]
   },
   entry: {
-    "clientjs": "./source/Initialize.ts"
+    "client": "./source/Initialize.ts"
   },
   output: {
     path: path.join(__dirname, "/dist"),

@@ -6,10 +6,10 @@ namespace Client.Features.Edge.Components
   using System.Collections.Generic;
   using System.Linq;
 
-  public class EdgeTransactionListModel : BaseComponent
+  public class EdgeTransactionListBase : BaseComponent
   {
-    [Parameter] protected string CurrencyCode { get; set; }
-    [Parameter] protected int Granularity { get; set; }
+    [Parameter] public string CurrencyCode { get; set; }
+    [Parameter] public int Granularity { get; set; }
     public List<EdgeTransaction> EdgeTransactions => EdgeCurrencyWalletsState.SelectedEdgeCurrencyWallet.EdgeTransactions.FindAll(x => x.CurrencyCode == CurrencyCode);
   }
 }

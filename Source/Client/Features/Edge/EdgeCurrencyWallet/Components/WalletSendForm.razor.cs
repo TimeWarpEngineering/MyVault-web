@@ -1,44 +1,44 @@
-﻿namespace Client.Features.Edge.EdgeCurrencyWallet.Components
+﻿namespace Client.Features.Edge
 {
+  using Client.Components;
+  using Client.Pages;
+  using Client.Services;
+  using FluentValidation;
+  using FluentValidation.Results;
+  using Microsoft.AspNetCore.Components;
+  using Shared;
+  using Shared.Enumerations.FeeOption;
   using System;
   using System.Linq;
   using System.Net;
   using System.Threading.Tasks;
-  using BlazorState.Features.Routing;
-  using FluentValidation;
-  using FluentValidation.Results;
-  using Client.Components;
-  using Client.Features.Edge.EdgeCurrencyWallet;
-  using Client.Pages;
-  using Client.Services;
-  using Shared;
-  using Shared.Enumerations.FeeOption;
-  using Microsoft.AspNetCore.Components;
+  using static BlazorState.Features.Routing.RouteState;
+  using static Client.Features.Edge.EdgeCurrencyWalletsState;
 
-  public class WalletSendFormModel : BaseComponent
+  public class WalletSendFormBase : BaseComponent
   {
     private readonly Lazy<FormDataClass> LazyFormData;
 
-    public WalletSendFormModel()
+    public WalletSendFormBase()
     {
       LazyFormData = new Lazy<FormDataClass>(() => new FormDataClass(AmountConverter, this));
     }
 
     [Inject] private AmountConverter AmountConverter { get; set; }
     private string EdgeCurrencyWalletId => WebUtility.UrlDecode(EdgeCurrencyWalletEncodedId);
-    [Inject] private IValidator<SendAction> SendValidator { get; set; }
-    [Parameter] protected string EdgeCurrencyWalletEncodedId { get; set; }
     protected FormDataClass FormData => LazyFormData.Value;
     protected FormValidatorClass FormValidator => new FormValidatorClass(SendValidator);
-    protected string Balance => string.IsNullOrEmpty(FormData.SendAction.CurrencyCode) ? "" : EdgeCurrencyWallet.Balances[FormData.SendAction.CurrencyCode];
-    protected EdgeCurrencyWallet EdgeCurrencyWallet => EdgeCurrencyWalletsState.EdgeCurrencyWallets[EdgeCurrencyWalletId];
-    protected int Granularity => EdgeCurrencyWallet.Granularity[FormData.SendAction.CurrencyCode];
     protected string MaxAmount => AmountConverter.GetFormatedAmount(new FormatAmountRequest { Amount = Balance, DecimalPlacesToDisplay = Granularity, DecimalSeperator = '.', Granularity = 18 });
     protected string Pattern => RegularExpressions.FloatingPointNumberNoSign('.');
     protected ValidationResult ValidationResult { get; set; }
     protected string WalletName => EdgeCurrencyWallet.Name;
+    protected string Balance => string.IsNullOrEmpty(FormData.SendAction.CurrencyCode) ? "" : EdgeCurrencyWallet.Balances[FormData.SendAction.CurrencyCode];
+    protected EdgeCurrencyWallet EdgeCurrencyWallet => EdgeCurrencyWalletsState.EdgeCurrencyWallets[EdgeCurrencyWalletId];
+    [Parameter] public string EdgeCurrencyWalletEncodedId { get; set; }
+    protected int Granularity => EdgeCurrencyWallet.Granularity[FormData.SendAction.CurrencyCode];
+    [Inject] public IValidator<SendAction> SendValidator { get; set; }
 
-    protected override void OnInit()
+    protected override void OnInitialized()
     {
       if (EdgeCurrencyWallet.Balances.Keys.Any())
       {
@@ -50,15 +50,13 @@
 
     protected async Task Send()
     {
-      FormData.Amount = FormData.Amount;
-      // TODO with next version of Blazor this should be updated.  reupdates form Amount due to side effects.
       ValidationResult = FormValidator.Validate(FormData);
 
       if (ValidationResult.IsValid)
       {
         await Mediator.Send(FormData.SendAction);
 
-        await Mediator.Send(new ChangeRouteAction { NewRoute = WalletPageModel.Route });
+        await Mediator.Send(new ChangeRouteAction { NewRoute = WalletPageBase.Route });
       }
     }
 
@@ -66,16 +64,16 @@
     {
       private string _Amount;
 
-      public FormDataClass(AmountConverter aAmountConverter, WalletSendFormModel aWalletSendFormModel)
+      public FormDataClass(AmountConverter aAmountConverter, WalletSendFormBase aWalletSendFormBase)
       {
         _Amount = "";
         SendAction = new SendAction();
         AmountConverter = aAmountConverter;
-        WalletSendFormModel = aWalletSendFormModel;
+        WalletSendFormBase = aWalletSendFormBase;
       }
 
       private AmountConverter AmountConverter { get; }
-      private WalletSendFormModel WalletSendFormModel { get; }
+      private WalletSendFormBase WalletSendFormBase { get; }
 
       public string Amount { get => _Amount; set { _Amount = value; OnAmountChange(); } }
 
@@ -87,7 +85,7 @@
         {
           Amount = Amount,
           DecimalSeperator = '.',
-          Granularity = WalletSendFormModel.Granularity
+          Granularity = WalletSendFormBase.Granularity
         };
         SendAction.NativeAmount = AmountConverter.GetNativeAmount(getNativeAmountRequest);
       }

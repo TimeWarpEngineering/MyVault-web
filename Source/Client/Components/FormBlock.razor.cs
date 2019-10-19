@@ -6,8 +6,8 @@ namespace Client.Components
 {
   public class FormBlockModel<T> : BaseComponent
   {
-    [Parameter] protected string Model { get; set; }
-    [Parameter] protected Action<string> ModelChanged { get; set; }
+    [Parameter] public string Model { get; set; }
+    [Parameter] public Action<string> ModelChanged { get; set; }
     public string Label => MemberName;
     //{
     //  get

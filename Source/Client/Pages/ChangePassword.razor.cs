@@ -5,8 +5,10 @@ namespace Client.Pages
   using FluentValidation.Results;
   using Client.Components;
   using Client.Features.Edge.EdgeAccount.ChangePassword;
+  using static BlazorState.Features.Routing.RouteState;
+  using static Client.Features.Edge.EdgeAccount.ChangePassword.EdgeAccountState;
 
-  public class ChangePasswordModel : BaseComponent
+  public class ChangePasswordBase : BaseComponent
   {
     public const string Route = "/changePassword";
     public string NewPassword { get; set; }
@@ -29,7 +31,7 @@ namespace Client.Pages
       {
         await Mediator.Send(changePasswordAction);
         Console.WriteLine("Change the Route to the Home Page.");
-        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = HomeModel.Route });
+        await Mediator.Send(new ChangeRouteAction { NewRoute = HomeBase.Route });
       }
 
     }

@@ -24,7 +24,7 @@
     public async Task<GetApplicationResponse> Handle(GetApplicationRequest aGetApplicationRequest, CancellationToken aCancellationToken)
     {
       IQueryable<Application> applications = AnthemGoldPwaDbContext.Application;
-      var getApplicationResponse = new GetApplicationResponse(aGetApplicationRequest.Id);
+      var getApplicationResponse = new GetApplicationResponse(aGetApplicationRequest.Guid);
       getApplicationResponse.Application = await applications
           .ProjectTo<ApplicationDto>(ConfigurationProvider, aCancellationToken)
           .SingleOrDefaultAsync(aCancellationToken);

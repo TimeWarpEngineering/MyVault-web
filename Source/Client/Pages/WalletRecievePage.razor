@@ -1,5 +1,5 @@
-﻿@page "/wallet/{EdgeCurrencyWalletEncodedId}/Receive"
-@inherits WalletReceivePageModel
+﻿@page "/wallet/{EdgeCurrencyWalletId}/Receive"
+@inherits WalletReceivePageBase
 
 <div class="text-center">
   <br />
@@ -8,7 +8,7 @@
   <div>Your Receiving Wallet Address</div>
   <div id="ReceiveAddress">@ReceiveAddress</div>
   <br />
-  <button class="btn btn-primary" onclick="@CopyToClipboardAsync"><span class="oi oi-clipboard"> Copy to Clipboard</span></button>
+  <button class="btn btn-primary" @onclick="CopyToClipboardAsync"><span class="oi oi-clipboard"> Copy to Clipboard</span></button>
 
 </div>
 

@@ -1,25 +1,18 @@
-﻿
-namespace Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
+﻿namespace Client.Features.Edge
 {
+  using BlazorState;
+  using Client.Features.Base;
+  using Client.Features.Edge.State;
+  using MediatR;
   using System;
   using System.Collections.Generic;
   using System.Threading;
   using System.Threading.Tasks;
-  using BlazorState;
-  using Client.Features.Base;
-  using Client.Features.Edge.State;
+  using static Client.Features.Edge.EdgeCurrencyWalletsState;
 
-  public class UpdateEdgeCurrencyWalletHandler : BaseHandler<UpdateEdgeCurrencyWalletAction, EdgeCurrencyWalletsState>
+  public class UpdateEdgeCurrencyWalletHandler : BaseHandler<UpdateEdgeCurrencyWalletAction>
   {
-    public UpdateEdgeCurrencyWalletHandler(IStore aStore) : base(aStore)
-    { }
-
-    public override async Task<EdgeCurrencyWalletsState> Handle(UpdateEdgeCurrencyWalletAction aUpdateEdgeCurrencyWalletAction, CancellationToken aCancellationToken)
-    {
-      MapActionToState(aUpdateEdgeCurrencyWalletAction);
-
-      return await Task.FromResult(EdgeCurrencyWalletsState);
-    }
+    public UpdateEdgeCurrencyWalletHandler(IStore aStore) : base(aStore) { }
 
     private void MapActionToState(UpdateEdgeCurrencyWalletAction aUpdateEdgeCurrencyWalletAction)
     {
@@ -38,7 +31,6 @@ namespace Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
 
     private List<EdgeTransaction> MapEdgeTransactions(UpdateEdgeCurrencyWalletAction aUpdateEdgeCurrencyWalletAction)
     {
-
       var edgeTransactions = new List<EdgeTransaction>();
       aUpdateEdgeCurrencyWalletAction.EdgeTransactions.ForEach(
         (aEdgeTransaction) =>
@@ -62,12 +54,20 @@ namespace Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
 
       return edgeTransactions;
     }
+
     public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
     {
       // Unix timestamp is seconds past epoch
       var dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
       dtDateTime = dtDateTime.AddSeconds(unixTimeStamp).ToLocalTime();
       return dtDateTime;
+    }
+
+    public override Task<Unit> Handle(UpdateEdgeCurrencyWalletAction aUpdateEdgeCurrencyWalletAction, CancellationToken aCancellationToken)
+    {
+      MapActionToState(aUpdateEdgeCurrencyWalletAction);
+
+      return Unit.Task;
     }
   }
 }

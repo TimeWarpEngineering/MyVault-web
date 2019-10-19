@@ -1,17 +1,18 @@
 ﻿namespace Client.Features.Edge.EdgeAccount
 {
   using BlazorState;
+  using System;
 
-  public partial class EdgeAccountState : State<EdgeAccountState>
+  public partial class EdgeAccountState : State<EdgeAccountState>, ICloneable
   {
     public EdgeAccountState() { }
 
-    public string Username { get; set; }
-    public bool LoggedIn { get; set; }
-    public string Id { get; set; }
+    public string Id { get; private set; }
+    public bool LoggedIn { get; private set; }
+    public string Username { get; private set; }
 
+    public object Clone() => MemberwiseClone();
 
-    protected override void Initialize() => LoggedIn = false;
+    public override void Initialize() => LoggedIn = false;
   }
-
 }

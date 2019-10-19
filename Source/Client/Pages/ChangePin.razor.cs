@@ -5,9 +5,10 @@ namespace Client.Pages
   using FluentValidation.Results;
   using Client.Components;
   using Client.Features.Edge.EdgeAccount.ChangePin;
+  using static Client.Features.Edge.EdgeAccount.ChangePin.EdgeAccountState;
+  using static BlazorState.Features.Routing.RouteState;
 
-
-  public class ChangePinModel : BaseComponent
+  public class ChangePinBase : BaseComponent
   {
     public const string Route = "/changePin";
     public string NewPin { get; set; }
@@ -34,7 +35,7 @@ namespace Client.Pages
         // Upon successful resolve of the above function pop the modal here
         // @showModal = true
         Console.WriteLine("Change the Route to the Home Page.");
-        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = HomeModel.Route });
+        await Mediator.Send(new ChangeRouteAction { NewRoute = HomeBase.Route });
       }
 
     }

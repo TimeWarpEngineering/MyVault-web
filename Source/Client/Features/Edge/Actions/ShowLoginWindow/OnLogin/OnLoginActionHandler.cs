@@ -1,16 +1,17 @@
 ﻿namespace Client.Features.Edge
 {
-  using System;
-  using System.Threading;
-  using System.Threading.Tasks;
   using BlazorState;
   using Client.Features.Base;
   using Client.Pages;
   using MediatR;
+  using System;
+  using System.Threading;
+  using System.Threading.Tasks;
+  using static BlazorState.Features.Routing.RouteState;
 
   public partial class EdgeState
   {
-    public class OnLoginActionHandler : BaseHandler<OnLoginAction, EdgeState>
+    public class OnLoginActionHandler : BaseHandler<OnLoginAction>
     {
       public OnLoginActionHandler(IStore aStore, IMediator aMediator) : base(aStore)
       {
@@ -19,12 +20,12 @@
 
       private IMediator Mediator { get; }
 
-      public override async Task<EdgeState> Handle(OnLoginAction aOnLoginRequest, CancellationToken aCancellationToken)
+      public override async Task<Unit> Handle(OnLoginAction aOnLoginRequest, CancellationToken aCancellationToken)
       {
         Console.WriteLine($"OnLoginActionHandler");
 
-        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = WalletPageModel.Route });
-        return EdgeState;
+        await Mediator.Send(new ChangeRouteAction { NewRoute = WalletPage.Route });
+        return Unit.Value;
       }
     }
   }

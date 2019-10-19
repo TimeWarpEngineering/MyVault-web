@@ -3,7 +3,7 @@
   using System;
   using System.Collections.Generic;
   using AnyClone;
-  using Client.Features.Edge.EdgeCurrencyWallet;
+  using Client.Features.Edge;
   using Client.Features.Edge.State;
   using Shouldly;
 

@@ -4,6 +4,7 @@
   using FluentValidation.Results;
   using Client.Features.Edge.EdgeAccount.ChangePassword;
   using Shouldly;
+  using static Client.Features.Edge.EdgeAccount.ChangePassword.EdgeAccountState;
 
   class ChangePasswordTests
   {

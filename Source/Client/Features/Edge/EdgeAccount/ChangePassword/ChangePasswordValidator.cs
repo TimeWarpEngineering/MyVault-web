@@ -3,6 +3,7 @@ namespace Client.Features.Edge.EdgeAccount.ChangePassword
 {
   using FluentValidation;
   using Shared;
+  using static Client.Features.Edge.EdgeAccount.ChangePassword.EdgeAccountState;
 
   public class ChangePasswordValidator : AbstractValidator<ChangePasswordAction>
 

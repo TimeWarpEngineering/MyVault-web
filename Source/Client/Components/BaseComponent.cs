@@ -5,7 +5,6 @@
   using Client.Features.Application;
   using Client.Features.Edge;
   using Client.Features.Edge.EdgeAccount;
-  using Client.Features.Edge.EdgeCurrencyWallet;
   using Client.Components.Shared;
   using Microsoft.AspNetCore.Components;
   using Client.Features.Rate;

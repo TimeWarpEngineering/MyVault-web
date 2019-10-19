@@ -3,6 +3,7 @@ namespace Client.Features.Edge.EdgeAccount.ChangePin
 {
   using FluentValidation;
   using Shared;
+  using static Client.Features.Edge.EdgeAccount.ChangePin.EdgeAccountState;
 
   public class ChangePinValidator : AbstractValidator<ChangePinAction>
 

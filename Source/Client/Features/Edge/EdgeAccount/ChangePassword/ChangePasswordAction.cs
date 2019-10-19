@@ -1,13 +1,13 @@
 namespace Client.Features.Edge.EdgeAccount.ChangePassword
 {
-  using Client.Features.Edge.EdgeAccount;
-  using Shared.Features.Base;
-  using MediatR;
+  using Client.Features.Base;
 
-  public class ChangePasswordAction : BaseRequest, IRequest<EdgeAccountState>
+  public partial class EdgeAccountState
   {
-    public string NewPassword { get; set; }
-    public string ConfirmPassword { get; set; }
-
+    public class ChangePasswordAction : BaseAction
+    {
+      public string ConfirmPassword { get; set; }
+      public string NewPassword { get; set; }
+    }
   }
 }

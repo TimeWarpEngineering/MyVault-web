@@ -1,10 +1,11 @@
-﻿
-@inherits WalletSendFormModel
+﻿@namespace Client.Features.Edge
+@inherits WalletSendFormBase
+@using Client.Features.Edge.Components.Wallet
 
 <div id="@Id" class="text-center">
   <Validation ValidationResult="@ValidationResult" />
   <br />
-  <form onsubmit="@Send">
+  <form @onsubmit="Send">
     <div class="form-group">
       <label for="CurrencyCode">CurrencyCode</label>
       <select id="CurrencyCode" class="form-control-sm" bind="@FormData.SendAction.CurrencyCode">

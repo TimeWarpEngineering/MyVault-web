@@ -3,8 +3,8 @@
   using Client.Components;
   using Microsoft.AspNetCore.Components;
 
-  public class SendOrReceiveModel : BaseComponent
+  public class SendOrReceiveBase : BaseComponent
   {
-    [Parameter] protected bool IsSend { get; set; }
+    [Parameter] public bool IsSend { get; set; }
   }
 }

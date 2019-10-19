@@ -1,4 +1,4 @@
-﻿namespace Client.Features.Edge.EdgeCurrencyWallet
+﻿namespace Client.Features.Edge
 {
   using System.Reflection;
 

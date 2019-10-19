@@ -1,7 +1,9 @@
 {
   "name": "clientjs",
   "version": "0.0.1",
-  "description": "",
+  "description": "The Javascript used with Wallet.",
+  "repository": "https://github.com/AnthemGold/MyVault-web.git",
+  "license": "Unlicense",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
@@ -9,14 +11,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@types/emscripten": "0.0.32",
-    "ts-loader": "6.0.1",
-    "typescript": "3.4.5",
-    "webpack": "4.32.2",
-    "webpack-cli": "3.3.2"
+    "@types/emscripten": "1.38.0",
+    "ts-loader": "6.0.4",
+    "typescript": "3.6.2",
+    "webpack": "4.39.3",
+    "webpack-cli": "3.3.7"
   },
   "dependencies": {
-    "edge-login-ui-web": "0.5.18",
-    "edge-core-js": "0.16.1"
+    "edge-login-ui-web": "0.5.39",
+    "edge-core-js": "0.16.8"
   }
 }

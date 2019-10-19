@@ -8,19 +8,18 @@
   using BlazorHostedCSharp.Client.Features.ClientLoader;
   using System;
 
-  public class AppModel : ComponentBase
+  public class AppBase : ComponentBase
   {
+    [Inject] private ClientLoader ClientLoader { get; set; }
     [Inject] private JsonRequestHandler JsonRequestHandler { get; set; }
-    [Inject] private ReduxDevToolsInterop ReduxDevToolsInterop { get; set; }
+    //[Inject] private ReduxDevToolsInterop ReduxDevToolsInterop { get; set; }
 
     // Injected so it is created by the container. Even though the ide says it is not used it is.
     [Inject] private RouteManager RouteManager { get; set; }
 
-    [Inject] private ClientLoader ClientLoader { get; set; }
-    readonly TimeSpan DelayTimeSpan = TimeSpan.FromSeconds(10);
-    protected override async Task OnAfterRenderAsync()
+    protected override async Task OnAfterRenderAsync(bool aFirstRender)
     {
-      await ReduxDevToolsInterop.InitAsync();
+      //await ReduxDevToolsInterop.InitAsync();
       await JsonRequestHandler.InitAsync();
       await ClientLoader.InitAsync();
     }

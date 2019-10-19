@@ -1,9 +1,12 @@
 ﻿namespace Client.Features.Edge
 {
-  using MediatR;
+  using Client.Features.Base;
 
-  /// <summary>
-  /// The request sent onLogin
-  /// </summary>
-  public class OnLoginAction : IRequest<EdgeState> { }
+  public partial class EdgeState
+  {
+    /// <summary>
+    /// The request sent onLogin
+    /// </summary>
+    public class OnLoginAction : BaseAction { }
+  }
 }

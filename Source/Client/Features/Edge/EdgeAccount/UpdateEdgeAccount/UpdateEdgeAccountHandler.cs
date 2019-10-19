@@ -1,27 +1,29 @@
 ﻿namespace Client.Features.Edge.EdgeAccount
 {
-  using System.Threading;
-  using System.Threading.Tasks;
   using BlazorState;
   using Client.Features.Base;
+  using MediatR;
+  using System.Threading;
+  using System.Threading.Tasks;
 
-  public class UpdateEdgeAccountHandler : BaseHandler<UpdateEdgeAccountAction, EdgeAccountState>
+  public partial class EdgeAccountState
   {
-    public UpdateEdgeAccountHandler(IStore aStore) : base(aStore)
+    public class UpdateEdgeAccountHandler : BaseHandler<UpdateEdgeAccountAction>
     {
-    }
-
-    public override async Task<EdgeAccountState> Handle(UpdateEdgeAccountAction aUpdateEdgeAccountAction, CancellationToken aCancellationToken)
-    {
-      MapActionToState(aUpdateEdgeAccountAction);
-      return await Task.FromResult(EdgeAccountState);
-    }
+      public UpdateEdgeAccountHandler(IStore aStore) : base(aStore) { }
 
     private void MapActionToState(UpdateEdgeAccountAction aUpdateEdgeAccountAction)
     {
       EdgeAccountState.Id = aUpdateEdgeAccountAction.Id;
       EdgeAccountState.LoggedIn = aUpdateEdgeAccountAction.LoggedIn;
       EdgeAccountState.Username = aUpdateEdgeAccountAction.Username;
+    }
+
+      public override Task<Unit> Handle(UpdateEdgeAccountAction aUpdateEdgeAccountAction, CancellationToken aCancellationToken)
+    {
+      MapActionToState(aUpdateEdgeAccountAction);
+        return Unit.Task;
+      }
     }
   }
 }

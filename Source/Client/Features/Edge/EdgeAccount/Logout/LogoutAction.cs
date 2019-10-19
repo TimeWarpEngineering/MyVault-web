@@ -1,5 +1,9 @@
 ﻿namespace Client.Features.Edge.EdgeAccount
 {
-  using MediatR;
-  public class LogoutAction : IRequest<EdgeAccountState> { }
+  using Client.Features.Base;
+
+  public partial class EdgeAccountState
+  {
+    public class LogoutAction : BaseAction { }
+  }
 }

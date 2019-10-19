@@ -1,21 +1,21 @@
-﻿namespace Client.Features.Edge.EdgeCurrencyWallet
+﻿namespace Client.Features.Edge
 {
+  using Client.Features.Base;
   using Shared.Enumerations.FeeOption;
-  using Shared.Features.Base;
-  using MediatR;
 
-  public class SendAction : BaseRequest, IRequest<EdgeCurrencyWalletsState>
+  public partial class EdgeCurrencyWalletsState
   {
-    public string EdgeCurrencyWalletId { get; set; } = string.Empty;
-    public string DestinationAddress { get; set; } = string.Empty;
+    public class SendAction : BaseAction
+    {
+      public string CurrencyCode { get; set; } = string.Empty;
+      public string DestinationAddress { get; set; } = string.Empty;
+      public string EdgeCurrencyWalletId { get; set; } = string.Empty;
+      public FeeOption Fee { get; set; } = FeeOption.Standard;
 
-    /// <summary>
-    /// The amount without decimals. For ETH the native amount unit is called wei. 1x10^18 wei = 1 ETH
-    /// </summary>
-    public string NativeAmount { get; set; } = string.Empty;
-
-    public string CurrencyCode { get; set; } = string.Empty;
-
-    public FeeOption Fee { get; set; } = FeeOption.Standard;
+      /// <summary>
+      /// The amount without decimals. For ETH the native amount unit is called wei. 1x10^18 wei = 1 ETH
+      /// </summary>
+      public string NativeAmount { get; set; } = string.Empty;
+    }
   }
 }

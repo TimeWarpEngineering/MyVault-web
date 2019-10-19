@@ -1,6 +1,7 @@
-﻿namespace Client.Features.Edge.EdgeCurrencyWallet
+﻿namespace Client.Features.Edge
 {
   using MediatR;
+  using static Client.Features.Edge.EdgeCurrencyWalletsState;
 
   internal class SendNotification : INotification
   {

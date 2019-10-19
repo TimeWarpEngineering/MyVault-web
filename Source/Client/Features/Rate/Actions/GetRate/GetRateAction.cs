@@ -1,11 +1,10 @@
 ﻿namespace Client.Features.Rate
 {
-  using MediatR;
+  using Client.Features.Base;
 
-  public class GetRateAction : IRequest<RateState>
+  public class GetRateAction : BaseAction
   {
     public string FromCurrency { get; set; }
     public string ToCurrency { get; set; }
-
   }
 }
