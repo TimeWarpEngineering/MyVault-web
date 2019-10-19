@@ -3,9 +3,9 @@
   using System.Collections.Generic;
   using System.Linq;
   using Client.Components;
-  using Client.Features.Edge.EdgeCurrencyWallet;
+  using Client.Features.Edge;
 
-  public class WalletsPageModel : BaseComponent
+  public class WalletsPageBase : BaseComponent
   {
     public const string Route = "wallets";
     public List<EdgeCurrencyWallet> EdgeCurrencyWallets => EdgeCurrencyWalletsState.EdgeCurrencyWallets.Values.ToList();

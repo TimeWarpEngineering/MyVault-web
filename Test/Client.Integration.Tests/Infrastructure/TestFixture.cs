@@ -10,7 +10,7 @@
   using Client.Services;
   using Nethereum.Util;
   using FluentValidation;
-  using Client.Features.Edge.EdgeCurrencyWallet;
+  using Client.Features.Edge;
 
   /// <summary>
   /// A known starting state(baseline) for all tests.

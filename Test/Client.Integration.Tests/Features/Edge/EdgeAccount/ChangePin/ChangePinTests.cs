@@ -1,36 +1,13 @@
 ﻿namespace Client.Integration.Tests.Features.Edge.EdgeAccount.ChangePin
-
 {
+  using Client.Features.Edge.EdgeAccount.ChangePin;
   using FluentValidation;
   using FluentValidation.Results;
-  using Client.Features.Edge.EdgeAccount.ChangePin;
   using Shouldly;
+  using static Client.Features.Edge.EdgeAccount.ChangePin.EdgeAccountState;
 
-  class ChangePinTests
+  internal class ChangePinTests
   {
-    public void PinShouldNotBeValid()
-    {
-      // Arrange
-
-      var changePinAction = new ChangePinAction();
-      var changePinValidator = new ChangePinValidator();
-
-      // Act
-
-      ValidationResult validationResult = changePinValidator.Validate(changePinAction);
-
-      // Assert
-      validationResult.IsValid.ShouldBe(false);
-      validationResult.Errors.Count.ShouldBe(1);
-      ValidationFailure validationFailure = validationResult.Errors[0];
-
-      validationFailure.PropertyName.ShouldBe(nameof(changePinAction.NewPin));
-
-      validationFailure.Severity.ShouldBe(Severity.Error);
-
-
-    }
-
     public void PinNotBeLongEnough()
     {
       // Arrange
@@ -50,11 +27,7 @@
       // Assert
       validationResult.IsValid.ShouldBe(false);
       validationResult.Errors.Count.ShouldBe(1);
-      
-
-
     }
-
 
     public void PinShouldBeValid()
     {
@@ -75,18 +48,16 @@
       // Assert
       validationResult.IsValid.ShouldBe(true);
       validationResult.Errors.Count.ShouldBe(0);
-
-
     }
 
-    public void PinShouldNotMatch()
+    public void PinShouldFailBecauseOfNoNum()
     {
       // Arrange
 
-      var changePinAction = new ChangePinAction()
+      var changePinAction = new ChangePinAction
       {
-        NewPin = "1111",
-        ConfirmPin = "2222"
+        NewPin = "eeee",
+        ConfirmPin = "eeee"
       };
 
       var changePinValidator = new ChangePinValidator();
@@ -98,7 +69,6 @@
       // Assert
       validationResult.IsValid.ShouldBe(false);
       validationResult.Errors.Count.ShouldBe(1);
-     
     }
 
     public void PinShouldFailBecauseOfSpace()
@@ -120,18 +90,37 @@
       // Assert
       validationResult.IsValid.ShouldBe(false);
       validationResult.Errors.Count.ShouldBe(1);
-
     }
 
-
-    public void PinShouldFailBecauseOfNoNum()
+    public void PinShouldNotBeValid()
     {
       // Arrange
 
-      var changePinAction = new ChangePinAction
+      var changePinAction = new ChangePinAction();
+      var changePinValidator = new ChangePinValidator();
+
+      // Act
+
+      ValidationResult validationResult = changePinValidator.Validate(changePinAction);
+
+      // Assert
+      validationResult.IsValid.ShouldBe(false);
+      validationResult.Errors.Count.ShouldBe(1);
+      ValidationFailure validationFailure = validationResult.Errors[0];
+
+      validationFailure.PropertyName.ShouldBe(nameof(changePinAction.NewPin));
+
+      validationFailure.Severity.ShouldBe(Severity.Error);
+    }
+
+    public void PinShouldNotMatch()
+    {
+      // Arrange
+
+      var changePinAction = new ChangePinAction()
       {
-        NewPin = "eeee",
-        ConfirmPin = "eeee"
+        NewPin = "1111",
+        ConfirmPin = "2222"
       };
 
       var changePinValidator = new ChangePinValidator();
@@ -143,7 +132,6 @@
       // Assert
       validationResult.IsValid.ShouldBe(false);
       validationResult.Errors.Count.ShouldBe(1);
-
     }
 
     //public void PinShouldFailBecauseOfNoSpecChar()
@@ -166,6 +154,5 @@
     //  validationResult.Errors.Count.ShouldBe(1);
 
     //}
-
   }
 }

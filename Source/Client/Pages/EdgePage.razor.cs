@@ -1,17 +1,26 @@
 ﻿namespace Client.Pages
 {
+  using Client.Components;
   using System;
   using System.Threading.Tasks;
-  using Client.Components;
-  using Client.Features.Edge;
+  using static Client.Features.Edge.EdgeState;
 
-  public class EdgePageModel : BaseComponent
+  public class EdgePageBase : BaseComponent
   {
     public const string Route = "edge";
 
-    public EdgePageModel()
+    public EdgePageBase()
     {
       Console.WriteLine("EdgeModel constructor");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool aFirstRender)
+    {
+      Console.WriteLine("EdgeModel.OnAfterRenderAsync");
+      Console.WriteLine(typeof(OnLoginAction).AssemblyQualifiedName);
+      await InitializeEdge();
+      await ShowLoginWindow();
+      Console.WriteLine("After ShowLoginWindow");
     }
 
     public async Task InitializeEdge()
@@ -25,15 +34,6 @@
     {
       Console.WriteLine("ShowLoginWindow Page.cs");
       await Mediator.Send(new ShowLoginWindowEdgeAction());
-    }
-
-    protected override async Task OnAfterRenderAsync()
-    {
-      Console.WriteLine("EdgeModel.OnAfterRenderAsync");
-      Console.WriteLine(typeof(OnLoginAction).AssemblyQualifiedName);
-      await InitializeEdge();
-      await ShowLoginWindow();
-      Console.WriteLine("After ShowLoginWindow");
     }
   }
 }

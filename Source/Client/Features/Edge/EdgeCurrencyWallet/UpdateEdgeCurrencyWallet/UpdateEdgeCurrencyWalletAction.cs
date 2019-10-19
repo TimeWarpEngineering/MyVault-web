@@ -1,17 +1,20 @@
-﻿namespace Client.Features.Edge.EdgeCurrencyWallet
+﻿namespace Client.Features.Edge
 {
-  using System.Collections.Generic;
+  using Client.Features.Base;
   using Client.Features.Edge.Dtos;
-  using MediatR;
+  using System.Collections.Generic;
 
-  public class UpdateEdgeCurrencyWalletAction : IRequest<EdgeCurrencyWalletsState>
+  public partial class EdgeCurrencyWalletsState
   {
-    public Dictionary<string, string> Balances { get; set; }
-    public List<string> EnabledTokens { get; set; }
-    public string FiatCurrencyCode { get; set; }
-    public string Id { get; set; }
-    public Dictionary<string, string> Keys { get; set; }
-    public string Name { get; set; }
-    public List<EdgeTransactionDto> EdgeTransactions { get; set; }
+    public class UpdateEdgeCurrencyWalletAction : BaseAction
+    {
+      public Dictionary<string, string> Balances { get; set; }
+      public List<EdgeTransactionDto> EdgeTransactions { get; set; }
+      public List<string> EnabledTokens { get; set; }
+      public string FiatCurrencyCode { get; set; }
+      public string Id { get; set; }
+      public Dictionary<string, string> Keys { get; set; }
+      public string Name { get; set; }
+    }
   }
 }

@@ -1,15 +1,15 @@
-﻿using System;
-using BlazorState;
-using BlazorState.Integration.Tests.Infrastructure;
-using Client.Components;
-using Client.Features.Edge.EdgeCurrencyWallet;
-using Client.Services;
-using MediatR;
-using Microsoft.Extensions.DependencyInjection;
-using Shouldly;
-
-namespace Client.Integration.Tests.Components
+﻿namespace Client.Integration.Tests.Components
 {
+  using System;
+  using BlazorState;
+  using BlazorState.Integration.Tests.Infrastructure;
+  using Client.Components;
+  using Client.Features.Edge;
+  using Client.Services;
+  using MediatR;
+  using Microsoft.Extensions.DependencyInjection;
+  using Shouldly;
+
   public class FormBlockTestsSkip
   {
     public FormBlockTestsSkip(TestFixture aTestFixture)

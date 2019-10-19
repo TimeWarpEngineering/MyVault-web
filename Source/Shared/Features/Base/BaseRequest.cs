@@ -9,9 +9,9 @@
     /// </summary>
     public BaseRequest()
     {
-      Id = Guid.NewGuid();
+      Guid = Guid.NewGuid();
     }
 
-    public Guid Id { get; }
+    public Guid Guid { get; }
   }
 }

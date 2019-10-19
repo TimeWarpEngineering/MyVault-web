@@ -3,9 +3,9 @@
   using Client.Components;
   using Microsoft.AspNetCore.Components;
 
-  public class WalletSendPageModel : BaseComponent
+  public class WalletSendPageBase : BaseComponent
   {
-    [Parameter] protected string EdgeCurrencyWalletEncodedId { get; set; }
-    public static string Route(string aEdgeCurrencyWalletEncodedId) => $"/wallet/{aEdgeCurrencyWalletEncodedId}/Send";
+    [Parameter] public string EdgeCurrencyWalletId { get; set; }
+    public static string Route(string aEdgeCurrencyWalletId) => $"/wallet/{aEdgeCurrencyWalletId}/Send";
   }
 }

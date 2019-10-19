@@ -6,13 +6,13 @@ namespace Client.Features.Edge.Components
   using Client.Services;
   using Microsoft.AspNetCore.Components;
 
-  public class EdgeTransactionComponentModel : BaseComponent
+  public class EdgeTransactionComponentBase : BaseComponent
   {
 
-    [Parameter] protected EdgeTransaction EdgeTransaction { get; set; }
-    [Parameter] protected int DecimalPlacesToDisplay { get; set; } = 6;
+    [Parameter] public EdgeTransaction EdgeTransaction { get; set; }
+    [Parameter] public int DecimalPlacesToDisplay { get; set; } = 6;
 
-    [Parameter] protected int Granularity { get; set; } = 18; // multiplier is 10^18 18 places 
+    [Parameter] public int Granularity { get; set; } = 18; // multiplier is 10^18 18 places 
 
     public string IsoDateString => EdgeTransaction.Date.ToString("yyyy-MM-dd' T'HH:mm:ss", CultureInfo.InvariantCulture);
     public string EthScanUrl => $"https://etherscan.io/tx/{EdgeTransaction.TxId}";

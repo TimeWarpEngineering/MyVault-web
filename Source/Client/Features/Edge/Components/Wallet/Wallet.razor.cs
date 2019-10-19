@@ -5,13 +5,13 @@
   using System.Threading.Tasks;
   using Client.Components;
   using Client.Features.Rate;
-  using Client.Features.Edge.EdgeCurrencyWallet;
+  using Client.Features.Edge;
   using Client.Services;
   using Microsoft.AspNetCore.Components;
   using Shared.Features.Conversion;
   using TimeWarp.Extensions;
 
-  public class WalletModel : BaseComponent
+  public class WalletBase : BaseComponent
   {
     public string Balance => EdgeCurrencyWallet.SelectedCurrencyCode != null ? EdgeCurrencyWallet?.Balances[EdgeCurrencyWallet.SelectedCurrencyCode] : null;
     public ConversionResponse ConversionResponse { get; set; }
@@ -27,10 +27,5 @@
 
     protected string FormattedBalanceForConversion => AmountConverter.GetFormatedAmount(new FormatAmountRequest { Amount = Balance, DecimalPlacesToDisplay = 2, DecimalSeperator = '.', Granularity = Granularity });
 
-
-    //protected string FormattedRateForConversion => AmountConverter.GetFormatedAmount(new FormatAmountRequest { Amount = ConversionResponse.Rate.ToString(), DecimalPlacesToDisplay = 2, DecimalSeperator = '.', Granularity = 8 });
-
-
-    //protected override async Task OnInitAsync() => await Mediator.Send(new AgldGetRateAction());
   }
 }

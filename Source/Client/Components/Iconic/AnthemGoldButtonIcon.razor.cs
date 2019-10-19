@@ -4,8 +4,8 @@
   public class AnthemGoldButtonIconModel : BaseComponent
   {
 
-    [Parameter] protected string FillColor { get; set; } = "purple";
+    [Parameter] public string FillColor { get; set; } = "purple";
 
-    [Parameter] protected string Size { get; set; } = "1em";
+    [Parameter] public string Size { get; set; } = "1em";
   }
 }

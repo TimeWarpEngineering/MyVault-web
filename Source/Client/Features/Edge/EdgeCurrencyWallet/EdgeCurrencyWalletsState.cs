@@ -1,4 +1,4 @@
-﻿namespace Client.Features.Edge.EdgeCurrencyWallet
+﻿namespace Client.Features.Edge
 {
   using BlazorState;
   using System.Collections.Generic;
@@ -32,6 +32,6 @@
 
     public string SelectedEdgeCurrencyWalletId { get; set; }
 
-    protected override void Initialize() => EdgeCurrencyWallets = new Dictionary<string, EdgeCurrencyWallet>();
+    public override void Initialize() => EdgeCurrencyWallets = new Dictionary<string, EdgeCurrencyWallet>();
   }
 }

@@ -4,19 +4,20 @@
   using Client.Components;
   using Client.Pages;
   using Microsoft.AspNetCore.Components;
+  using static BlazorState.Features.Routing.RouteState;
 
-  public class AnthemGoldLayoutModel : BaseComponent, IComponent
+  public class AnthemGoldLayoutBase : BaseComponent, IComponent
   {
 
-    [Parameter] protected RenderFragment Body { get; set; }
+    [Parameter] public RenderFragment Body { get; set; }
 
-    protected override async Task OnAfterRenderAsync()
+    protected override async Task OnAfterRenderAsync(bool aFirstRender)
     {
       // Are we in the proper state for this page?
       if (!EdgeAccountState.LoggedIn)
       {
         // Route to Edge to Login
-        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = EdgePageModel.Route });
+        _ = await Mediator.Send(new ChangeRouteAction { NewRoute = EdgePageBase.Route });
       }
     }
   }

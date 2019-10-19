@@ -4,14 +4,15 @@
   using System.Threading.Tasks;
   using BlazorState;
   using Client.Features.Base;
+  using MediatR;
   using Microsoft.AspNetCore.Components;
   using Microsoft.JSInterop;
 
 
-  //TODO: this doesn't use any state so maybe doesn't need BaseHandler
+
   public partial class EdgeState
   {
-    public class ShowLoginWindowEdgeActionHandler : BaseHandler<ShowLoginWindowEdgeAction, EdgeState>
+    public class ShowLoginWindowEdgeActionHandler : BaseHandler<ShowLoginWindowEdgeAction>
     {
       public ShowLoginWindowEdgeActionHandler(IStore aStore, IJSRuntime aJSRuntime) : base(aStore)
       {
@@ -20,10 +21,10 @@
 
       public ShowLoginWindowEdgeActionHandler( IStore aStore) : base(aStore) { }
       private IJSRuntime JSRuntime { get; }
-      public override async Task<EdgeState> Handle(ShowLoginWindowEdgeAction aShowLoginWindowEdgeRequest, CancellationToken aCancellationToken)
+      public override async Task<Unit> Handle(ShowLoginWindowEdgeAction aShowLoginWindowEdgeRequest, CancellationToken aCancellationToken)
       {
         await JSRuntime.InvokeAsync<bool>(EdgeInteropMethodNames.EdgeUiContextInterop_ShowLoginWindow);
-        return EdgeState;
+        return Unit.Value;
       }
     }
   }

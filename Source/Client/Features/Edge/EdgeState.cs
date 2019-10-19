@@ -5,6 +5,6 @@
   public partial class EdgeState : State<EdgeState>
   {
     public EdgeWalletInfo EdgeWalletInfo { get; set; }
-    protected override void Initialize() => EdgeWalletInfo = null;
+    public override void Initialize() => EdgeWalletInfo = null;
   }
 }

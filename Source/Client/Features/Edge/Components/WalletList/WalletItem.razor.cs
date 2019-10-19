@@ -1,15 +1,15 @@
 ﻿namespace Client.Features.Edge.Components.WalletList
 {
   using Client.Components;
-  using Client.Features.Edge.EdgeCurrencyWallet;
+  using Client.Features.Edge;
   using Microsoft.AspNetCore.Components;
 
-  public class WalletItemModel : BaseComponent
+  public class WalletItemBase : BaseComponent
   {
 
     public string EdgeCurrencyWalletId => EdgeCurrencyWallet.Id;
 
-    [Parameter] protected EdgeCurrencyWallet EdgeCurrencyWallet { get; set; }
+    [Parameter] public EdgeCurrencyWallet EdgeCurrencyWallet { get; set; }
 
     public string Route => $"wallet/{EdgeCurrencyWallet.EncodedId}";
   }

@@ -1,30 +1,25 @@
-﻿namespace Client.Features.Edge.EdgeCurrencyWallet
+﻿namespace Client.Features.Edge
 {
-  using System;
-  using System.Threading;
-  using System.Threading.Tasks;
   using BlazorState;
   using Client.Features.Base;
   using Client.Features.Edge.Dtos;
+  using MediatR;
   using Microsoft.JSInterop;
+  using System;
+  using System.Threading;
+  using System.Threading.Tasks;
+  using static Client.Features.Edge.EdgeCurrencyWalletsState;
 
-  public class SendHandler : BaseHandler<SendAction, EdgeCurrencyWalletsState>
+  public class SendHandler : BaseHandler<SendAction>
   {
     public SendHandler(IStore aStore, IJSRuntime aJSRuntime) : base(aStore)
     {
       JSRuntime = aJSRuntime;
     }
-    public SendHandler(IStore aStore ) : base(aStore) { }
+
+    public SendHandler(IStore aStore) : base(aStore) { }
+
     private IJSRuntime JSRuntime { get; }
-    public override async Task<EdgeCurrencyWalletsState> Handle(SendAction aSendAction, CancellationToken aCancellationToken)
-    {
-      SendDto sendDto = MapSendActionToSendDto(aSendAction);
-
-      string transactionId = await JSRuntime.InvokeAsync<string>(EdgeInteropMethodNames.EdgeCurrencyWalletInterop_Send, sendDto);
-      Console.WriteLine($"SendTransactionId:{transactionId}");
-
-      return await Task.FromResult(EdgeCurrencyWalletsState);
-    }
 
     private SendDto MapSendActionToSendDto(SendAction aSendAction)
     {
@@ -36,6 +31,16 @@
         EdgeCurrencyWalletId = aSendAction.EdgeCurrencyWalletId,
         Fee = aSendAction.Fee.ToString()
       };
+    }
+
+    public override async Task<Unit> Handle(SendAction aSendAction, CancellationToken aCancellationToken)
+    {
+      SendDto sendDto = MapSendActionToSendDto(aSendAction);
+
+      string transactionId = await JSRuntime.InvokeAsync<string>(EdgeInteropMethodNames.EdgeCurrencyWalletInterop_Send, sendDto);
+      Console.WriteLine($"SendTransactionId:{transactionId}");
+
+      return Unit.Value;
     }
   }
 }

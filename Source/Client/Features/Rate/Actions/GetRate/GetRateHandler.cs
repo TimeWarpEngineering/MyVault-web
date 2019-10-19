@@ -10,10 +10,11 @@ namespace Client.Features.Rate
   using TimeWarp.Extensions;
   using Client.Features.Base;
   using System.Linq;
+  using MediatR;
 
   public partial class RateState
   {
-    public class GetRateHandler : BaseHandler<GetRateAction, RateState>
+    public class GetRateHandler : BaseHandler<GetRateAction>
     {
       public GetRateHandler(IStore aStore, HttpClient aHttpClient) : base(aStore)
       {
@@ -22,7 +23,7 @@ namespace Client.Features.Rate
       private HttpClient HttpClient { get; }
 
 
-      public override async Task<RateState> Handle(GetRateAction aGetRateAction, CancellationToken aCancellationToken)
+      public override async Task<Unit> Handle(GetRateAction aGetRateAction, CancellationToken aCancellationToken)
       {
         var conversionRequest = new ConversionRequest() { FromCurrency = aGetRateAction.FromCurrency, ToCurrency = aGetRateAction.ToCurrency };
         string uri = $"{ConversionRequest.Route}?{conversionRequest.ToQueryString()}";
@@ -35,7 +36,7 @@ namespace Client.Features.Rate
           conversionRequest.ToCurrency,
           conversionResponse.Rate));
 
-        return RateState;
+        return Unit.Value;
       }
     }
   }

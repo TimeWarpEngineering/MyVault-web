@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Fixie" Version="$(FixieVersion)" />
-    <PackageReference Include="Respawn" Version="3.2.0" />
+    <PackageReference Include="Respawn" Version="$(RespawnVersion)" />
     <PackageReference Include="Selenium.Support" Version="$(SeleniumSupportVersion)" />
     <PackageReference Include="Selenium.WebDriver" Version="$(SeleniumSupportVersion)" />
     <PackageReference Include="Shouldly" Version="$(ShouldlyVersion)" />

@@ -1,23 +1,18 @@
-﻿
-namespace Client.Features.Edge.EdgeCurrencyWallet
+﻿namespace Client.Features.Edge
 {
-  using System.Numerics;
   using BlazorState;
   using FluentValidation;
   using Nethereum.Util;
+  using System.Numerics;
+  using static Client.Features.Edge.EdgeCurrencyWalletsState;
 
   public class SendValidator : AbstractValidator<SendAction>
   {
-    private AddressUtil AddressUtil { get; }
-    private IStore Store { get; set; }
-
-    private EdgeCurrencyWalletsState EdgeCurrencyWalletsState => Store.GetState<EdgeCurrencyWalletsState>();
-
+    public const string InsufficentFundsMessage = "You can not send more than your balance";
     public const string InvalidEthereumAddressMessage = "'{PropertyName}' is not a valid Ethereum address";
-    public const string NoWalletForIdMessage = "No wallet found with Id {PropertyValue}";
     public const string MustBeGreaterThanZeroMessage = "'{PropertyName}' must be greater than zero";
     public const string NoCurrencyCodeMessage = "The currency code does not exist in this wallet";
-    public const string InsufficentFundsMessage = "You can not send more than your balance";
+    public const string NoWalletForIdMessage = "No wallet found with Id {PropertyValue}";
 
     public SendValidator(IStore aStore, AddressUtil aAddressUtil)
     {
@@ -59,26 +54,9 @@ namespace Client.Features.Edge.EdgeCurrencyWallet
         .When(aSendAction => !string.IsNullOrWhiteSpace(aSendAction.NativeAmount));
     }
 
-    private bool CurrencyMustExistInWallet(SendAction aSendAction)
-    {
-      return EdgeCurrencyWalletsState
-        .EdgeCurrencyWallets[aSendAction.EdgeCurrencyWalletId]
-        .Balances
-        .ContainsKey(aSendAction.CurrencyCode);
-    }
-
-    private bool BeValidEthereumAddress(string aDestinationAddress) =>
-        AddressUtil.IsValidEthereumAddressHexFormat(aDestinationAddress);
-
-    private bool WalletMustExist(string aEdgeCurrencyWalletId) =>
-      EdgeCurrencyWalletsState.EdgeCurrencyWallets.ContainsKey(aEdgeCurrencyWalletId);
-
-    private bool BeGreaterThanZero(string aNativeAmount)
-    {
-      return BigInteger.TryParse(aNativeAmount, out BigInteger aValue) ?
-        aValue.CompareTo(0) > 0 :
-        false;
-    }
+    private AddressUtil AddressUtil { get; }
+    private EdgeCurrencyWalletsState EdgeCurrencyWalletsState => Store.GetState<EdgeCurrencyWalletsState>();
+    private IStore Store { get; set; }
 
     private bool BalanceGreaterThanSendAmount(SendAction aSendAction)
     {
@@ -93,5 +71,25 @@ namespace Client.Features.Edge.EdgeCurrencyWallet
       }
     }
 
+    private bool BeGreaterThanZero(string aNativeAmount)
+    {
+      return BigInteger.TryParse(aNativeAmount, out BigInteger aValue) ?
+        aValue.CompareTo(0) > 0 :
+        false;
+    }
+
+    private bool BeValidEthereumAddress(string aDestinationAddress) =>
+        AddressUtil.IsValidEthereumAddressHexFormat(aDestinationAddress);
+
+    private bool CurrencyMustExistInWallet(SendAction aSendAction)
+    {
+      return EdgeCurrencyWalletsState
+        .EdgeCurrencyWallets[aSendAction.EdgeCurrencyWalletId]
+        .Balances
+        .ContainsKey(aSendAction.CurrencyCode);
+    }
+
+    private bool WalletMustExist(string aEdgeCurrencyWalletId) =>
+      EdgeCurrencyWalletsState.EdgeCurrencyWallets.ContainsKey(aEdgeCurrencyWalletId);
   }
 }

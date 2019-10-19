@@ -1,5 +1,5 @@
 ﻿@page "/changePin"
-@inherits ChangePinModel
+@inherits ChangePinBase
 
 
 <div id="@Id" class="text-center">
@@ -8,7 +8,7 @@
   <Validation ValidationResult="@ValidationResult" />
   <br />
 
-  <form onsubmit="@ChangePin">
+  <form @onsubmit="ChangePin">
     <div class="form-group">
       <label for="newPin">Enter New Pin</label>
       <input type="password" class="form-control" id="NewPin" bind="@NewPin" placeholder="Enter New Pin" />
@@ -24,7 +24,7 @@
       <input bind="@EnableLogin" type="checkbox" class="form-check-input" id="EnablePinLoginCheckBox" />
       <label class="form-check-label" for="EnablePinLoginCheckBox">Enable Pin Login</label>
     </div>
-    <button type="button" onclick="@ChangePin" class="btn btn-dark">Confirm</button>
+    <button type="button" @onclick="ChangePin" class="btn btn-dark">Confirm</button>
   </form>
 </div>
 <br />
