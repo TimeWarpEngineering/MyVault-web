@@ -12,6 +12,9 @@
   using FluentValidation;
   using Client.Features.Edge;
   using static Client.Features.Edge.EdgeCurrencyWalletsState;
+  using Client.Features.Rate;
+  using Client.Features.Application;
+  using Client.Features.Edge.EdgeAccount;
 
   /// <summary>
   /// A known starting state(baseline) for all tests.
@@ -48,8 +51,16 @@
       aServiceCollection.AddSingleton<AddressUtil>();
       aServiceCollection.AddScoped(typeof(IValidator<SendAction>), typeof(SendValidator));
 
+
       aServiceCollection.AddBlazorState(aOptions => aOptions.Assemblies =
         new Assembly[] { typeof(Startup).GetTypeInfo().Assembly });
+
+      aServiceCollection.AddTransient<ApplicationState>();
+      aServiceCollection.AddTransient<EdgeState>();
+      aServiceCollection.AddTransient<EdgeAccountState>();
+      aServiceCollection.AddTransient<EdgeCurrencyWalletsState>();
+      aServiceCollection.AddTransient<RateState>();
+      aServiceCollection.AddTransient<WalletState>();
     }
   }
 }

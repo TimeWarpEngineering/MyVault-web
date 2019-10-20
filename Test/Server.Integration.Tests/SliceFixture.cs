@@ -167,7 +167,7 @@
       });
     }
 
-    public static Task ResetCheckpoint() => s_checkpoint.Reset(s_configuration.GetConnectionString("AnthemGoldPwaDbContext"));
+    public static Task ResetCheckpoint() => s_checkpoint.Reset(s_configuration.GetConnectionString(nameof(AnthemGoldPwaDbContext)));
 
     public static Task<TResponse> SendAsync<TResponse>(IRequest<TResponse> request)
     {

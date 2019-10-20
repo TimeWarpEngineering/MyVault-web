@@ -28,7 +28,11 @@ namespace Client.Features.Rate
         var conversionRequest = new ConversionRequest() { FromCurrency = aGetRateAction.FromCurrency, ToCurrency = aGetRateAction.ToCurrency };
         string uri = $"{ConversionRequest.Route}?{conversionRequest.ToQueryString()}";
         ConversionResponse conversionResponse = await HttpClient.GetJsonAsync<ConversionResponse>(uri);
-        Conversion? conversion = RateState.Conversions.FirstOrDefault(x => x.FromCurrency == aGetRateAction.FromCurrency && x.ToCurrency == aGetRateAction.ToCurrency);
+        Conversion? conversion = RateState.Conversions.FirstOrDefault
+        (
+          aConversion => aConversion.FromCurrency == aGetRateAction.FromCurrency 
+            && aConversion.ToCurrency == aGetRateAction.ToCurrency
+        );
 
         RateState._Conversions.Remove(conversion);
         RateState._Conversions.Add(new Conversion(
