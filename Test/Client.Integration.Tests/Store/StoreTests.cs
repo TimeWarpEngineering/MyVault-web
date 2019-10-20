@@ -1,28 +1,28 @@
 ﻿namespace Client.Integration.Tests
 {
-  using System;
-  using System.IO;
   using BlazorState;
   using BlazorState.Integration.Tests.Infrastructure;
   using Client.Features.Application;
   using Microsoft.Extensions.DependencyInjection;
   using Shouldly;
+  using System;
+  using System.IO;
 
-  class StoreTests
+  internal class StoreTests
   {
+    private readonly IReduxDevToolsStore ReduxDevToolsStore;
+
+    private readonly IServiceProvider ServiceProvider;
+
+    private readonly IStore Store;
+
     public StoreTests(TestFixture aTestFixture)
     {
       ServiceProvider = aTestFixture.ServiceProvider;
       Store = ServiceProvider.GetService<IStore>();
       ReduxDevToolsStore = ServiceProvider.GetService<IReduxDevToolsStore>();
-      ApplicationState = Store.GetState<ApplicationState>();
     }
 
-    private ApplicationState ApplicationState { get; set; }
-
-    private IServiceProvider ServiceProvider { get; }
-    private IStore Store { get; }
-    private IReduxDevToolsStore ReduxDevToolsStore { get; }
 
     public void ShouldLoadStatesFromJson()
     {
@@ -34,7 +34,6 @@
       ApplicationState applicationState = Store.GetState<ApplicationState>();
       applicationState.Name.ShouldBe("Blazor State Demo Application");
       applicationState.Guid.ToString().ShouldBe("5a2efcec-6297-4254-a2dc-30e4e567e549");
-
     }
   }
 }

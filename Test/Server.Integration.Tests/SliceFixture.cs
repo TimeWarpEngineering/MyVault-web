@@ -1,18 +1,18 @@
-﻿using System;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
-using Server.Data;
-using Server.Entities;
-//using FakeItEasy;
-using MediatR;
-//using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Respawn;
-
-namespace Server.Integration.Tests
+﻿namespace Server.Integration.Tests
 {
+  //using FakeItEasy;
+  using MediatR;
+
+  //using Microsoft.AspNetCore.Hosting;
+  using Microsoft.Extensions.Configuration;
+  using Microsoft.Extensions.DependencyInjection;
+  using Respawn;
+  using Server.Data;
+  using Server.Entities;
+  using System;
+  using System.IO;
+  using System.Threading.Tasks;
+
   public class SliceFixture
   {
     private static readonly Checkpoint s_checkpoint;
@@ -39,7 +39,17 @@ namespace Server.Integration.Tests
       };
     }
 
-    public static Task ResetCheckpoint() => s_checkpoint.Reset(s_configuration.GetConnectionString("AnthemGoldPwaDbContext"));
+    public static Task ExecuteDbContextAsync(Func<AnthemGoldPwaDbContext, Task> action)
+        => ExecuteScopeAsync(sp => action(sp.GetService<AnthemGoldPwaDbContext>()));
+
+    public static Task ExecuteDbContextAsync(Func<AnthemGoldPwaDbContext, IMediator, Task> action)
+        => ExecuteScopeAsync(sp => action(sp.GetService<AnthemGoldPwaDbContext>(), sp.GetService<IMediator>()));
+
+    public static Task<T> ExecuteDbContextAsync<T>(Func<AnthemGoldPwaDbContext, Task<T>> action)
+        => ExecuteScopeAsync(sp => action(sp.GetService<AnthemGoldPwaDbContext>()));
+
+    public static Task<T> ExecuteDbContextAsync<T>(Func<AnthemGoldPwaDbContext, IMediator, Task<T>> action)
+        => ExecuteScopeAsync(sp => action(sp.GetService<AnthemGoldPwaDbContext>(), sp.GetService<IMediator>()));
 
     public static async Task ExecuteScopeAsync(Func<IServiceProvider, Task> action)
     {
@@ -87,17 +97,8 @@ namespace Server.Integration.Tests
       }
     }
 
-    public static Task ExecuteDbContextAsync(Func<AnthemGoldPwaDbContext, Task> action)
-        => ExecuteScopeAsync(sp => action(sp.GetService<AnthemGoldPwaDbContext>()));
-
-    public static Task ExecuteDbContextAsync(Func<AnthemGoldPwaDbContext, IMediator, Task> action)
-        => ExecuteScopeAsync(sp => action(sp.GetService<AnthemGoldPwaDbContext>(), sp.GetService<IMediator>()));
-
-    public static Task<T> ExecuteDbContextAsync<T>(Func<AnthemGoldPwaDbContext, Task<T>> action)
-        => ExecuteScopeAsync(sp => action(sp.GetService<AnthemGoldPwaDbContext>()));
-
-    public static Task<T> ExecuteDbContextAsync<T>(Func<AnthemGoldPwaDbContext, IMediator, Task<T>> action)
-        => ExecuteScopeAsync(sp => action(sp.GetService<AnthemGoldPwaDbContext>(), sp.GetService<IMediator>()));
+    //public static Task<T> FindAsync<T>(int id)
+    //    where T : class, IEntity => ExecuteDbContextAsync(db => db.Set<T>().FindAsync(id));
 
     public static Task InsertAsync<T>(params T[] entities) where T : class =>
       ExecuteDbContextAsync
@@ -166,8 +167,7 @@ namespace Server.Integration.Tests
       });
     }
 
-    public static Task<T> FindAsync<T>(int id)
-        where T : class, IEntity => ExecuteDbContextAsync(db => db.Set<T>().FindAsync(id));
+    public static Task ResetCheckpoint() => s_checkpoint.Reset(s_configuration.GetConnectionString(nameof(AnthemGoldPwaDbContext)));
 
     public static Task<TResponse> SendAsync<TResponse>(IRequest<TResponse> request)
     {

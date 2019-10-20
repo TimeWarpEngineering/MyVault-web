@@ -4,23 +4,25 @@
   using FluentValidation.Results;
   using MediatR;
   using Microsoft.AspNetCore.Components;
+  using System.Text.Json;
   using System.Threading;
   using System.Threading.Tasks;
   using static Shared.Constants.AnthemGoldConstants;
 
   public class PriceHandler : IRequestHandler<PriceRequest, PriceResponse>
   {
-    public PriceHandler(
+    public PriceHandler
+    (
       AnthemGoldHttpClient aAnthemGoldHttpClient,
       IValidator<PriceRequest> aPriceRequestValidator
-      )
+    )
     {
       AnthemGoldHttpClient = aAnthemGoldHttpClient;
       PriceRequestValidator = aPriceRequestValidator;
     }
 
-    private AnthemGoldHttpClient AnthemGoldHttpClient { get; }
-    private IValidator<PriceRequest> PriceRequestValidator { get; }
+    private readonly AnthemGoldHttpClient AnthemGoldHttpClient;
+    private readonly IValidator<PriceRequest> PriceRequestValidator;
 
     public async Task<PriceResponse> Handle(PriceRequest aPriceRequest, CancellationToken aCancellationToken)
     {
@@ -29,9 +31,12 @@
       {
         throw new ValidationException(validationResult.Errors);
       }
-      //?symbol=USDAGLD&range=MINUTE_1";
+      // ?symbol=USDAGLD&range=MINUTE_1";
       string uri = $"{PriceUrl}?{nameof(aPriceRequest.Symbol).ToLower()}={aPriceRequest.Symbol}&{nameof(aPriceRequest.Range).ToLower()}={aPriceRequest.Range}";
-      return await AnthemGoldHttpClient.GetJsonAsync<PriceResponse>(uri);
+      string responseString = await AnthemGoldHttpClient.GetStringAsync(uri);
+      PriceResponse result = JsonSerializer.Deserialize<PriceResponse>(responseString, AnthemGoldHttpClient.JsonSerializerOptions);
+      return result;
+      //return await AnthemGoldHttpClient.GetJsonAsync<PriceResponse>(uri);
     }
   }
 }
