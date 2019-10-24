@@ -18,13 +18,18 @@ namespace Client.Features.Edge.Components.Wallet
     public string? BalanceInFiat => (Rate * Balance)?.ToString("0.##");
 
     public string CurrencyCode => SelectedEdgeCurrencyWallet.SelectedCurrencyCode;
+    public bool Display => Rate.HasValue;
 
     public string ShortFiatCurrencyCode => SelectedEdgeCurrencyWallet.ShortFiatCurrencyCode;
 
     //Math.Round(Shared.Features.Conversion.ConversionResponse.Rate* Decimal.Parse(FormattedBalanceForConversion), 2)
     public int Granularity => SelectedEdgeCurrencyWallet.Granularity[CurrencyCode];
 
-    public decimal? Rate => RateState.Conversions.FirstOrDefault(c => c.FromCurrency == CurrencyCode && c.ToCurrency == ShortFiatCurrencyCode)?.Rate;
+    public decimal? Rate => RateState.Conversions.FirstOrDefault
+    (
+      aConversion => aConversion.FromCurrency == CurrencyCode 
+      && aConversion.ToCurrency == ShortFiatCurrencyCode
+    )?.Rate;
 
     private EdgeCurrencyWallet SelectedEdgeCurrencyWallet => EdgeCurrencyWalletsState.SelectedEdgeCurrencyWallet;
 
