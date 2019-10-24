@@ -1,6 +1,11 @@
 ﻿@inherits FiatBalanceBase
-<div>
-  @BalanceInFiat @ShortFiatCurrencyCode 
-  <br />
-  1 @CurrencyCode = @Rate @ShortFiatCurrencyCode
-</div>
+
+@if (Display)
+{
+  <div>
+
+    @BalanceInFiat @ShortFiatCurrencyCode
+    <br />
+    <text>1 @CurrencyCode = @Rate @ShortFiatCurrencyCode</text>
+  </div>
+}

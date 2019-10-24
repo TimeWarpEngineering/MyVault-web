@@ -2,9 +2,12 @@
 {
   using Client.Features.Base;
 
-  public class GetRateAction : BaseAction
+  public partial class RateState
   {
-    public string FromCurrency { get; set; }
-    public string ToCurrency { get; set; }
+    public class GetRateAction : BaseAction
+    {
+      public string FromCurrency { get; set; }
+      public string ToCurrency { get; set; }
+    }
   }
 }
